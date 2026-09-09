@@ -69,6 +69,8 @@ services:
       APP_DEBUG: ${APP_DEBUG:-false}
       ALLOW_DEV_MOCKS: "false"
       RUN_SEED: "false"
+      ENABLE_ONLINE_CHECKOUT: ${ENABLE_ONLINE_CHECKOUT:-false}
+      ENABLE_CHINA_MARKET: ${ENABLE_CHINA_MARKET:-false}
       POSTGRES_HOST: postgres
       REDIS_URL: redis://redis:6379/0
       CELERY_BROKER_URL: redis://redis:6379/1
