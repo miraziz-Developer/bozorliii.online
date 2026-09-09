@@ -48,7 +48,7 @@ export function StylistStudio() {
             <span className="block text-gradient-electric">soniyada sizga mos look</span>
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-base font-medium leading-relaxed text-neutral-600">
-            Ippodrom va Abu Saxiy katalogidan haqiqiy mahsulotlar. Byudjet, rang, vaziyat — hammasini
+            O‘zbekiston bozorlaridagi katalogdan haqiqiy mahsulotlar. Byudjet, rang, vaziyat — hammasini
             hisobga olib, kombinatsiya + xaritada yo‘l ko‘rsatadi.
           </p>
 

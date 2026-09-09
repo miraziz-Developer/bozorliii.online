@@ -283,6 +283,7 @@ export type MarketAnalytics = {
 export type AnalyticsOverview = {
   days: number;
   market_slug: string;
+  root_category?: string | null;
   summary: {
     orders: number;
     revenue_uzs: number;
@@ -291,6 +292,10 @@ export type AnalyticsOverview = {
     platform_profit_uzs: number;
     total_routes: number;
     total_searches: number;
+    active_shops: number;
+    active_products: number;
+    completed_pickups: number;
+    returning_customers: number;
   };
   orders_series: Array<{ date: string; orders: number; revenue_uzs: number }>;
   users_series: Array<{ date: string; users: number }>;
@@ -299,9 +304,10 @@ export type AnalyticsOverview = {
   market: MarketAnalytics;
 };
 
-export function getAnalyticsOverview(days = 7, marketSlug = "ippodrom") {
+export function getAnalyticsOverview(days = 7, marketSlug = "ippodrom", rootCategory?: string) {
+  const categoryQuery = rootCategory ? `&root_category=${encodeURIComponent(rootCategory)}` : "";
   return adminFetch<AnalyticsOverview>(
-    `/admin/analytics/overview?days=${days}&market_slug=${encodeURIComponent(marketSlug)}`,
+    `/admin/analytics/overview?days=${days}&market_slug=${encodeURIComponent(marketSlug)}${categoryQuery}`,
   );
 }
 

@@ -5,7 +5,7 @@ import { MapPin, ShieldCheck, Truck } from "lucide-react";
 const ITEMS = [
   { icon: Truck, label: "Bozordan olib ketish — bepul" },
   { icon: ShieldCheck, label: "Bron kafolati" },
-  { icon: MapPin, label: "Ippodrom va Abu Sahiy xarita" },
+  { icon: MapPin, label: "Bozor va do‘konlar xaritasi" },
 ] as const;
 
 export function HomeTrustStrip() {

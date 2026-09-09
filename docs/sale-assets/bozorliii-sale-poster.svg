@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350" role="img" aria-labelledby="title desc">
+  <title id="title">Bozorliii AI marketplace loyihasi to‘liq sotiladi</title>
+  <desc id="desc">Bozorliii loyihasining imkoniyatlari, sotuv paketi, demo manzili va aloqa usuli ko‘rsatilgan reklama posteri.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07142f"/>
+      <stop offset="0.5" stop-color="#102866"/>
+      <stop offset="1" stop-color="#4b238f"/>
+    </linearGradient>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1857D6"/>
+      <stop offset="1" stop-color="#7A3FE0"/>
+    </linearGradient>
+    <linearGradient id="cta" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffb000"/>
+      <stop offset="1" stop-color="#ff5a00"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="14" stdDeviation="20" flood-color="#020817" flood-opacity="0.35"/>
+    </filter>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="55"/>
+    </filter>
+  </defs>
+
+  <rect width="1080" height="1350" fill="url(#bg)"/>
+  <circle cx="970" cy="115" r="225" fill="#7A3FE0" opacity="0.26" filter="url(#soft)"/>
+  <circle cx="80" cy="1130" r="230" fill="#1857D6" opacity="0.3" filter="url(#soft)"/>
+  <path d="M0 315 C230 250 370 385 580 320 C790 255 895 185 1080 240 L1080 0 L0 0Z" fill="#ffffff" opacity="0.025"/>
+
+  <!-- Brand lockup -->
+  <g transform="translate(64 54)">
+    <rect width="106" height="106" rx="25" fill="url(#brand)" filter="url(#shadow)"/>
+    <rect x="36" y="20" width="11" height="68" rx="5.5" fill="#fff"/>
+    <path d="M47 20 H64 A17 17 0 0 1 64 54 H47Z" fill="#fff"/>
+    <rect x="51" y="27" width="7" height="17" rx="3.5" fill="#4A4CC9"/>
+    <circle cx="63" cy="68" r="16" fill="#fff"/>
+    <path d="M51 81 H75 L63 94Z" fill="#fff"/>
+    <circle cx="63" cy="68" r="5.5" fill="#4A4CC9"/>
+    <text x="132" y="52" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="52" font-weight="800" letter-spacing="-2">Bozorliii</text>
+    <text x="134" y="82" fill="#b9c8ed" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" letter-spacing="2.5">AI MARKETPLACE EKOTIZIMI</text>
+  </g>
+
+  <g transform="translate(800 71)">
+    <rect width="216" height="58" rx="29" fill="#ffffff" opacity="0.1" stroke="#ffffff" stroke-opacity="0.22"/>
+    <circle cx="31" cy="29" r="8" fill="#5df2a6"/>
+    <text x="52" y="36" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">ISHLAYDIGAN DEMO</text>
+  </g>
+
+  <!-- Hero -->
+  <text x="64" y="246" fill="#8fb4ff" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800" letter-spacing="3">TAYYOR TEXNOLOGIK AKTIV</text>
+  <text x="64" y="320" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="65" font-weight="900" letter-spacing="-2">TO‘LIQ SOTILADI</text>
+  <text x="64" y="368" fill="#d7e2ff" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="500">Oddiy e’lon sayti emas — to‘liq marketplace tizimi</text>
+
+  <!-- Package strip -->
+  <g transform="translate(64 410)" filter="url(#shadow)">
+    <rect width="952" height="96" rx="25" fill="#ffffff"/>
+    <g fill="#0b1738" font-family="Arial, Helvetica, sans-serif" text-anchor="middle">
+      <text x="119" y="42" font-size="25" font-weight="900">SOURCE CODE</text><text x="119" y="70" font-size="15" fill="#60708f" font-weight="700">to‘liq monorepo</text>
+      <text x="357" y="42" font-size="25" font-weight="900">BREND</text><text x="357" y="70" font-size="15" fill="#60708f" font-weight="700">logo va dizayn</text>
+      <text x="595" y="42" font-size="25" font-weight="900">DOMEN</text><text x="595" y="70" font-size="15" fill="#60708f" font-weight="700">kelishuv asosida</text>
+      <text x="833" y="42" font-size="25" font-weight="900">DEPLOY</text><text x="833" y="70" font-size="15" fill="#60708f" font-weight="700">hujjat va support</text>
+    </g>
+    <path d="M238 20V76M476 20V76M714 20V76" stroke="#dce4f3" stroke-width="2"/>
+  </g>
+
+  <!-- Feature cards -->
+  <g transform="translate(64 542)" font-family="Arial, Helvetica, sans-serif">
+    <g>
+      <rect width="460" height="247" rx="28" fill="#ffffff" fill-opacity="0.09" stroke="#ffffff" stroke-opacity="0.16"/>
+      <circle cx="47" cy="49" r="23" fill="#3974ed"/><path d="M36 49h22M47 38v22" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+      <text x="82" y="58" fill="#fff" font-size="25" font-weight="800">MIJOZ ILOVASI</text>
+      <g fill="#dce6ff" font-size="19" font-weight="600">
+        <text x="31" y="105">✓ Web/PWA va mahsulot katalogi</text>
+        <text x="31" y="140">✓ AI stylist va vizual qidiruv</text>
+        <text x="31" y="175">✓ Savat, checkout va refund</text>
+        <text x="31" y="210">✓ Xarita, chat, QR pickup</text>
+      </g>
+    </g>
+    <g transform="translate(492 0)">
+      <rect width="460" height="247" rx="28" fill="#ffffff" fill-opacity="0.09" stroke="#ffffff" stroke-opacity="0.16"/>
+      <circle cx="47" cy="49" r="23" fill="#8e55eb"/><path d="M35 56h24M38 45h18M42 37h10" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+      <text x="82" y="58" fill="#fff" font-size="25" font-weight="800">SOTUVCHI TIZIMI</text>
+      <g fill="#dce6ff" font-size="19" font-weight="600">
+        <text x="31" y="105">✓ Merchant CRM + Android ilova</text>
+        <text x="31" y="140">✓ Mahsulot va buyurtma nazorati</text>
+        <text x="31" y="175">✓ Analytics, chat va reklama</text>
+        <text x="31" y="210">✓ Telegram bot bildirishnomalari</text>
+      </g>
+    </g>
+    <g transform="translate(0 277)">
+      <rect width="460" height="247" rx="28" fill="#ffffff" fill-opacity="0.09" stroke="#ffffff" stroke-opacity="0.16"/>
+      <circle cx="47" cy="49" r="23" fill="#ff6a18"/><path d="M35 43h24v17H35zM40 37h14v6" fill="none" stroke="#fff" stroke-width="3.5" stroke-linejoin="round"/>
+      <text x="82" y="58" fill="#fff" font-size="25" font-weight="800">ADMIN &amp; FINANCE</text>
+      <g fill="#dce6ff" font-size="19" font-weight="600">
+        <text x="31" y="105">✓ Alohida platforma admini</text>
+        <text x="31" y="140">✓ Click to‘lov integratsiyasi</text>
+        <text x="31" y="175">✓ Escrow, payout va komissiya</text>
+        <text x="31" y="210">✓ Moderatsiya va support</text>
+      </g>
+    </g>
+    <g transform="translate(492 277)">
+      <rect width="460" height="247" rx="28" fill="#ffffff" fill-opacity="0.09" stroke="#ffffff" stroke-opacity="0.16"/>
+      <circle cx="47" cy="49" r="23" fill="#16b981"/><path d="M35 53l8-8 7 6 11-13" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="82" y="58" fill="#fff" font-size="25" font-weight="800">TEXNOLOGIYA</text>
+      <g fill="#dce6ff" font-size="19" font-weight="600">
+        <text x="31" y="105">✓ FastAPI, Next.js, PostgreSQL</text>
+        <text x="31" y="140">✓ pgvector, Redis va Celery</text>
+        <text x="31" y="175">✓ Docker, Nginx va CI/CD</text>
+        <text x="31" y="210">✓ BTS, S3/R2 va testlar</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- CTA -->
+  <g transform="translate(64 1104)" filter="url(#shadow)" font-family="Arial, Helvetica, sans-serif">
+    <rect width="952" height="179" rx="32" fill="url(#cta)"/>
+    <text x="38" y="48" fill="#fff4e9" font-size="18" font-weight="800" letter-spacing="2">DEMO SAYT</text>
+    <text x="38" y="88" fill="#ffffff" font-size="34" font-weight="900">bozorliii.online</text>
+    <text x="38" y="129" fill="#fff7ef" font-size="20" font-weight="700">Narx kelishiladi • Faqat jiddiy xaridorlar</text>
+    <g transform="translate(668 35)">
+      <rect width="246" height="109" rx="24" fill="#ffffff"/>
+      <text x="123" y="43" fill="#c43f00" font-size="17" text-anchor="middle" font-weight="800" letter-spacing="1">BATAFSIL MA’LUMOT</text>
+      <text x="123" y="78" fill="#111b35" font-size="24" text-anchor="middle" font-weight="900">SHAXSIY XABARDA</text>
+    </g>
+  </g>
+
+  <text x="540" y="1324" fill="#aebee5" font-family="Arial, Helvetica, sans-serif" font-size="14" text-anchor="middle">Texnik audit NDA va kelishilgan depozitdan keyin • Production ishga tushirishdan oldin yuridik/fiskal tekshiruv talab etiladi</text>
+</svg>

@@ -31,6 +31,8 @@ import { StatCard } from "@/components/ui/card";
 import { getAnalyticsOverview } from "@/lib/admin-api";
 import { formatUzs } from "@/lib/utils";
 
+const PILOT_CATEGORY = "Ayollar kiyimi";
+
 const MARKETS = [
   { value: "ippodrom", label: "Ippodrom" },
   { value: "abu-sahiy", label: "Abu Sahiy" },
@@ -60,7 +62,7 @@ export default function AnalyticsPage() {
 
   const { data, isLoading, isFetching, refetch } = useQuery({
     queryKey: ["analytics-overview", slug, days],
-    queryFn: () => getAnalyticsOverview(days, slug),
+    queryFn: () => getAnalyticsOverview(days, slug, PILOT_CATEGORY),
     staleTime: 60_000,
   });
 
@@ -94,6 +96,9 @@ export default function AnalyticsPage() {
   return (
     <div className="space-y-6">
       <div className="admin-card flex flex-wrap items-end gap-3">
+        <div className="w-full rounded-lg border border-primary/25 bg-primary/10 px-3 py-2 text-sm text-primary">
+          Pilot kesimi: <strong>{PILOT_CATEGORY}</strong>. Buyurtma va katalog KPIlari faqat shu kategoriya bo'yicha.
+        </div>
         <div className="min-w-[140px] flex-1">
           <label className="mb-1 block text-xs font-medium uppercase tracking-wider text-muted-foreground">
             Bozor
@@ -155,15 +160,48 @@ export default function AnalyticsPage() {
           <StatCard
             label="Yangi foydalanuvchilar"
             value={s.new_users}
-            hint={`${days} kun ichida`}
+            hint={`Butun platforma · ${days} kun`}
             icon={<Users className="h-5 w-5" />}
             tone="purple"
           />
           <StatCard
             label="Platforma foydasi"
             value={formatUzs(s.platform_profit_uzs)}
-            hint="Jami komissiya"
+            hint="Butun platforma bo'yicha"
             icon={<Wallet className="h-5 w-5" />}
+            tone="amber"
+          />
+        </div>
+      ) : null}
+
+      {s ? (
+        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          <StatCard
+            label="Faol do'konlar"
+            value={s.active_shops}
+            hint={`${marketLabel} · tasdiqlangan va mahsulotli`}
+            icon={<ShoppingBag className="h-5 w-5" />}
+            tone="blue"
+          />
+          <StatCard
+            label="Faol mahsulotlar"
+            value={s.active_products}
+            hint={`${marketLabel} katalogi`}
+            icon={<BarChart3 className="h-5 w-5" />}
+            tone="purple"
+          />
+          <StatCard
+            label="QR yakunlangan"
+            value={s.completed_pickups}
+            hint={`${days} kun ichida`}
+            icon={<TrendingUp className="h-5 w-5" />}
+            tone="green"
+          />
+          <StatCard
+            label="Qayta mijozlar"
+            value={s.returning_customers}
+            hint={`Kamida 2 bron · ${days} kun`}
+            icon={<Users className="h-5 w-5" />}
             tone="amber"
           />
         </div>

@@ -70,11 +70,11 @@ export type HomeMessageKey =
 const uz: Record<HomeMessageKey, string> = {
   "home.hero.eyebrow": "AI Visual Search",
   "home.hero.titleLine1": "Rasm tashlang,",
-  "home.hero.titleLine2": "Ippodrom topilsin",
+  "home.hero.titleLine2": "O‘zbekiston bo‘ylab toping",
   "home.hero.subtitle":
-    "Ippodrom va Abu Saxiy bozorlaridagi real do'konlar katalogidan eng mos variantlarni aqlli algoritm yordamida bir zumda ajratib beradi.",
+    "O‘zbekiston bo‘ylab bozor va do‘konlarning real katalogidan eng mos variantlarni aqlli algoritm yordamida bir zumda toping.",
   "home.stories.eyebrow": "Jonli oqim",
-  "home.stories.title": "Hozir Ippodromda nima trend?",
+  "home.stories.title": "O‘zbekiston bozorlarida nima trend?",
   "home.stories.description": "Sotuvchilar yuborgan jonli storylar — 48 soat ko'rinadi.",
   "home.stories.descriptionPromo": "Hozircha do'kon storylari yo'q — platforma reklamalari ko'rsatilmoqda.",
   "home.stories.empty": "Hozircha jonli storylar yo'q. Tez orada sotuvchilar yangi kiyimlar bilan chiqadi.",
@@ -95,10 +95,10 @@ const uz: Record<HomeMessageKey, string> = {
   "home.discovery.eyebrow": "Trendlar",
   "home.discovery.titleStylist": "Sizga mos trendlar",
   "home.discovery.descStylist":
-    "Ippodrom va Abu Saxiy do'konlarining eng so'nggi va ommabop mahsulotlari katalogi.",
+    "O‘zbekiston bo‘ylab do‘konlarning eng so‘nggi va ommabop mahsulotlari katalogi.",
   "home.discovery.titleWholesale": "Ulgurji katalog oqimi",
   "home.discovery.descWholesale":
-    "Ippodrom va Abu Saxiy do'konlaridan optom partiyalar — minimal buyurtma va bozor filtri bilan.",
+    "O‘zbekiston bozorlaridagi optom partiyalar — minimal buyurtma va bozor filtri bilan.",
   "home.discovery.noResults":
     "Tanlangan filtrlar bo'yicha mahsulot topilmadi. Bozor hududini yoki narx diapazonini yumshating.",
   "home.sale.modeLabel": "Savdo rejimi",
@@ -133,7 +133,7 @@ const uz: Record<HomeMessageKey, string> = {
   "home.trust.aria": "Ishonch va xizmat afzalliklari",
   "home.trust.pricing.title": "Real Narx Kafolati",
   "home.trust.pricing.desc":
-    "Ippodrom va Abu Saxiy do'konlarining joylashuvi va eng so'nggi optom/chakana narxlari 100% tekshirilgan.",
+    "Platformadagi do‘konlarning joylashuvi va eng so‘nggi optom/chakana narxlari tekshiriladi.",
   "home.trust.direct.title": "Sotuvchi bilan To'g'ridan-to'g'ri Aloqa",
   "home.trust.direct.desc":
     "Vositachilarsiz, do'kon egasining o'zi bilan bitta tugma orqali Telegram yoki telefon orqali tezkor buyurtma berish.",
@@ -146,11 +146,11 @@ const uz: Record<HomeMessageKey, string> = {
 const ru: Record<HomeMessageKey, string> = {
   "home.hero.eyebrow": "AI визуальный поиск",
   "home.hero.titleLine1": "Загрузите фото,",
-  "home.hero.titleLine2": "найдите Ипподром",
+  "home.hero.titleLine2": "найдите по всему Узбекистану",
   "home.hero.subtitle":
-    "Из реального каталога магазинов на Ипподроме и Абу Сахий умный алгоритм мгновенно подберёт лучшие варианты.",
+    "Умный алгоритм мгновенно подберёт лучшие варианты из реального каталога рынков и магазинов по всему Узбекистану.",
   "home.stories.eyebrow": "Живая лента",
-  "home.stories.title": "Что сейчас в тренде на Ипподроме?",
+  "home.stories.title": "Что сейчас в тренде на рынках Узбекистана?",
   "home.stories.description": "Живые сторис от продавцов — обновляются в течение 24 часов.",
   "home.stories.descriptionPromo": "Пока нет сторис магазинов — показываем рекламу платформы.",
   "home.stories.empty": "Пока нет живых сторис. Скоро продавцы добавят новые образы.",
@@ -171,10 +171,10 @@ const ru: Record<HomeMessageKey, string> = {
   "home.discovery.eyebrow": "Тренды",
   "home.discovery.titleStylist": "Тренды для вас",
   "home.discovery.descStylist":
-    "Каталог последних и популярных товаров магазинов Ипподрома и Абу Сахий.",
+    "Каталог последних и популярных товаров магазинов по всему Узбекистану.",
   "home.discovery.titleWholesale": "Оптовый каталог",
   "home.discovery.descWholesale":
-    "Оптовые партии с Ипподрома и Абу Сахий — минимальный заказ и фильтр по рынку.",
+    "Оптовые партии с рынков Узбекистана — минимальный заказ и фильтр по рынку.",
   "home.discovery.noResults":
     "По выбранным фильтрам товаров нет. Смягчите зону рынка или диапазон цен.",
   "home.sale.modeLabel": "Режим продаж",
@@ -209,7 +209,7 @@ const ru: Record<HomeMessageKey, string> = {
   "home.trust.aria": "Преимущества и доверие",
   "home.trust.pricing.title": "Гарантия реальной цены",
   "home.trust.pricing.desc":
-    "Локации магазинов на Ипподроме и Абу Сахий и актуальные оптовые/розничные цены проверены на 100%.",
+    "Локации магазинов и актуальные оптовые и розничные цены на платформе проходят проверку.",
   "home.trust.direct.title": "Прямой контакт с продавцом",
   "home.trust.direct.desc":
     "Без посредников — заказ в Telegram или по телефону владельцу магазина в один клик.",
@@ -222,11 +222,11 @@ const ru: Record<HomeMessageKey, string> = {
 const en: Record<HomeMessageKey, string> = {
   "home.hero.eyebrow": "AI Visual Search",
   "home.hero.titleLine1": "Drop a photo,",
-  "home.hero.titleLine2": "find it at Ippodrom",
+  "home.hero.titleLine2": "find it across Uzbekistan",
   "home.hero.subtitle":
-    "From real Ippodrom and Abu Sahiy shop catalogs, our smart engine surfaces the best matches in an instant.",
+    "Our smart engine instantly finds the best matches from real market and shop catalogs across Uzbekistan.",
   "home.stories.eyebrow": "Instant feed",
-  "home.stories.title": "What's trending at Ippodrom now?",
+  "home.stories.title": "What's trending across Uzbekistan's markets?",
   "home.stories.description": "Live seller stories — refreshed within 24 hours.",
   "home.stories.descriptionPromo": "No shop stories yet — showing platform promotions.",
   "home.stories.empty": "No live stories yet. Sellers will post new looks soon.",
@@ -247,10 +247,10 @@ const en: Record<HomeMessageKey, string> = {
   "home.discovery.eyebrow": "Trending",
   "home.discovery.titleStylist": "Trends for you",
   "home.discovery.descStylist":
-    "Latest and popular product catalog from Ippodrom and Abu Sahiy shops.",
+    "Latest and popular products from shops across Uzbekistan.",
   "home.discovery.titleWholesale": "Wholesale catalog stream",
   "home.discovery.descWholesale":
-    "Wholesale lots from Ippodrom and Abu Sahiy — MOQ and market filters.",
+    "Wholesale lots from Uzbekistan's markets — with MOQ and market filters.",
   "home.discovery.noResults": "No products match these filters. Try a wider zone or price range.",
   "home.sale.modeLabel": "Sale mode",
   "home.sale.chakana": "Retail (unit)",
@@ -284,7 +284,7 @@ const en: Record<HomeMessageKey, string> = {
   "home.trust.aria": "Trust and service benefits",
   "home.trust.pricing.title": "Verified Real Pricing",
   "home.trust.pricing.desc":
-    "Ippodrom and Abu Sahiy shop locations plus latest wholesale and retail prices are 100% verified.",
+    "Shop locations and current wholesale and retail prices listed on the platform are reviewed.",
   "home.trust.direct.title": "Direct Seller Contact",
   "home.trust.direct.desc":
     "No middlemen — one-tap orders via Telegram or phone straight to the shop owner.",

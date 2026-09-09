@@ -29,7 +29,7 @@ export function SiteFooter({ dark = false }: SiteFooterProps) {
           <div className="flex flex-col gap-3">
             <BozorliiiLogo variant="full" size="sm" href="/" showTagline />
             <p className={dark ? "max-w-xs text-xs leading-relaxed text-white/45" : "max-w-xs text-xs leading-relaxed text-text-400"}>
-              O'zbekistonning AI marketplace — Toshkent bozorlaridagi tovarlarni bir joydan toping.
+              O‘zbekistonning AI marketplace’i — bozor va do‘konlardagi mahsulotlarni bir joydan toping.
             </p>
           </div>
 

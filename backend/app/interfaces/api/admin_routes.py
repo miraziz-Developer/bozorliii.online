@@ -352,6 +352,7 @@ async def admin_update_support_ticket(
 async def admin_analytics_overview(
     days: int = 7,
     market_slug: str = "ippodrom",
+    root_category: str | None = None,
     _: None = Depends(require_admin_key),
     db: AsyncSession = Depends(get_db_session),
 ) -> dict:
@@ -361,10 +362,17 @@ async def admin_analytics_overview(
     from sqlalchemy import func
 
     from app.application.billing.platform_profit_service import PlatformProfitService
-    from app.infrastructure.db.models import AppUserModel, OrderModel, ShopModel
+    from app.infrastructure.db.models import AppUserModel, OrderModel, ProductModel, ShopModel
+    from app.infrastructure.repositories.marketplace_repo import MarketplaceRepository
 
     days = min(max(days, 1), 90)
     since = datetime.now(timezone.utc) - timedelta(days=days)
+    market_name = market_slug.strip().replace("-", " ")
+    market_filter = ShopModel.market_zone.ilike(f"%{market_name}%")
+    category_filter = MarketplaceRepository._root_category_clause(root_category or "")
+    order_filters = [OrderModel.created_at >= since, market_filter]
+    if category_filter is not None:
+        order_filters.append(category_filter)
 
     order_day = func.date_trunc("day", OrderModel.created_at)
     order_rows = await db.execute(
@@ -373,7 +381,9 @@ async def admin_analytics_overview(
             func.count(OrderModel.id),
             func.coalesce(func.sum(OrderModel.total_price), 0),
         )
-        .where(OrderModel.created_at >= since)
+        .join(ShopModel, ShopModel.id == OrderModel.shop_id)
+        .join(ProductModel, ProductModel.id == OrderModel.product_id)
+        .where(*order_filters)
         .group_by(order_day)
         .order_by(order_day)
     )
@@ -388,7 +398,9 @@ async def admin_analytics_overview(
 
     status_rows = await db.execute(
         select(OrderModel.status, func.count(OrderModel.id))
-        .where(OrderModel.created_at >= since)
+        .join(ShopModel, ShopModel.id == OrderModel.shop_id)
+        .join(ProductModel, ProductModel.id == OrderModel.product_id)
+        .where(*order_filters)
         .group_by(OrderModel.status)
         .order_by(func.count(OrderModel.id).desc())
     )
@@ -414,7 +426,8 @@ async def admin_analytics_overview(
             func.coalesce(func.sum(OrderModel.total_price), 0),
         )
         .join(OrderModel, OrderModel.shop_id == ShopModel.id)
-        .where(OrderModel.created_at >= since)
+        .join(ProductModel, ProductModel.id == OrderModel.product_id)
+        .where(*order_filters)
         .group_by(ShopModel.id, ShopModel.name)
         .order_by(func.coalesce(func.sum(OrderModel.total_price), 0).desc())
         .limit(10)
@@ -434,12 +447,59 @@ async def admin_analytics_overview(
     period_users = sum(p["users"] for p in users_series)
     avg_order = round(period_revenue / period_orders, 0) if period_orders else 0
 
+    public_shop_conditions = (
+        market_filter,
+        ShopModel.is_active.is_(True),
+        ShopModel.is_verified.is_(True),
+        ShopModel.is_blocked.is_(False),
+    )
+    catalog_conditions = [*public_shop_conditions, ProductModel.is_available.is_(True)]
+    if category_filter is not None:
+        catalog_conditions.append(category_filter)
+    active_shops = int(
+        (
+            await db.execute(
+                select(func.count(func.distinct(ShopModel.id)))
+                .join(ProductModel, ProductModel.shop_id == ShopModel.id)
+                .where(*catalog_conditions)
+            )
+        ).scalar_one()
+        or 0
+    )
+    active_products = int(
+        (
+            await db.execute(
+                select(func.count(ProductModel.id))
+                .join(ShopModel, ShopModel.id == ProductModel.shop_id)
+                .where(*catalog_conditions)
+            )
+        ).scalar_one()
+        or 0
+    )
+    completed_pickups = next(
+        (row["count"] for row in orders_by_status if row["status"] == "completed"),
+        0,
+    )
+    repeat_customer_rows = (
+        select(OrderModel.customer_phone.label("phone"))
+        .join(ShopModel, ShopModel.id == OrderModel.shop_id)
+        .join(ProductModel, ProductModel.id == OrderModel.product_id)
+        .where(*order_filters)
+        .group_by(OrderModel.customer_phone)
+        .having(func.count(OrderModel.id) >= 2)
+        .subquery()
+    )
+    returning_customers = int(
+        (await db.execute(select(func.count()).select_from(repeat_customer_rows))).scalar_one() or 0
+    )
+
     profit = await PlatformProfitService(db).summary()
     market = await AdminMarketAnalyticsService(db).build_report(market_slug, days=days)
 
     return {
         "days": days,
         "market_slug": market_slug,
+        "root_category": root_category,
         "summary": {
             "orders": period_orders,
             "revenue_uzs": period_revenue,
@@ -448,6 +508,10 @@ async def admin_analytics_overview(
             "platform_profit_uzs": float(profit.get("earned_profit_uzs") or 0),
             "total_routes": market.total_routes,
             "total_searches": market.total_searches,
+            "active_shops": active_shops,
+            "active_products": active_products,
+            "completed_pickups": completed_pickups,
+            "returning_customers": returning_customers,
         },
         "orders_series": orders_series,
         "users_series": users_series,

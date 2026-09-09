@@ -9,15 +9,15 @@ Bozorliii — Onlayn Bozor
 
 ## Short description (80 belgi)
 ```
-Toshkent bozoridan AI bilan qidiring — bron qiling, do'kondan olib keting
+O'zbekiston bozorlaridan toping — bron qiling, do'kondan olib keting
 ```
 
 ## Full description (4000 belgigacha)
 ```
-Bozorliii — Toshkent bozorlaridagi (Ippodrom, Abu Saxiy) minglab do'konlarni bitta ilovada birlashtiruvchi AI bozor platformasi.
+Bozorliii — O'zbekiston bo'ylab bozor va do'konlarni bosqichma-bosqich bitta ilovada birlashtiruvchi AI bozor platformasi.
 
 🔍 AI BILAN QIDIRUV
-Kiyim rasmini yuklang — aqlli algoritm shu bozorlardagi eng mos variantlarni bir zumda topib beradi. Matn yoki ovoz orqali ham qidirishingiz mumkin.
+Kiyim rasmini yuklang — aqlli algoritm platformadagi bozorlardan eng mos variantlarni bir zumda topib beradi. Matn yoki ovoz orqali ham qidirishingiz mumkin.
 
 👔 SHAXSIY AI STYLIST
 O'zingizning yoki xohlagan look rasmingizni yuboring — sun'iy intellekt sizga mos kombinatsiya va tavsiyalarni 30 soniyada tayyorlaydi.

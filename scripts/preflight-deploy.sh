@@ -110,13 +110,27 @@ else
 fi
 
 if [[ "$(env_val ENABLE_ONLINE_CHECKOUT)" == "true" ]]; then
-  warn_msg "ENABLE_ONLINE_CHECKOUT=true — Click account kerak"
+  die "ENABLE_ONLINE_CHECKOUT=true — pilotda backend online checkout o'chiq bo'lishi kerak"
 else
   ok "Online checkout OFF (cash/terminal only)"
 fi
 
 if [[ "$(env_val NEXT_PUBLIC_ENABLE_ONLINE_CHECKOUT)" == "true" ]]; then
-  warn_msg "NEXT_PUBLIC_ENABLE_ONLINE_CHECKOUT=true — mijoz UI da Click chiqadi"
+  die "NEXT_PUBLIC_ENABLE_ONLINE_CHECKOUT=true — pilotda mijoz UI Click ko'rsatmasligi kerak"
+else
+  ok "Customer online checkout UI OFF"
+fi
+
+if [[ "$(env_val NEXT_PUBLIC_PILOT_MODE)" == "true" ]]; then
+  ok "Pilot mode ON (Ippodrom / ayollar kiyimi)"
+else
+  die "NEXT_PUBLIC_PILOT_MODE=true is required for the 90-day pilot"
+fi
+
+if [[ "$(env_val ENABLE_CHINA_MARKET)" == "true" ]] || [[ "$(env_val NEXT_PUBLIC_ENABLE_CHINA_MARKET)" == "true" ]]; then
+  die "China market must be OFF during the pilot"
+else
+  ok "China market OFF"
 fi
 
 media_backend="$(env_val MEDIA_STORAGE_BACKEND)"

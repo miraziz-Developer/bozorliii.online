@@ -17,6 +17,7 @@ export type BlockSectorId =
 
 export type RootCategoryId =
   | "all"
+  | "Ayollar kiyimi"
   | "Kiyim-kechak & Moda"
   | "Poyabzal"
   | "Go'zallik & Parfümeriya"
@@ -51,6 +52,7 @@ export const BLOCK_SECTORS: Array<{ id: BlockSectorId; label: string }> = [
 
 export const ROOT_CATEGORIES: Array<{ id: RootCategoryId; label: string }> = [
   { id: "all", label: "Barcha kategoriyalar" },
+  { id: "Ayollar kiyimi", label: "Ayollar kiyimi" },
   { id: "Kiyim-kechak & Moda", label: "Kiyim-kechak & Moda" },
   { id: "Poyabzal", label: "Poyabzal" },
   { id: "Go'zallik & Parfümeriya", label: "Go'zallik & Parfümeriya" },

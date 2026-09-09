@@ -2,7 +2,7 @@
   "id": "/",
   "name": "Bozorliii — Onlayn Bozor",
   "short_name": "Bozorliii",
-  "description": "Uydan chiqmasdan bozor aylang. Toshkent bozorlaridagi tovarlarni onlayn toping va buyurtma bering.",
+  "description": "O‘zbekiston bo‘ylab bozor va do‘konlardagi mahsulotlarni onlayn toping, bron qiling va qulay olib keting.",
   "start_url": "/?source=pwa",
   "scope": "/",
   "display": "standalone",

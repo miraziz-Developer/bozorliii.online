@@ -4,7 +4,7 @@ Bu `MERCHANT_PITCH.md`ning to'liq versiyasi emas — bozorga borib, do'konchi bi
 
 ## Birinchi 15 soniya (diqqatni tortish)
 
-> "Assalomu alaykum. Men Bozorliii'dan — bu bozoringizni onlaynga chiqaradigan ilova. Sizga hech narsa to'lamaysiz, faqat mahsulotingiz rasmi telefondagi odamlarga ham ko'rinadi. 2 daqiqa vaqtingizni olsam bo'ladimi?"
+> "Assalomu alaykum. Men Bozorliii'dan — O'zbekiston bo'ylab bozor va do'konlarni bitta onlayn katalogga birlashtiryapmiz. Mahsulotingizni ko'proq mijozga ko'rsatib, ular do'konga kelishidan oldin bron qila oladi. 2 daqiqa vaqtingizni olsam bo'ladimi?"
 
 **Muhim:** darhol "ilova o'rnating" demang — avval **muammosini** so'rang:
 > "Instagram yoki Telegram'da do'koningiz bormi? ... Qancha odam ko'radi undan?"
@@ -14,7 +14,7 @@ Ko'pchilik "yo'q" yoki "kam" deydi — shu yerda o'tish qiling.
 ## Asosiy 3 gap (eslab qoling)
 
 1. **"Bozorga kelmagan mijoz ham sizni ko'radi"** — telefon orqali, rasm/narx bilan.
-2. **"Sotmasangiz — to'lamaysiz"** — obuna yo'q, oylik to'lov yo'q, faqat sotuvdan kichik komissiya.
+2. **"Birinchi 90 kun bepul"** — hozir komissiya va majburiy obuna yo'q; keyingi tarif faqat natija va alohida rozilikdan keyin.
 3. **"5 daqiqada boshlaysiz"** — Telegram botga yozish, rasm + narx yuborish, tamom.
 
 ## Eng ko'p uchraydigan e'tirozlar va javoblar
@@ -22,11 +22,11 @@ Ko'pchilik "yo'q" yoki "kam" deydi — shu yerda o'tish qiling.
 | Do'konchi aytadi | Siz javob berasiz |
 |---|---|
 | "Menda internet/telefon bilan ishlash qiyin" | "Faqat Telegram botga rasm yuborasiz — WhatsApp'dan farqi yo'q. Birinchi mahsulotni men o'zim birga qo'shib beraman." |
-| "Pulga tushadimi?" | "Yo'q. Ro'yxatdan o'tish, mahsulot qo'shish — hammasi bepul. Faqat **sotilgandan keyin** kichik ulush olamiz — sotmasangiz, hech narsa yo'qotmaysiz." |
-| "Boshqa ilovalarni ham ko'rdim, ishlamadi" | "Bu — aynan Ippodrom/Abu Saxiy bozori uchun qilingan, xorijiy ilova emas. Xaritada aynan sizning rastangiz ko'rsatiladi." |
+| "Pulga tushadimi?" | "Birinchi 90 kun bepul. Davr oxirida natijani birga ko'ramiz; pullik xizmat taklif qilinsa ham faqat siz rozi bo'lsangiz ulanadi." |
+| "Boshqa ilovalarni ham ko'rdim, ishlamadi" | "Bozorliii mahalliy bozor va do'konlar uchun qurilgan. Xaritada aynan sizning rastangiz ko'rsatiladi, mahsulotingiz O'zbekiston bo'ylab xaridorlarga chiqadi va bron natijasini ko'rasiz." |
 | "Vaqtim yo'q, band" | "Tushunarli. Rasmlaringizni menga yuboring — men o'zim CRM'ga kiritib qo'yaman, siz faqat tasdiqlaysiz." (haqiqiy og'irlikni o'zingiz oling) |
 | "Mijozlar meni qanday topadi?" | "Ilovada 'Rasta xaritasi' bor — mijoz aniq qaysi qatorda ekaningizni ko'radi. Plyus, AI qidiruv orqali kiyim rasmini yuborsa, sizning mahsulotingiz chiqishi mumkin." |
-| "Birinchi bo'lib men ishonchim komil emas" | "Shuning uchun birinchi 100 do'konchi uchun komissiya ham yo'q — hozir qo'shilish eng foydali payt." |
+| "Birinchi bo'lib men ishonchim komil emas" | "Shuning uchun birinchi 90 kun bepul. Siz istalgan payt chiqishingiz mumkin; biz esa bron va savdo natijasini ochiq ko'rsatamiz." |
 
 ## Nima olib boring (jismonan)
 

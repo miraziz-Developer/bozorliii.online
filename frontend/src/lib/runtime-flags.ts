@@ -37,3 +37,11 @@ export function allowOnlineCheckout(): boolean {
 export function isChinaMarketEnabled(): boolean {
   return process.env.NEXT_PUBLIC_ENABLE_CHINA_MARKET === "true";
 }
+
+/**
+ * Bosqichma-bosqich production rollout rejimi.
+ * Katalog geografiyasi yoki kategoriyalarini cheklamaydi.
+ */
+export function isPilotMode(): boolean {
+  return process.env.NEXT_PUBLIC_PILOT_MODE === "true";
+}

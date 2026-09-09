@@ -5,7 +5,7 @@ import { StylistStudio } from "@/components/stylist/stylist-studio";
 export const metadata: Metadata = {
   title: "Shaxsiy AI Stilist — Bozorliii.online",
   description:
-    "Ippodrom va Abu Saxiy katalogidan AI stylist: look, byudjet, xarita va haqiqiy mahsulotlar.",
+    "O‘zbekiston bozorlaridagi katalogdan AI stilist: look, byudjet, xarita va haqiqiy mahsulotlar.",
 };
 
 export default function StylistPage() {

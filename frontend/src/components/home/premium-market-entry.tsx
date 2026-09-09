@@ -19,7 +19,7 @@ export function PremiumMarketEntry() {
         <p className="mt-1 text-sm text-white/55">
           {china
             ? "Taobao + mahalliy do'konlar, ustama va kargo hisoblangan"
-            : "Ippodrom va Abu Saxiy do'konlari — Bozorliii.online"}
+            : "O‘zbekiston bozor va do‘konlari — bitta platformada"}
         </p>
         <div className={china ? "mt-4 grid grid-cols-2 gap-2" : "mt-4"}>
           {china ? (

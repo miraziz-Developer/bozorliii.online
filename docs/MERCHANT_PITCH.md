@@ -47,18 +47,18 @@ Mijozlar ko'radi, like bosadi, buyurtma beradi.
 
 ## 💰 Qancha turadi?
 
-### 🎁 BEPUL — Obuna yo'q, oylik to'lov yo'q
+### 🎁 BIRINCHI 90 KUN — BEPUL
 
 | Nima | Narx |
 |------|------|
 | Ro'yxatdan o'tish | **Bepul** |
 | Mahsulot qo'shish | **Bepul** |
 | Buyurtma qabul qilish | **Bepul** |
-| Muvaffaqiyatli sotuvdan | **Kichik komissiya** |
+| Birinchi 90 kundagi muvaffaqiyatli sotuvdan | **0 so'm** |
 
-> **Sotmadingizmi — hech narsa to'lamaysiz.**
+> **Birinchi 90 kunda komissiya va majburiy obuna yo'q. To'lov do'konda naqd yoki terminal orqali qilinadi.**
 
-> 💡 Birinchi 100 do'konchi uchun — komissiya ham yo'q, to'liq bepul!
+> 💡 Bozorliii O'zbekiston bo'ylab bozor va do'konlarni yagona raqamli katalogga birlashtiradi. Xizmat hududma-hudud kengayadi; keyingi tarif faqat alohida rozilik bilan ulanadi.
 
 ---
 
@@ -78,9 +78,9 @@ Mijozlar ko'radi, like bosadi, buyurtma beradi.
 - 🔜 **Loyalty coins** — mijozlarga bonus tizimi
 - 🔜 **iOS ilova**
 
-### 2027:
+### Keyingi bosqichlar:
 - 🔜 **Optom buyurtmalar** — B2B platforma
-- 🔜 **Boshqa shaharlar** — Samarqand, Namangan, Andijon
+- 🔜 **O'zbekiston bo'ylab kengayish** — barcha viloyat va shaharlardagi bozorlar
 - 🔜 **Eksport** — Qozog'iston, Rossiya bozori
 
 ---
@@ -120,4 +120,4 @@ Saytda ko'rinasiz → Buyurtmalar keladi → Savdo o'sadi
 
 ---
 
-**Hoziroq boshlang — birinchi 100 do'konchi uchun maxsus imtiyozlar!**
+**Hoziroq boshlang — do'koningizni butun O'zbekistonga ko'rsating!**

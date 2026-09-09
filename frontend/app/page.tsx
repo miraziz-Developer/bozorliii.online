@@ -17,6 +17,7 @@ import { PremiumBannersCarousel } from "@/components/home/premium-banners-carous
 import { StoriesFeed } from "@/components/home/stories-feed";
 import { PersonalizedHomeBanner } from "@/components/home/personalized-home-banner";
 import { MerchantSpotlightRow } from "@/components/home/merchant-spotlight-row";
+import { NationwideIntro } from "@/components/home/nationwide-intro";
 import { SiteFooter } from "@/components/brand/site-footer";
 import { ReelsPreviewStrip } from "@/components/home/reels-preview-strip";
 import { Navigation } from "@/components/Navigation";
@@ -39,11 +40,12 @@ import {
 import { useT } from "@/i18n/locale-provider";
 import type { HomeDealFeed } from "@/lib/home-deal-sections";
 import { filterProductsByCategory, type DomainCategoryId } from "@/lib/home-categories";
-import { isChinaMarketEnabled } from "@/lib/runtime-flags";
+import { isChinaMarketEnabled, isPilotMode } from "@/lib/runtime-flags";
 import type { Product } from "@/types";
 
 export default function HomePage() {
   const t = useT();
+  const pilotMode = isPilotMode();
   const [selected, setSelected] = useState<Product | null>(null);
   const [category, setCategory] = useState<DomainCategoryId>("all");
   const [bazaarFilters, setBazaarFilters] = useState<BazaarCatalogFilters>(DEFAULT_BAZAAR_FILTERS);
@@ -149,7 +151,7 @@ export default function HomePage() {
               </div>
             ),
             sale_hero: isChina ? null : <HomeSaleHero />,
-            banner: <PersonalizedHomeBanner experience={experience} />,
+            banner: pilotMode ? <NationwideIntro /> : <PersonalizedHomeBanner experience={experience} />,
             lightning: isChina ? null : (
               <HomeDealsRow
                 variant="lightning"
