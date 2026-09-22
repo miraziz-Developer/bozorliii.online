@@ -1,36 +1,36 @@
 # Bozorliii — disaster recovery
 
-The production servers are a low-trust free tier. If a droplet disappears,
-everything needed to stand the platform back up is in two places:
+Production runs on a single low-trust cloud VM (migrated off the old 2-droplet
+DigitalOcean split onto one Azure VM in 2026-09). If it disappears, everything
+needed to stand the platform back up is in two places:
 
 | What | Where |
 |---|---|
 | Code | this GitHub repo (`main`) |
-| DB dump, uploaded media, **both** servers' `.env` | the founder's Mac: `~/Backups/bozorliii/` |
+| DB dump, uploaded media, server `.env` | the founder's Mac: `~/Backups/bozorliii/` |
 
 `~/Backups/bozorliii/latest/` always points at the newest verified snapshot:
 
 ```
 latest/
-├── db.sql.gz        # pg_dump of the CORE database
+├── db.sql.gz        # pg_dump of the production database
 ├── uploads.tar.gz   # contents of the bozorliii_bozor_uploads volume
-├── core.env         # CORE server /opt/bozorliii/.env  (secrets!)
-└── web.env          # WEB server /opt/bozorliii/.env   (secrets!)
+└── server.env       # production /opt/bozorliii/.env  (secrets!)
 ```
 
 `~/Backups/bozorliii/server-stage/` holds the last ~4 days of 6-hourly dumps
-pulled from the CORE server (`db-<ts>.sql.gz`, `uploads-<ts>.tar.gz`).
+pulled from the server (`db-<ts>.sql.gz`, `uploads-<ts>.tar.gz`).
 
 ---
 
 ## Backup schedule
 
-- **CORE server**, every 6h (root cron): `scripts/backup/stage-backup.sh`
+- **Server**, every 6h (`bozorliii` user cron): `scripts/backup/stage-backup.sh`
   → dumps into `/opt/bozorliii/backups/`, keeps 4 days.
 - **Mac**, every 6h (launchd `uz.bozorliii.backup.plist` → `~/Backups/bozorliii/backup.sh`,
   a copy of `scripts/backup/local-pull.sh`)
-  → rsyncs the CORE staging dir down (catch-up) + takes its own verified
-    snapshot + pulls both `.env` files. macOS notification on failure.
+  → rsyncs the server's staging dir down (catch-up) + takes its own verified
+    snapshot + pulls `.env`. macOS notification on failure.
 
 Check health:
 
@@ -43,44 +43,46 @@ ls -la ~/Backups/bozorliii/latest/
 
 ## Restore onto a fresh server
 
-Assume a new Ubuntu 24.04 droplet, single-server layout (`docker-compose.prod.yml`).
-For the 2-server split, do the CORE steps on the CORE box and WEB steps on the WEB box.
+Assume a new Ubuntu 24.04 VM, single-server layout (`docker-compose.prod.yml`).
 
 ```bash
 # 0. on the Mac — copy the artefacts up
 scp ~/Backups/bozorliii/latest/db.sql.gz \
     ~/Backups/bozorliii/latest/uploads.tar.gz \
-    ~/Backups/bozorliii/latest/core.env \
-    root@<NEW_CORE_IP>:/root/
+    ~/Backups/bozorliii/latest/server.env \
+    bozorliii@<NEW_SERVER_IP>:/home/bozorliii/
 
 # 1. on the new server — install Docker, clone, restore .env
 curl -fsSL https://get.docker.com | sh
 git clone https://github.com/miraziz-Developer/bozorliii.online.git /opt/bozorliii
 cd /opt/bozorliii
-cp /root/core.env .env            # (web.env on the WEB box)
+cp ~/server.env .env
 
 # 2. bring up just the database first
-docker compose -f docker-compose.core.yml up -d postgres redis
+docker compose -f docker-compose.prod.yml up -d postgres redis
 sleep 10
 
 # 3. restore the database
 DB_USER=$(grep -E '^POSTGRES_USER=' .env | head -1 | cut -d= -f2-)
 DB_NAME=$(grep -E '^POSTGRES_DB=' .env | head -1 | cut -d= -f2-)
-gunzip -c /root/db.sql.gz | docker exec -i bozorliii-postgres-1 psql -U "$DB_USER" -d "$DB_NAME"
+gunzip -c ~/db.sql.gz | docker exec -i bozorliii-postgres-1 psql -U "$DB_USER" -d "$DB_NAME"
 
 # 4. restore uploaded media into the named volume
-docker run --rm -v bozorliii_bozor_uploads:/data -v /root:/backup alpine \
+docker run --rm -v bozorliii_bozor_uploads:/data -v /home/bozorliii:/backup alpine \
   sh -c 'cd /data && tar xzf /backup/uploads.tar.gz'
 
-# 5. bring up the rest
-docker compose -f docker-compose.core.yml up -d --build
-curl -s localhost:8000/health
+# 5. bring up the rest (nginx, frontend, merchant-crm, platform-admin, bots, celery)
+bash scripts/preflight-split-core.sh
+docker compose -f docker-compose.prod.yml up -d --build --wait --wait-timeout 300
+curl -s localhost/api/v1/health -H "Host: bozorliii.online" -k
 
-# 6. WEB box
-#    cp web.env .env ; docker compose -f docker-compose.web.yml up -d --build
-
-# 7. repoint DNS (bozorliii.online / api / crm / admin) at the new IP(s)
+# 6. repoint DNS (bozorliii.online / api / crm / admin) at the new IP
 ```
+
+Note: `docker-compose.core.yml` + `docker-compose.web.yml` are for the OLD
+2-droplet split only — they need `CORE_BACKEND_HOST` (a VPC private IP) wired
+between two hosts and will fail with a missing-env error on a single box.
+Always use `docker-compose.prod.yml` for a single-server restore.
 
 ### Re-arm the backups on the new server
 
@@ -92,7 +94,7 @@ mkdir -p /opt/bozorliii/.logs
 ```
 
 Add the Mac's backup public key (`~/.ssh/bozorliii_backup_key.pub`) to the new
-server's `/root/.ssh/authorized_keys`, then update `CORE_HOST` / `WEB_HOST` in
+server's `/home/bozorliii/.ssh/authorized_keys`, then update `HOST` in
 `~/Backups/bozorliii/backup.sh` on the Mac.
 
 ---
