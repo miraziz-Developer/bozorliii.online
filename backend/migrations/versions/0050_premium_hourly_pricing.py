@@ -3,7 +3,7 @@
 from alembic import op
 import sqlalchemy as sa
 
-revision = "0050_premium_tariffs_hourly_pricing"
+revision = "0050_premium_hourly_pricing"
 down_revision = "0049_customer_loyalty_coins"
 branch_labels = None
 depends_on = None
