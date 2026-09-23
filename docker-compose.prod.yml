@@ -66,9 +66,10 @@ services:
       CELERY_BROKER_URL: redis://redis:6379/1
       CELERY_RESULT_BACKEND: redis://redis:6379/2
       DATABASE_URL: postgresql://${POSTGRES_USER:-bozor}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-bozor_ai}
-      # Har worker CLIP modelini yuklaydi (~1GB) — mem_limit shunga mos (3 x ~1GB).
+      # Har worker CLIP modelini alohida yuklaydi (~1GB) — mem_limit shunga mos (2 x ~1GB).
+      # API o'zi ~15ms da javob beradi, 2 worker yetarli.
       # Nomi ataylab BACKEND_WORKERS: serverdagi eski .env UVICORN_WORKERS=4 ni e'tiborsiz qoldiradi.
-      UVICORN_WORKERS: ${BACKEND_WORKERS:-3}
+      UVICORN_WORKERS: ${BACKEND_WORKERS:-2}
       HF_HOME: /app/.cache/huggingface
       # Bitta serverda hamma narsa — backend mem_limit CLIP/YOLO/embedding
       # yuklanishiga yetarli bo'lishi shart (1100m OOM-kill qilib turgan edi
@@ -87,7 +88,7 @@ services:
         condition: service_healthy
       redis:
         condition: service_healthy
-    mem_limit: 4200m
+    mem_limit: 3000m
     healthcheck:
       test: ["CMD-SHELL", "curl -fsS http://127.0.0.1:8000/api/v1/health/live >/dev/null || exit 1"]
       interval: 20s
