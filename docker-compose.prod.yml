@@ -66,7 +66,9 @@ services:
       CELERY_BROKER_URL: redis://redis:6379/1
       CELERY_RESULT_BACKEND: redis://redis:6379/2
       DATABASE_URL: postgresql://${POSTGRES_USER:-bozor}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-bozor_ai}
-      UVICORN_WORKERS: ${UVICORN_WORKERS:-3}
+      # Har worker CLIP modelini yuklaydi (~1GB) — mem_limit shunga mos (3 x ~1GB).
+      # Nomi ataylab BACKEND_WORKERS: serverdagi eski .env UVICORN_WORKERS=4 ni e'tiborsiz qoldiradi.
+      UVICORN_WORKERS: ${BACKEND_WORKERS:-3}
       HF_HOME: /app/.cache/huggingface
       # Bitta serverda hamma narsa — backend mem_limit CLIP/YOLO/embedding
       # yuklanishiga yetarli bo'lishi shart (1100m OOM-kill qilib turgan edi
