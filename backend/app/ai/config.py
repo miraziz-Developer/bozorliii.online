@@ -12,6 +12,7 @@ from app.core.config import Settings, get_settings
 
 # OpenAI-compatible Groq endpoint (chat, tools, streaming).
 GROQ_API_BASE = "https://api.groq.com/openai/v1"
+GROQ_API_ROOT = "https://api.groq.com"
 GROQ_CHAT_COMPLETIONS_PATH = "/chat/completions"
 
 # Groq's Llama 70B line was retired from the catalog (2026-08) — moved to
@@ -49,11 +50,17 @@ def groq_chat_completions_url(settings: Settings | None = None) -> str:
 def groq_api_base(settings: Settings | None = None) -> str:
     """Base URL for the `groq` SDK client.
 
-    The SDK hardcodes an "/openai/v1/..." path template internally (confirmed by
-    inspecting the actual outgoing request — passing our full endpoint, which
-    already ends in /openai/v1, produced .../openai/v1/openai/v1/chat/completions).
-    So unlike groq_chat_completions_url() (used for our own raw httpx calls), this
-    must be the bare domain root when Azure is active.
+    The installed groq SDK (1.x — pyproject only pins a floor, >=0.11.0, so a
+    routine rebuild silently picked up the 1.x line) hardcodes an
+    "/openai/v1/..." path template internally and appends it to whatever
+    base_url is given. Confirmed by inspecting the actual resolved request
+    URL: passing a base_url that already ends in /openai/v1 — whether Azure's
+    endpoint or our own GROQ_API_BASE constant — produces a doubled
+    .../openai/v1/openai/v1/chat/completions path and a 404 from every AI
+    feature that goes through this client (stylist, visual search, product
+    moderation, chat agent). So unlike groq_chat_completions_url() (used for
+    our own raw httpx calls, which builds the full path itself), this must
+    always be the bare domain root — the SDK appends /openai/v1/... itself.
     """
     cfg = settings or get_settings()
     if _azure_active(cfg):
@@ -61,7 +68,7 @@ def groq_api_base(settings: Settings | None = None) -> str:
         if base.endswith("/openai/v1"):
             base = base[: -len("/openai/v1")]
         return base
-    return GROQ_API_BASE
+    return GROQ_API_ROOT
 
 
 def get_groq_api_key(settings: Settings | None = None) -> str:
