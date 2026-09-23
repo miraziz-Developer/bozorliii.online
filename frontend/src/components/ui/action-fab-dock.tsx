@@ -40,6 +40,23 @@ export function ActionFabDockProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<Map<string, FabDockItem>>(new Map());
   const [openPanels, setOpenPanels] = useState<Set<string>>(new Set());
   const [shopChatOpen, setShopChatOpen] = useState(false);
+  const [scrolling, setScrolling] = useState(false);
+
+  // Telefonda scroll paytida panel kontentni yopmasligi uchun yashirinadi, to'xtagach qaytadi.
+  useEffect(() => {
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const onScroll = () => {
+      if (window.innerWidth >= 768) return;
+      setScrolling(true);
+      if (timer) clearTimeout(timer);
+      timer = setTimeout(() => setScrolling(false), 700);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (timer) clearTimeout(timer);
+    };
+  }, []);
 
   useEffect(() => {
     const onShopChat = (event: Event) => {
@@ -93,7 +110,7 @@ export function ActionFabDockProvider({ children }: { children: ReactNode }) {
     [items],
   );
 
-  const hideDock = openPanels.size > 0 || shopChatOpen;
+  const hideDock = openPanels.size > 0 || shopChatOpen || scrolling;
 
   return (
     <FabDockContext.Provider value={value}>
@@ -147,7 +164,7 @@ function DockButton({ item }: { item: FabDockItem }) {
       onClick={item.onClick}
       aria-label={item.label}
       className={cn(
-        "relative flex h-12 w-12 items-center justify-center rounded-2xl transition-all duration-200 active:scale-[0.96]",
+        "relative flex h-11 w-11 items-center justify-center rounded-2xl transition-all duration-200 active:scale-[0.96] md:h-12 md:w-12",
         item.variant === "gold" &&
           "bg-gradient-to-br from-gold-400 via-gold-500 to-amber-600 text-white shadow-[0_4px_20px_-4px_rgba(245,158,11,0.55)]",
         item.variant === "dark" && "bg-ink-900 text-white shadow-md",
