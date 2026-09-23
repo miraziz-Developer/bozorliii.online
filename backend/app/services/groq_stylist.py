@@ -16,7 +16,12 @@ from typing import Any, Literal
 
 from groq import Groq
 
-from app.ai.config import groq_api_base, require_groq_api_key, resolve_groq_chat_model
+from app.ai.config import (
+    groq_api_base,
+    require_groq_api_key,
+    resolve_chat_temperature,
+    resolve_groq_chat_model,
+)
 from app.ai.intent_analyzer import parse_budget_with_fx
 from app.application.agents.bozor_chat_catalog import parse_budget_from_text, parse_look_intent
 from app.application.stylist.budget_uzs import normalize_budget_uzs
@@ -301,6 +306,13 @@ class UniversalGroqStylist:
         api_key = require_groq_api_key(settings)
         self._client = Groq(api_key=api_key, base_url=groq_api_base(settings))
         self.model = resolve_groq_chat_model(settings)
+        self._settings = settings
+
+    def _temp_kwargs(self, requested: float) -> dict[str, float]:
+        """{"temperature": x} or {} — reasoning models (gpt-5/o1/o3/o4 via Azure)
+        reject any non-default temperature, so omit the field for them entirely."""
+        resolved = resolve_chat_temperature(requested, self._settings)
+        return {} if resolved is None else {"temperature": resolved}
 
     # ------------------------------------------------------------------ routing
     def classify_route_local(self, user_message: str) -> RouteIntent | None:
@@ -340,7 +352,7 @@ class UniversalGroqStylist:
                 },
             ],
             response_format={"type": "json_object"},
-            temperature=0.1,
+            **self._temp_kwargs(0.1),
         )
         return _safe_json_object(completion.choices[0].message.content)
 
@@ -405,8 +417,8 @@ class UniversalGroqStylist:
         completion = self._client.chat.completions.create(
             model=self.model,
             messages=messages,
-            temperature=0.72,
             max_tokens=400,
+            **self._temp_kwargs(0.72),
         )
         return (completion.choices[0].message.content or "").strip()
 
@@ -437,7 +449,7 @@ class UniversalGroqStylist:
                     {"role": "user", "content": user_message},
                 ],
                 response_format={"type": "json_object"},
-                temperature=0.0,
+                **self._temp_kwargs(0.0),
             )
             groq_meta = _safe_json_object(completion.choices[0].message.content)
         except Exception:
@@ -520,7 +532,7 @@ class UniversalGroqStylist:
             model=self.model,
             messages=messages,
             response_format={"type": "json_object"},
-            temperature=0.25,
+            **self._temp_kwargs(0.25),
         )
         data = _safe_json_object(completion.choices[0].message.content)
         allowed = {str(p.get("id")): p for p in safe_catalog if p.get("id")}
@@ -609,7 +621,7 @@ class UniversalGroqStylist:
             model=self.model,
             messages=messages,
             response_format={"type": "json_object"},
-            temperature=0.32,
+            **self._temp_kwargs(0.32),
         )
         data = _safe_json_object(completion.choices[0].message.content)
         allowed = {str(p.get("id")) for p in safe_catalog if p.get("id")}

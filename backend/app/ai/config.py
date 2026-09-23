@@ -131,6 +131,29 @@ def resolve_groq_vision_model(settings: Settings | None = None) -> str:
     return _normalize_model(cfg.groq_vision_model, fallback=GROQ_DEFAULT_VISION_MODEL)
 
 
+_REASONING_MODEL_PREFIXES = ("gpt-5", "o1", "o3", "o4")
+
+
+def _azure_reasoning_model_active(settings: Settings) -> bool:
+    """gpt-5/o1/o3/o4-family deployments only accept the API default temperature (1)."""
+    if not _azure_active(settings):
+        return False
+    names = (settings.azure_openai_chat_deployment or "", settings.azure_openai_vision_deployment or "")
+    return any(n.strip().lower().startswith(p) for n in names for p in _REASONING_MODEL_PREFIXES)
+
+
+def resolve_chat_temperature(requested: float, settings: Settings | None = None) -> float | None:
+    """Reasoning models (gpt-5/o1/o3/o4 family, e.g. via Azure AI Foundry) reject any
+    non-default temperature with a 400 ("Unsupported value ... Only the default (1)
+    value is supported"). Returning None tells the caller to omit the field entirely
+    so the API's own default applies; every other model keeps its tuned value.
+    """
+    cfg = settings or get_settings()
+    if _azure_reasoning_model_active(cfg):
+        return None
+    return requested
+
+
 def default_chat_payload(
     *,
     model: str,
@@ -140,14 +163,17 @@ def default_chat_payload(
     response_format: dict | None = None,
     tools: list | None = None,
     tool_choice: str | None = None,
+    settings: Settings | None = None,
 ) -> dict:
     """Build a Groq chat/completions body with streaming flag always explicit."""
     body: dict = {
         "model": model,
         "messages": messages,
-        "temperature": temperature,
         "stream": stream,
     }
+    resolved_temperature = resolve_chat_temperature(temperature, settings)
+    if resolved_temperature is not None:
+        body["temperature"] = resolved_temperature
     if response_format is not None:
         body["response_format"] = response_format
     if tools is not None:
