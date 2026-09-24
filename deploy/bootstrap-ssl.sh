@@ -32,7 +32,7 @@ if ! command -v certbot >/dev/null 2>&1; then
   apt-get update && apt-get install -y certbot
 fi
 
-docker compose -f docker-compose.web.yml stop nginx 2>/dev/null || docker compose -f docker-compose.prod.yml stop nginx 2>/dev/null || true
+docker compose -f docker-compose.prod.yml stop nginx 2>/dev/null || true
 
 DOMAIN_ARGS=()
 for d in "${READY[@]}"; do
