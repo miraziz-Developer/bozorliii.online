@@ -188,7 +188,6 @@ jobs:
       ADMIN_PANEL_SECRET: ci-admin-panel-secret-not-for-production
       ADMIN_SESSION_SECRET: ci-admin-session-secret-not-for-production
       BACKEND_API_URL: http://127.0.0.1:8000
-      CORE_BACKEND_HOST: 127.0.0.1
       GROQ_API_KEY: sk-ci-placeholder
       TELEGRAM_BOT_TOKEN: "123456:ABC-DEF"
       GOOGLE_API_KEY: ci-google-key
@@ -200,11 +199,11 @@ jobs:
           sed -i 's/CHANGE_ME_STRONG_DB_PASSWORD/testpassword/g' .env
           sed -i 's/CHANGE_ME_USE_openssl_rand_hex_32/ci-test-jwt-secret-32chars-min/g' .env
           sed -i 's/CHANGE_ME_ADMIN_KEY/ci-admin-key/g' .env
-      - name: Validate split production Compose files
+      - name: Shell script syntax
         run: |
-          docker compose -f docker-compose.core.yml config --quiet
-          docker compose -f docker-compose.web.yml config --quiet
-      - name: Build split production images
+          for f in install.sh scripts/*.sh scripts/backup/*.sh deploy/*.sh; do bash -n "$f"; done
+      - name: Validate production Compose file
+        run: docker compose -f docker-compose.prod.yml config --quiet
+      - name: Build production images
         run: |
-          docker compose -f docker-compose.core.yml build backend merchant-bot celery-worker celery-beat
-          docker compose -f docker-compose.web.yml build frontend merchant-crm platform-admin nginx
+          docker compose -f docker-compose.prod.yml build backend merchant-bot celery-worker celery-beat frontend merchant-crm platform-admin nginx

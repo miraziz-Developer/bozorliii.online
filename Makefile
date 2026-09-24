@@ -1,4 +1,4 @@
-.PHONY: dev-up dev-down sync-brand prod-deploy prod-up prod-down prod-logs prod-preflight verify system-check
+.PHONY: dev-up dev-down sync-brand prod-install prod-update prod-deploy prod-up prod-down prod-logs prod-preflight prod-smoke verify system-check
 
 sync-brand:
 	bash scripts/sync-brand-assets.sh
@@ -29,17 +29,17 @@ dev-up:
 dev-down:
 	docker compose down
 
+prod-install:
+	sudo bash install.sh
+
+prod-update:
+	bash scripts/update.sh
+
 prod-preflight:
 	bash scripts/preflight-deploy.sh
 
 prod-deploy:
 	bash scripts/deploy-prod.sh
-
-prod-core:
-	bash scripts/deploy-core-only.sh
-
-prod-web:
-	bash scripts/deploy-web-only.sh
 
 prod-up:
 	docker compose -f docker-compose.prod.yml up -d --build

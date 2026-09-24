@@ -75,6 +75,7 @@ export function HomeDealsRow({ variant, products, loading }: Props) {
             : products.map((p, i) => (
                 <motion.div
                   key={p.id}
+                  className="shrink-0 snap-start"
                   initial={{ opacity: 0, x: 16 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}

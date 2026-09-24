@@ -1,5 +1,6 @@
-name: SSL Renew (WEB)
+name: SSL Renew
 
+# Qo'lda ishga tushiriladi. Odatda kerak emas: install.sh serverda haftalik cron (deploy/renew-ssl.sh) o'rnatadi.
 on:
   workflow_dispatch:
 
@@ -16,19 +17,18 @@ jobs:
           install -d -m 700 ~/.ssh
           printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
           printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
-          chmod 600 ~/.ssh/known_hosts
-          chmod 600 ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/known_hosts ~/.ssh/id_ed25519
 
-      - name: Issue/renew Let's Encrypt cert on WEB and reload nginx
+      - name: Issue/renew Let's Encrypt cert and restart nginx
         env:
           SSH_USER: ${{ secrets.SSH_USER }}
-          HOST: ${{ secrets.SSH_HOST_1 }}
+          HOST: ${{ secrets.SSH_HOST }}
         run: |
           ssh -o BatchMode=yes -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=15 "$SSH_USER@$HOST" '
             set -e
             cd /opt/bozorliii
-            bash deploy/bootstrap-ssl.sh
-            docker compose -f docker-compose.web.yml up -d --build nginx
+            sudo bash deploy/bootstrap-ssl.sh
+            docker compose -f docker-compose.prod.yml up -d nginx
           '
 
       - name: Verify HTTPS

@@ -72,19 +72,20 @@ docker run --rm -v bozorliii_bozor_uploads:/data -v /home/bozorliii:/backup alpi
   sh -c 'cd /data && tar xzf /backup/uploads.tar.gz'
 
 # 5. bring up the rest (nginx, frontend, merchant-crm, platform-admin, bots, celery)
-bash scripts/preflight-split-core.sh
-docker compose -f docker-compose.prod.yml up -d --build --wait --wait-timeout 300
+bash scripts/preflight-deploy.sh .env
+docker compose -f docker-compose.prod.yml up -d --build --wait --wait-timeout 900
 curl -s localhost/api/v1/health -H "Host: bozorliii.online" -k
 
 # 6. repoint DNS (bozorliii.online / api / crm / admin) at the new IP
 ```
 
-Note: `docker-compose.core.yml` + `docker-compose.web.yml` are for the OLD
-2-droplet split only — they need `CORE_BACKEND_HOST` (a VPC private IP) wired
-between two hosts and will fail with a missing-env error on a single box.
-Always use `docker-compose.prod.yml` for a single-server restore.
+Always use `docker-compose.prod.yml` (the only compose file for production; the old
+2-droplet split files were removed).
 
 ### Re-arm the backups on the new server
+
+`sudo bash install.sh` installs this cron automatically (only when the repo lives in
+`/opt/bozorliii`). To add it by hand:
 
 ```bash
 mkdir -p /opt/bozorliii/.logs

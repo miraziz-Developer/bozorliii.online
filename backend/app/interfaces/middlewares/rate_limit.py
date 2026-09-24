@@ -37,7 +37,8 @@ async def global_rate_limit_middleware(request: Request, call_next) -> Response:
 
     ip_ok = await cache.check_fixed_window(
         f"rl:ip:{ip}",
-        limit=max(60, settings.user_rate_limit_per_minute * 3),
+        # Mobil operatorlar (CGNAT) bitta IP ortida ko'p abonentni yashiradi — limit shunga mos.
+        limit=max(600, settings.user_rate_limit_per_minute * 12),
         window_seconds=60,
     )
     if not ip_ok:
