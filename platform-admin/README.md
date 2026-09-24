@@ -27,7 +27,7 @@ npm run dev
 
 ## Deploy
 
-WEB serverda `docker-compose.web.yml` ichida `platform-admin` servisi.
-DNS: `admin.bozorliii.online` → WEB public IP.
+`docker-compose.prod.yml` ichida `platform-admin` servisi (bitta server).
+DNS: `admin.bozorliii.online` → server IP.
 
 Login: `ADMIN_PANEL_USERNAME` / `ADMIN_PANEL_PASSWORD` (server `.env`).

@@ -4,18 +4,21 @@ Monorepo — bitta repository, bir nechta mustaqil ilova. Har bir papka o‘z va
 
 ```
 bozorliii.online/
-├── backend/                 # API server (Python / FastAPI)
+├── backend/                 # API server (Python / FastAPI) + botlar + Celery
 ├── frontend/                # Mijoz web (Next.js PWA)
 ├── merchant-crm/            # Sotuvchi panel (Next.js)
-├── merchant-crm-mobile/     # Android ilova (Capacitor)
+├── platform-admin/          # Platforma admin paneli (Next.js)
+├── frontend-mobile/         # Mijoz Android ilovasi (Capacitor)
+├── merchant-crm-mobile/     # Sotuvchi Android/iOS ilovasi (Capacitor)
 ├── brand/                   # Brend manba fayllari (PNG)
 ├── deploy/                  # Production infra (nginx, SSL, server)
 ├── scripts/                 # Deploy va ops skriptlar
 ├── docs/                    # Hujjatlar
-├── .env.example             # Dev konfiguratsiya (bitta fayl)
+├── install.sh               # Bitta buyruqli server o'rnatuvchi
+├── .env.example             # Dev konfiguratsiya
 ├── .env.production.example  # Prod konfiguratsiya
 ├── docker-compose.yml       # Lokal dev stack
-└── docker-compose.prod.yml  # Production stack
+└── docker-compose.prod.yml  # Production stack (bitta server)
 ```
 
 ---
@@ -131,9 +134,14 @@ deploy/
 │   ├── Dockerfile
 │   └── production.conf
 ├── ssl/                 # TLS sertifikatlar (gitda yo‘q)
-├── bootstrap-ssl.sh     # Let's Encrypt
+├── bootstrap-ssl.sh     # Let's Encrypt (birinchi marta)
+├── bootstrap-selfsigned-ssl.sh  # DNS tayyor bo‘lguncha vaqtinchalik
+├── renew-ssl.sh         # Haftalik avto-yangilash (cron)
 ├── check-dns.sh
-└── install-docker.sh
+├── install-docker.sh
+└── setup-swap.sh
+
+Ildizda: `install.sh` — bitta buyruqli server o‘rnatuvchi; `scripts/update.sh` — yangilash.
 ```
 
 ---
@@ -150,9 +158,7 @@ Faqat operatsion vazifalar. Ro‘yxat: [scripts/README.md](../scripts/README.md)
 |------|---------------------|
 | `.env` | Docker compose — barcha servislar uchun asosiy source of truth |
 | `.env.example` | Dev shablon |
-| `.env.production.example` | Prod shablon + CI |
-| `.env.core.example` | Split deploy CORE shabloni |
-| `.env.web.example` | Split deploy WEB shabloni |
+| `.env.production.example` | Prod shablon (`install.sh` shundan `.env` yaratadi) + CI |
 | `.env.local-prod` | Lokal productionga yaqin test uchun yordamchi |
 
 Alohida `backend/.env` yoki `frontend/.env.local` deploy uchun authoritative emas; ular faqat tarixiy yoki lokal yordamchi fayl bo‘lishi mumkin.

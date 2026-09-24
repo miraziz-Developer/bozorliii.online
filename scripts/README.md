@@ -1,20 +1,22 @@
 # Operatsion skriptlar
 
-Faqat deploy va production operatsiyalari uchun. Dev seed skriptlari `RUN_SEED=true` bilan `seed.py` orqali ishga tushadi.
+Faqat deploy va production operatsiyalari uchun. Server o'rnatish/yangilash: repo ildizidagi
+[`install.sh`](../install.sh) va [`update.sh`](./update.sh). Dev seed skriptlari `RUN_SEED=true` bilan `seed.py` orqali ishga tushadi.
 
 ## Deploy
 
 | Skript | Vazifa |
 |--------|--------|
+| `../install.sh` | **Birinchi o'rnatish**: Docker, `.env`, SSL, build, ishga tushirish, backup cron |
+| `update.sh` | Kodni yangilab qayta ishga tushirish (qo'lda yoki CI) |
 | `preflight-deploy.sh` | `.env` va majburiy kalitlarni tekshirish |
-| `deploy-prod.sh` | 1× server — `docker-compose.prod.yml` |
-| `deploy-core-only.sh` | 2× server — CORE (API+DB) |
-| `deploy-web-only.sh` | 2× server — WEB (nginx+frontend) |
-| `deploy-from-mac.sh` | rsync + remote deploy |
-| `deploy-core.sh` | Katalog, integratsiya, embedding post-deploy |
-| `remote-deploy.sh` | SSH orqali deploy |
-| `generate-production-env.sh` | Production `.env` shablon |
+| `deploy-prod.sh` | Preflight + build + health (qo'lda, `update.sh` dan soddaroq) |
+| `generate-production-env.sh` | Mavjud `.env` dan production `.env` shablon |
 | `smoke-prod.sh` | Health smoke test |
+
+## Backup
+
+`backup/` — server tomonidagi 6 soatlik dump (`stage-backup.sh`), Mac'ga tortib olish (`local-pull.sh`) va tiklash qo'llanmasi (`RESTORE.md`).
 
 ## Integratsiya va media
 
@@ -32,21 +34,24 @@ Faqat deploy va production operatsiyalari uchun. Dev seed skriptlari `RUN_SEED=t
 | Skript | Vazifa |
 |--------|--------|
 | `seed_categories.py` | Kategoriya katalogi (har startda) |
-| `seed.py` | Demo ma'lumot (`RUN_SEED=true`) |
+| `seed.py` | Demo ma'lumot (`RUN_SEED=true`) — **destruktiv**, productionda ishlatmang |
+| `seed_shop_catalog.py`, `seed_shop_reels.py` | Bitta do'konga demo tovar va reels qo'shish (qo'shimcha, hech narsani o'chirmaydi) |
+| `cleanup_demo_seed.py` | Demo ma'lumotni tozalash |
 | `ensure_production_catalog.py` | Production katalog to'ldirish |
 | `reembed_products.py` | Mahsulot embedding yangilash |
 | `reembed_visual_batches.sh` | Batch embedding (cron) |
 
-## Merchant va brend
+## Botlar va brend
 
 | Skript | Vazifa |
 |--------|--------|
-| `run_merchant_bot.py` | Telegram merchant bot |
+| `run_merchant_bot.py`, `run_customer_bot.py` | Telegram botlar (compose ishga tushiradi) |
+| `check_merchant_bot.py` | Bot healthcheck |
 | `run_merchant_alerts.py` | Merchant alertlar |
-| `sync-brand-assets.sh` | Brend PNG sinxronlash |
-| `generate-brand-assets.py` | Brend asset generatsiya |
+| `sync-brand-assets.sh`, `generate-brand-assets.py` | Brend PNG sinxronlash / generatsiya |
+| `generate_merchant_guide.py` | Do'konchilar uchun PDF qo'llanma |
 
-## Media tuzatish (dev/ops)
+## Media tuzatish (ops)
 
 | Skript | Vazifa |
 |--------|--------|

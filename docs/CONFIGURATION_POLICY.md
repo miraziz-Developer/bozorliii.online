@@ -4,23 +4,21 @@ Bu loyiha uchun **asosiy source of truth — root `.env`**.
 
 ## Qoidalar
 
-- `docker-compose.yml`, `docker-compose.prod.yml`, `docker-compose.core.yml`, `docker-compose.web.yml` faqat root `.env` dan foydalanadi.
-- `backend/.env` va `frontend/.env.local` tarixiy/mahalliy yordamchi fayllar bo‘lishi mumkin, lekin deploy uchun authoritative emas.
-- Production va split deploy uchun namunaviy fayllar:
-  - `.env.production.example`
-  - `.env.core.example`
-  - `.env.web.example`
-- Lokal productionga yaqin test uchun: `.env.local-prod`
-- `.env.production.ready` generated artifact bo‘lishi mumkin; qo‘lda asosiy manba sifatida ishlatilmasin.
+- `docker-compose.yml` (lokal dev) va `docker-compose.prod.yml` (production) faqat root `.env` dan foydalanadi.
+- `backend/.env` va `frontend/.env.local` tarixiy/mahalliy yordamchi fayllar bo'lishi mumkin, lekin deploy uchun authoritative emas.
+- Namunaviy fayllar:
+  - `.env.example` — lokal development
+  - `.env.production.example` — production (`install.sh` shundan `.env` yaratadi)
+- `.env` hech qachon commit qilinmaydi (`.gitignore` da).
 
 ## Majburiy xavfsizlik qoidalari
 
-- Production compose fayllarda secretlar uchun default fallback bo‘lmasligi kerak.
-- `ADMIN_PANEL_PASSWORD`, `ADMIN_PANEL_SECRET`, `ADMIN_SESSION_SECRET`, `ADMIN_API_KEY`, `POSTGRES_PASSWORD` kabi qiymatlar `.env` da aniq berilishi shart.
+- Production compose faylda secretlar uchun default fallback bo'lmasligi kerak.
+- `ADMIN_PANEL_PASSWORD`, `ADMIN_PANEL_SECRET`, `ADMIN_SESSION_SECRET`, `ADMIN_API_KEY`, `POSTGRES_PASSWORD`, `JWT_SECRET` aniq berilishi shart. `install.sh` ularni birinchi o'rnatishda xavfsiz tasodifiy qiymat bilan o'zi to'ldiradi.
 - Hardcoded credential yoki remote hotfix skriptlar taqiqlanadi.
 
 ## Amaliy tavsiya
 
-1. Root `.env` ni kerakli example fayldan yaratish.
-2. Compose ishga tushirishdan oldin required envlar tekshirilishi.
-3. Service-specific env fayllar faqat local yordamchi holatlarda ishlatilsin, lekin docs va deploy qarorlarini belgilamasin.
+1. Serverda `sudo bash install.sh` — `.env` ni o'zi yaratadi, faqat API kalitlarini qo'lda to'ldirasiz.
+2. Har deploy oldidan `scripts/preflight-deploy.sh` `.env` ni tekshiradi (`update.sh` va `install.sh` chaqiradi).
+3. Service-specific env fayllar faqat lokal yordamchi holatlarda ishlatilsin, deploy qarorlarini belgilamasin.
