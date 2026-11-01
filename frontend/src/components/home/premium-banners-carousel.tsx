@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { ChevronLeft, ChevronRight, Sparkles, Star } from "lucide-react";
+import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
@@ -81,11 +81,11 @@ const MOCK_SLIDES: PremiumBannerSlide[] = [
 function frameClass(code: PremiumTariffCode): string {
   switch (code) {
     case "gold":
-      return "p-[3px] bg-gradient-to-br from-amber-300 via-yellow-400 to-amber-600 shadow-[0_0_40px_-8px_rgba(251,191,36,0.65)]";
+      return "p-px bg-sand";
     case "silver":
-      return "p-[2px] bg-gradient-to-br from-slate-200 via-white to-slate-400 shadow-[0_12px_40px_-12px_rgba(148,163,184,0.55)]";
+      return "p-px bg-line";
     default:
-      return "p-[1px] bg-gradient-to-br from-border-subtle to-elevated";
+      return "p-[1px] bg-border-subtle ";
   }
 }
 
@@ -116,7 +116,7 @@ function BannerCard({ slide, onNavigate }: BannerCardProps) {
       className="group relative block h-full w-full overflow-hidden rounded-[14px] focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-500/50"
     >
       {imgFailed ? (
-        <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-slate-100 via-white to-slate-200 px-6 text-center">
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-slate-100 px-6 text-center">
           <BozorliiiLogo variant="icon" size="md" href={null} />
           <p className="mt-3 text-sm font-bold text-ink-900">{slide.shop_name}</p>
           <p className="mt-1 text-xs font-medium text-ink-500">{slide.headline || "Premium do'kon"}</p>
@@ -137,6 +137,9 @@ function BannerCard({ slide, onNavigate }: BannerCardProps) {
         className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-900/95 via-ink-900/45 to-ink-900/10"
         initial={false}
       />
+      <span className="absolute left-3 top-3 rounded bg-white/95 px-2 py-0.5 text-xs font-semibold text-charcoal">
+        Reklama
+      </span>
       <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
         <motion.div
           initial={{ opacity: 0, y: 8 }}
@@ -148,14 +151,11 @@ function BannerCard({ slide, onNavigate }: BannerCardProps) {
             {slide.badge_label ? (
               <span
                 className={cn(
-                  "mb-2 inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider",
-                  slide.tariff_code === "gold"
-                    ? "bg-amber-400/90 text-ink-900"
-                    : "bg-white/20 text-white backdrop-blur-md",
+                  "mb-2 inline-flex items-center gap-1 rounded px-2 py-0.5 text-xs font-semibold",
+                  slide.tariff_code === "gold" ? "bg-sand text-charcoal" : "bg-white/20 text-white",
                 )}
               >
-                {slide.tariff_code === "gold" ? <Sparkles className="h-3 w-3" aria-hidden /> : null}
-                {slide.badge_label}
+                                {slide.badge_label}
               </span>
             ) : null}
             <p className="text-lg font-bold tracking-tight text-white [text-shadow:0_2px_10px_rgba(0,0,0,0.45)] sm:text-xl">
@@ -165,18 +165,17 @@ function BannerCard({ slide, onNavigate }: BannerCardProps) {
               {slide.headline}
             </p>
             {slide.location_label ? (
-              <p className="mt-1 text-[11px] text-white/75">
+              <p className="mt-1 text-xs text-white/75">
                 {slide.ipadrom} · {slide.location_label}
               </p>
             ) : null}
           </motion.div>
-          <motion.div
-            className="flex shrink-0 items-center gap-1 rounded-xl bg-white/15 px-3 py-2 backdrop-blur-md"
-            whileHover={{ scale: 1.04 }}
-          >
-            <Star className="h-4 w-4 fill-amber-400 text-amber-400" aria-hidden />
-            <span className="price-mono text-sm font-bold text-white">{slide.rating.toFixed(1)}</span>
-          </motion.div>
+          {slide.rating > 0 ? (
+            <div className="flex shrink-0 items-center gap-1 rounded-control bg-white/15 px-3 py-2">
+              <Star className="h-4 w-4 fill-amber-400 text-amber-400" aria-hidden />
+              <span className="text-sm font-semibold tabular-nums text-white">{slide.rating.toFixed(1)}</span>
+            </div>
+          ) : null}
         </motion.div>
       </div>
     </Link>
@@ -260,7 +259,7 @@ export function PremiumBannersCarousel() {
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
       >
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_0%,rgba(251,191,36,0.08),transparent_55%)]" />
+        <div className="pointer-events-none absolute inset-0" />
 
         {isLoading ? (
           <div className="skeleton aspect-[16/7] w-full rounded-xl sm:aspect-[21/8]" />

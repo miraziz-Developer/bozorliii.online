@@ -199,7 +199,7 @@ export function PremiumCabinet({ profile, onLogout }: PremiumCabinetProps) {
 
   return (
     <div className="relative">
-      <div className="pointer-events-none absolute inset-x-0 -top-8 h-72 bg-[radial-gradient(ellipse_80%_50%_at_50%_-10%,rgba(0,102,255,0.16),transparent_58%),radial-gradient(ellipse_45%_40%_at_100%_0%,rgba(255,77,18,0.08),transparent_50%)]" />
+      <div className="pointer-events-none absolute inset-x-0 -top-8 h-72" />
 
       <header className="relative border-b border-border-subtle/80 pb-8">
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35 }}>
@@ -222,13 +222,13 @@ export function PremiumCabinet({ profile, onLogout }: PremiumCabinetProps) {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.05 }}
-            className="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-gradient-to-br from-[#0a0a0f] via-[#12121a] to-[#050508] p-6 text-white shadow-elevated"
+            className="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#202020] p-6 text-white shadow-elevated"
           >
-            <div className="pointer-events-none absolute -right-16 -top-20 h-52 w-52 rounded-full bg-electric-500/25 blur-3xl transition duration-500 group-hover:bg-electric-400/30" />
-            <div className="pointer-events-none absolute -bottom-10 -left-10 h-40 w-40 rounded-full bg-neon-500/15 blur-3xl" />
+            <div className="hidden" />
+            <div className="hidden" />
             <div className="relative flex items-start justify-between gap-3">
               <div>
-                <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-white/45">Mavjud balans</p>
+                <p className="text-xs font-medium uppercase tracking-[0.2em] text-white/45">Mavjud balans</p>
                 <p className="price-mono mt-2 text-4xl font-bold tracking-tight md:text-[2.75rem]">
                   {coins}
                   <span className="ml-2 text-lg font-medium text-white/50">Coin</span>
@@ -237,15 +237,15 @@ export function PremiumCabinet({ profile, onLogout }: PremiumCabinetProps) {
                   ≈ {(coins * COIN_UZS_RATE).toLocaleString("uz-UZ")} so&apos;m chegirma
                 </p>
               </div>
-              <span className="shrink-0 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wider text-white/90 backdrop-blur-md">
+              <span className="shrink-0 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-white/90 backdrop-blur-md">
                 {tier}
               </span>
             </div>
-            <p className="relative mt-4 text-[11px] leading-relaxed text-white/45">
+            <p className="relative mt-4 text-xs leading-relaxed text-white/45">
               Yakunlangan xariddan Coin yig&apos;iladi. Checkoutda 30% gacha chegirma uchun ishlatishingiz mumkin.
             </p>
             <div className="relative mt-8 flex items-center justify-between border-t border-white/10 pt-5">
-              <span className="price-mono text-[10px] tracking-[0.18em] text-white/40">BOZORLIII PASS</span>
+              <span className="price-mono text-xs tracking-[0.18em] text-white/40">BOZORLIII PASS</span>
               <Link
                 href="/checkout"
                 className="inline-flex items-center gap-1.5 rounded-xl bg-white/12 px-3 py-2 text-xs font-semibold text-white ring-1 ring-white/15 transition hover:bg-white/18"
@@ -301,7 +301,7 @@ export function PremiumCabinet({ profile, onLogout }: PremiumCabinetProps) {
                         disabled={phoneSaving}
                         className={cn(
                           "price-mono min-w-0 flex-1 rounded-xl border border-border-subtle bg-elevated/60 px-3 py-2",
-                          "text-[11px] font-medium tracking-wide text-ink-900 shadow-inner outline-none transition",
+                          "text-xs font-medium tracking-wide text-ink-900 shadow-inner outline-none transition",
                           "placeholder:text-ink-400 focus:border-electric-500/45 focus:ring-2 focus:ring-electric-500/15 sm:w-44 sm:flex-none",
                         )}
                       />
@@ -338,7 +338,7 @@ export function PremiumCabinet({ profile, onLogout }: PremiumCabinetProps) {
                       onClick={beginEditPhone}
                       className="group flex w-full items-center justify-end gap-2 rounded-xl py-0.5 text-right transition sm:w-auto"
                     >
-                      <span className="price-mono text-[11px] font-semibold tracking-wide text-ink-900">
+                      <span className="price-mono text-xs font-semibold tracking-wide text-ink-900">
                         {phoneDisplay || "Kiritilmagan"}
                       </span>
                       <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border border-transparent text-ink-300 transition group-hover:border-electric-500/20 group-hover:bg-electric-500/8 group-hover:text-electric-600">
@@ -412,7 +412,7 @@ export function PremiumCabinet({ profile, onLogout }: PremiumCabinetProps) {
 
             <div className="relative mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               <label className="rounded-2xl border border-border-default bg-white p-4 shadow-sm">
-                <span className="flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-wider text-ink-500">
+                <span className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ink-500">
                   <Settings2 className="h-3 w-3" aria-hidden />
                   O&apos;lcham
                 </span>
@@ -429,7 +429,7 @@ export function PremiumCabinet({ profile, onLogout }: PremiumCabinetProps) {
                 </select>
               </label>
               <label className="rounded-2xl border border-border-default bg-white p-4 shadow-sm">
-                <span className="text-[10px] font-semibold uppercase tracking-wider text-ink-500">Uslub</span>
+                <span className="text-xs font-semibold uppercase tracking-wider text-ink-500">Uslub</span>
                 <select
                   className={selectClassName()}
                   value={prefs.style}
@@ -443,7 +443,7 @@ export function PremiumCabinet({ profile, onLogout }: PremiumCabinetProps) {
                 </select>
               </label>
               <label className="rounded-2xl border border-border-default bg-white p-4 shadow-sm sm:col-span-2 lg:col-span-1">
-                <span className="text-[10px] font-semibold uppercase tracking-wider text-ink-500">Bozor sektori</span>
+                <span className="text-xs font-semibold uppercase tracking-wider text-ink-500">Bozor sektori</span>
                 <select
                   className={selectClassName()}
                   value={prefs.sector}
@@ -493,7 +493,7 @@ export function PremiumCabinet({ profile, onLogout }: PremiumCabinetProps) {
           </motion.section>
 
           <div className="flex flex-wrap items-center justify-between gap-3 border-t border-border-subtle pt-2">
-            <p className="text-[11px] text-ink-400">Bozorliii.online · xavfsiz hisob</p>
+            <p className="text-xs text-ink-400">Bozorliii.online · xavfsiz hisob</p>
             <Button
               variant="ghost"
               className="text-ink-500 hover:text-red"

@@ -146,7 +146,7 @@ export function PhotoDetectedRail({ previewUrl, items, selectedId, onSelect, onM
               className={cn(
                 "shrink-0 rounded-xl border-2 p-1 transition-all duration-300",
                 chipActive
-                  ? "border-electric-500 bg-electric-500/10 shadow-[0_0_12px_rgba(0,102,255,0.25)]"
+                  ? "border-electric-500 bg-electric-500/10"
                   : "border-border-subtle hover:border-electric-500/40",
               )}
               aria-pressed={selectedId === item.id}

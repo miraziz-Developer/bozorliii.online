@@ -285,7 +285,7 @@ export function UnifiedAuthPanel({ onSuccess, redirectTo = "/profile", className
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          className="border-b border-border-subtle bg-gradient-electric px-6 py-8 text-center text-white"
+          className="border-b border-border-subtle bg-brand-500 px-6 py-8 text-center text-white"
         >
           <div className="mx-auto mb-4 flex justify-center">
             <BozorliiiLogo variant="icon" size="lg" href={null} className="rounded-2xl ring-2 ring-white/30" />

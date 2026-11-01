@@ -88,7 +88,7 @@ export function OrderNotificationsBell({ className }: { className?: string }) {
       >
         <Bell className="h-[1.1rem] w-[1.1rem]" />
         {unreadCount > 0 ? (
-          <span className="absolute -right-1 -top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-electric-600 px-1 text-[9px] font-bold text-white ring-2 ring-white">
+          <span className="absolute -right-1 -top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-electric-600 px-1 text-xs font-bold text-white ring-2 ring-white">
             {unreadCount > 9 ? "9+" : unreadCount}
           </span>
         ) : null}
@@ -109,7 +109,7 @@ export function OrderNotificationsBell({ className }: { className?: string }) {
                 <button
                   type="button"
                   onClick={() => void markAllRead()}
-                  className="text-[11px] font-semibold text-electric-600 hover:underline"
+                  className="text-xs font-semibold text-electric-600 hover:underline"
                 >
                   O&apos;qilgan deb belgilash
                 </button>
@@ -138,7 +138,7 @@ export function OrderNotificationsBell({ className }: { className?: string }) {
                       <div className="min-w-0">
                         <p className="text-sm font-semibold text-ink-900">{item.title}</p>
                         <p className="mt-0.5 text-xs leading-relaxed text-ink-600">{item.body}</p>
-                        <p className="mt-1 truncate text-[11px] font-medium text-ink-400">{item.product_name}</p>
+                        <p className="mt-1 truncate text-xs font-medium text-ink-400">{item.product_name}</p>
                       </div>
                     </div>
                   </Link>

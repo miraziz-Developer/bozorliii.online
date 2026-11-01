@@ -166,7 +166,7 @@ function DockButton({ item }: { item: FabDockItem }) {
       className={cn(
         "relative flex h-11 w-11 items-center justify-center rounded-2xl transition-all duration-200 active:scale-[0.96] md:h-12 md:w-12",
         item.variant === "gold" &&
-          "bg-gradient-to-br from-gold-400 via-gold-500 to-amber-600 text-white shadow-[0_4px_20px_-4px_rgba(245,158,11,0.55)]",
+          "bg-gold-400 text-white shadow-[0_4px_20px_-4px_rgba(245,158,11,0.55)]",
         item.variant === "dark" && "bg-ink-900 text-white shadow-md",
         (item.variant === "default" || !item.variant) &&
           "bg-white/90 text-ink-800 shadow-sm ring-1 ring-black/[0.06] hover:bg-white",
@@ -176,7 +176,7 @@ function DockButton({ item }: { item: FabDockItem }) {
       {badge > 0 ? (
         <span
           className={cn(
-            "absolute -right-1 -top-1 flex h-5 min-w-[1.25rem] items-center justify-center rounded-full px-1 text-[10px] font-bold text-white",
+            "absolute -right-1 -top-1 flex h-5 min-w-[1.25rem] items-center justify-center rounded-full px-1 text-xs font-bold text-white",
             item.variant === "gold" ? "bg-red-600" : "bg-neon-500",
           )}
         >

@@ -36,7 +36,7 @@ export function VisualSearchHotspots({
               className={cn(
                 "pointer-events-none absolute z-[8] rounded-lg border-2 transition-all duration-300",
                 active
-                  ? "border-electric-500 bg-electric-500/15 shadow-[0_0_16px_rgba(0,102,255,0.35)]"
+                  ? "border-electric-500 bg-electric-500/15"
                   : "border-electric-500/45 bg-electric-500/5",
               )}
               style={{
@@ -72,7 +72,7 @@ export function VisualSearchHotspots({
               />
               <span
                 className={cn(
-                  "relative h-3 w-3 rounded-full bg-electric-500 shadow-[0_0_14px_rgba(0,102,255,0.85)]",
+                  "relative h-3 w-3 rounded-full bg-electric-500",
                   active && "h-3.5 w-3.5 ring-2 ring-white/90",
                 )}
               />

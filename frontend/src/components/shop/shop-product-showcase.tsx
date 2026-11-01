@@ -44,7 +44,7 @@ export function ShopProductShowcase({ products, loading, shopName, shopSlug, isD
       {!showFeatured ? (
         <div className="mb-5 flex items-end justify-between gap-3">
           <div className="flex items-center gap-3">
-            <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#f0eeea] text-ink-700 ring-1 ring-black/[0.05]">
+            <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#F1EEE7] text-ink-700 ring-1 ring-black/[0.05]">
               <LayoutGrid className="h-5 w-5" />
             </span>
             <div>
@@ -82,7 +82,7 @@ function DemoProductTile({ product }: { product: Product }) {
     <article className="overflow-hidden rounded-2xl border border-border-subtle bg-surface shadow-sm">
       <div className="relative aspect-[3/4] bg-canvas">
         <Image src={img} alt={product.name} fill className="object-cover" sizes="(max-width: 768px) 50vw, 25vw" unoptimized />
-        <span className="absolute left-2 top-2 rounded-md bg-amber-500/90 px-1.5 py-0.5 text-[9px] font-bold uppercase text-white">
+        <span className="absolute left-2 top-2 rounded-md bg-amber-500/90 px-1.5 py-0.5 text-xs font-bold uppercase text-white">
           Demo
         </span>
       </div>

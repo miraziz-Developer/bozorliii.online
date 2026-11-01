@@ -37,7 +37,7 @@ function gridTileDataUrl(): string {
 <svg xmlns="http://www.w3.org/2000/svg" width="${IPPODROM_MAP_WIDTH}" height="${IPPODROM_MAP_HEIGHT}" viewBox="0 0 ${IPPODROM_MAP_WIDTH} ${IPPODROM_MAP_HEIGHT}">
   <defs>
     <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
-      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(0,102,255,0.07)" stroke-width="0.65"/>
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(118,21,47,0.07)" stroke-width="0.65"/>
     </pattern>
     <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#FAFBFC"/>
@@ -194,7 +194,7 @@ export function IppodromLeafletMap({
           key={block.id}
           bounds={boundsFromRect(block.x, block.y, block.width, block.height)}
           pathOptions={{
-            color: "#0066ff",
+            color: "#76152F",
             weight: 1.25,
             fillColor: "#ffffff",
             fillOpacity: 0.94,
@@ -213,9 +213,9 @@ export function IppodromLeafletMap({
             key={stall.id}
             bounds={boundsFromRect(stall.x, stall.y, stall.width, stall.height)}
             pathOptions={{
-              color: isTarget ? "#0066ff" : stall.status === "occupied" ? "#93c5fd" : "#cbd5e1",
+              color: isTarget ? "#76152F" : stall.status === "occupied" ? "#CE9AA6" : "#cbd5e1",
               weight: isTarget ? 2.5 : 1,
-              fillColor: isTarget ? "#0066ff" : stallStatusColor(stall.status),
+              fillColor: isTarget ? "#76152F" : stallStatusColor(stall.status),
               fillOpacity: isTarget ? 0.92 : 0.85,
             }}
             eventHandlers={{
@@ -232,7 +232,7 @@ export function IppodromLeafletMap({
           <Polyline
             positions={routePositions}
             pathOptions={{
-              color: "#0066ff",
+              color: "#76152F",
               weight: 8,
               opacity: 0.22,
               lineCap: "round",
@@ -243,7 +243,7 @@ export function IppodromLeafletMap({
           <Polyline
             positions={routePositions}
             pathOptions={{
-              color: "#0066ff",
+              color: "#76152F",
               weight: 5,
               opacity: 0.95,
               lineCap: "round",
@@ -268,7 +268,7 @@ export function IppodromLeafletMap({
       <CircleMarker
         center={toLatLng(entrancePoint)}
         radius={7}
-        pathOptions={{ color: "#ffffff", weight: 2, fillColor: "#0066ff", fillOpacity: 1 }}
+        pathOptions={{ color: "#ffffff", weight: 2, fillColor: "#76152F", fillOpacity: 1 }}
       />
 
       {levelMarkers.map((marker) => {

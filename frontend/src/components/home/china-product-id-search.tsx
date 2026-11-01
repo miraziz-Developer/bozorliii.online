@@ -36,7 +36,7 @@ export function ChinaProductIdSearch({ onImported, className }: Props) {
 
   return (
     <div className={cn("border-t border-border-subtle bg-white px-4 py-3 sm:px-6", className)}>
-      <p className="text-[10px] font-bold uppercase tracking-widest text-cyan-700">{t("home.china.searchLabel")}</p>
+      <p className="text-xs font-bold uppercase tracking-widest text-cyan-700">{t("home.china.searchLabel")}</p>
       <div className="mt-2 flex gap-2">
         <input
           value={query}
@@ -50,7 +50,7 @@ export function ChinaProductIdSearch({ onImported, className }: Props) {
           type="button"
           onClick={() => void submit()}
           disabled={loading || !query.trim()}
-          className="inline-flex h-10 shrink-0 items-center gap-1.5 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 px-4 text-sm font-bold text-white disabled:opacity-50"
+          className="inline-flex h-10 shrink-0 items-center gap-1.5 rounded-xl bg-emerald-500 px-4 text-sm font-bold text-white disabled:opacity-50"
         >
           {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Search className="h-4 w-4" />}
           {t("home.china.importBtn")}

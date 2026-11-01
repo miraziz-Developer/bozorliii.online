@@ -3,7 +3,7 @@ import { MapPin, QrCode, ShoppingBag } from "lucide-react";
 export function NationwideIntro() {
   return (
     <section className="mx-auto max-w-7xl px-4 pb-3 pt-4 sm:px-6" aria-labelledby="nationwide-title">
-      <div className="overflow-hidden rounded-2xl border border-electric-200 bg-gradient-to-br from-electric-50 to-white p-5 shadow-sm sm:p-7">
+      <div className="overflow-hidden rounded-2xl border border-electric-200 bg-electric-50 p-5 shadow-sm sm:p-7">
         <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-electric-600">O‘zbekistonning raqamli bozori</p>
         <h1 id="nationwide-title" className="mt-2 text-2xl font-black tracking-tight text-ink-900 sm:text-3xl">
           Butun O‘zbekiston bo‘ylab bozorlar va do‘konlar — bitta platformada

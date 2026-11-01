@@ -66,7 +66,7 @@ export function StoreMarkerPin({
       </span>
       <div
         className={cn(
-          "prestige-map-marker__label mt-1 max-w-[112px] rounded-md px-2 py-1 text-[10px] leading-tight shadow-sm",
+          "prestige-map-marker__label mt-1 max-w-[112px] rounded-md px-2 py-1 text-xs leading-tight shadow-sm",
           active ? "bg-blue-600 text-white" : "bg-white/95 text-slate-900",
         )}
       >
@@ -80,7 +80,7 @@ export function StoreMarkerPin({
         {comment ? (
           <p
             className={cn(
-              "mt-0.5 line-clamp-2 rounded px-1 py-0.5 text-[9px] font-semibold",
+              "mt-0.5 line-clamp-2 rounded px-1 py-0.5 text-xs font-semibold",
               active ? "bg-blue-700/40 text-blue-50" : "bg-amber-100 text-amber-900",
             )}
           >

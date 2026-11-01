@@ -71,7 +71,7 @@ export function PaymentMethodPicker({ value, onChange }: PaymentMethodPickerProp
     <div className="space-y-4">
       <div>
         <h3 className="text-sm font-semibold text-ink-900">To&apos;lov usuli</h3>
-        <p className="mt-0.5 text-[11px] text-ink-500">
+        <p className="mt-0.5 text-xs text-ink-500">
           {showOnline ? "Do'konda yoki onlayn (bron + to'lov)" : "Naqd yoki terminal — do'konda yoki kuryerda"}
         </p>
       </div>
@@ -97,7 +97,7 @@ export function PaymentMethodPicker({ value, onChange }: PaymentMethodPickerProp
               <p className={cn("pr-8 text-sm font-bold", selected ? "text-electric-500" : "text-ink-900")}>
                 {option.title}
               </p>
-              <p className={cn("mt-1 text-[11px] leading-relaxed", selected ? "text-ink-600" : "text-ink-500")}>
+              <p className={cn("mt-1 text-xs leading-relaxed", selected ? "text-ink-600" : "text-ink-500")}>
                 {option.subtitle}
               </p>
             </button>
@@ -107,7 +107,7 @@ export function PaymentMethodPicker({ value, onChange }: PaymentMethodPickerProp
 
       {onlineIds.length ? (
         <div className="space-y-2 border-t border-border-subtle pt-4">
-          <p className="text-[11px] font-semibold uppercase tracking-wider text-ink-500">Onlayn</p>
+          <p className="text-xs font-semibold uppercase tracking-wider text-ink-500">Onlayn</p>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             {onlineIds.map((option) => {
               const selected = value === option.id;
@@ -128,7 +128,7 @@ export function PaymentMethodPicker({ value, onChange }: PaymentMethodPickerProp
                   <p className={cn("pr-8 text-sm font-bold", selected ? "text-indigo-600" : "text-ink-900")}>
                     {option.title}
                   </p>
-                  <p className="mt-1 text-[11px] leading-relaxed text-ink-500">{option.subtitle}</p>
+                  <p className="mt-1 text-xs leading-relaxed text-ink-500">{option.subtitle}</p>
                 </button>
               );
             })}

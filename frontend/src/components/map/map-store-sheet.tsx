@@ -49,12 +49,12 @@ export function MapStoreSheet({ data, onClose, className }: MapStoreSheetProps) 
 
         <div className="px-4 pt-2">
           <div className="flex items-center gap-3 border-b border-neutral-200/50 pb-3">
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-600/30">
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-blue-600 text-white shadow-md shadow-blue-600/30">
               <Store className="h-5 w-5" />
             </div>
             <div className="min-w-0 flex-1 pr-8">
               <p className="truncate text-base font-bold text-ink-900">{data.shop.name}</p>
-              <p className="mt-1 inline-flex max-w-full items-center gap-1.5 truncate rounded-full border border-electric-500/25 bg-electric-500/8 px-2.5 py-1 text-[10px] font-semibold text-electric-700">
+              <p className="mt-1 inline-flex max-w-full items-center gap-1.5 truncate rounded-full border border-electric-500/25 bg-electric-500/8 px-2.5 py-1 text-xs font-semibold text-electric-700">
                 {`${data.shop.ipadrom || "Ippodrom"} ${block}-blok, rasta ${stall} | Do'kon ID: #${shopCode}`}
               </p>
               {rating != null && rating > 0 ? (
@@ -72,13 +72,13 @@ export function MapStoreSheet({ data, onClose, className }: MapStoreSheetProps) 
 
           {data.shop.slug ? (
             <Link href={`/shop/${data.shop.slug}`} className="mt-4 block">
-              <span className="flex w-full items-center justify-center rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 py-3.5 text-sm font-bold tracking-wide text-white shadow-lg shadow-blue-600/30 transition hover:scale-[1.02] hover:opacity-95 active:scale-[0.98]">
+              <span className="flex w-full items-center justify-center rounded-xl bg-blue-600 py-3.5 text-sm font-bold tracking-wide text-white shadow-lg shadow-blue-600/30 transition hover:scale-[1.02] hover:opacity-95 active:scale-[0.98]">
                 Do&apos;konga kirish
               </span>
             </Link>
           ) : data.shop.id ? (
             <Link href={`/merchant/${data.shop.id}`} className="mt-4 block">
-              <span className="flex w-full items-center justify-center rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 py-3.5 text-sm font-bold tracking-wide text-white shadow-lg shadow-blue-600/30 transition hover:scale-[1.02] hover:opacity-95 active:scale-[0.98]">
+              <span className="flex w-full items-center justify-center rounded-xl bg-blue-600 py-3.5 text-sm font-bold tracking-wide text-white shadow-lg shadow-blue-600/30 transition hover:scale-[1.02] hover:opacity-95 active:scale-[0.98]">
                 Do&apos;konga kirish
               </span>
             </Link>

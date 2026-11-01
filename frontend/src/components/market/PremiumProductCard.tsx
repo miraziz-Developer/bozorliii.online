@@ -27,7 +27,7 @@ export function PremiumProductCard({ href, name, price, imageUrl, badge }: Props
           sizes="(max-width: 640px) 50vw, 25vw"
         />
         {badge ? (
-          <span className="absolute left-2 top-2 rounded-lg border border-border-subtle bg-white/95 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-electric-500 shadow-sm">
+          <span className="absolute left-2 top-2 rounded-lg border border-border-subtle bg-white/95 px-2 py-0.5 text-xs font-bold uppercase tracking-wide text-electric-500 shadow-sm">
             {badge}
           </span>
         ) : null}

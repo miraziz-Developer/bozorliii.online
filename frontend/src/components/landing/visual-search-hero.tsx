@@ -38,7 +38,7 @@ export function VisualSearchHero() {
 
   return (
     <section className="relative overflow-hidden px-4 pb-10 pt-28 md:pt-32">
-      <div className="absolute inset-0 bg-hero-glow" />
+      <div className="absolute inset-0" />
       <motion.div className="relative mx-auto max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -52,7 +52,7 @@ export function VisualSearchHero() {
           </div>
           <h1 className="text-4xl font-bold tracking-tight text-text-100 md:text-6xl">
             Rasm tashlang,
-            <span className="block bg-gradient-gold bg-clip-text text-transparent">bozor topilsin</span>
+            <span className="block bg-brand-500 bg-clip-text text-transparent">bozor topilsin</span>
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-base text-text-300 md:text-lg">
             Toshkent bozorlaridan AI yordamida toping. Rasm yoki matn bilan qidiring — eng mos variantni soniyalar ichida toping.
@@ -121,7 +121,7 @@ export function VisualSearchHero() {
               <button
                 type="button"
                 onClick={() => query.trim() && router.push(`/search?q=${encodeURIComponent(query.trim())}`)}
-                className="rounded-2xl bg-gradient-gold px-6 py-4 text-sm font-semibold text-canvas shadow-gold transition hover:scale-[1.02]"
+                className="rounded-2xl bg-brand-500 px-6 py-4 text-sm font-semibold text-canvas shadow-gold transition hover:scale-[1.02]"
               >
                 Qidirish
               </button>

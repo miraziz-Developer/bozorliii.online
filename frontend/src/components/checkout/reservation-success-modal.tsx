@@ -33,7 +33,7 @@ function MetaRow({
         <Icon size={15} />
       </div>
       <div className="min-w-0">
-        <p className="text-[10px] font-semibold uppercase tracking-wider text-ink-400">{label}</p>
+        <p className="text-xs font-semibold uppercase tracking-wider text-ink-400">{label}</p>
         <p className="mt-0.5 text-sm font-semibold text-ink-900">{value}</p>
       </div>
     </div>
@@ -62,7 +62,7 @@ export function ReservationSuccessModal({ data, onClose }: ReservationSuccessMod
         onClick={(e) => e.stopPropagation()}
       >
         <div className={cn(MARKET.bronSuccess, "relative overflow-hidden rounded-t-[1.75rem] sm:rounded-[1.75rem]")}>
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-electric-500/15 via-neon-500/5 to-transparent" />
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-electric-500/15 " />
 
           <div className="relative p-6 pb-5">
             <button
@@ -81,7 +81,7 @@ export function ReservationSuccessModal({ data, onClose }: ReservationSuccessMod
                   <CheckCircle2 size={30} strokeWidth={2} />
                 </span>
               </div>
-              <div className="mb-1 flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-electric-500">
+              <div className="mb-1 flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-electric-500">
                 <Sparkles size={12} />
                 {isClickPending ? "Bron yaratildi — to'lov kutilmoqda" : "Tasdiqlangan bron"}
               </div>
@@ -104,7 +104,7 @@ export function ReservationSuccessModal({ data, onClose }: ReservationSuccessMod
                 )}
               </p>
               {data.payment_method_label ? (
-                <span className="mt-3 inline-flex rounded-full border border-electric-500/25 bg-electric-500/8 px-3 py-1 text-[10px] font-semibold text-electric-600">
+                <span className="mt-3 inline-flex rounded-full border border-electric-500/25 bg-electric-500/8 px-3 py-1 text-xs font-semibold text-electric-600">
                   {data.payment_method_label}
                 </span>
               ) : null}
@@ -113,7 +113,7 @@ export function ReservationSuccessModal({ data, onClose }: ReservationSuccessMod
             {primaryOrderId && !isClickPending ? (
               <div className="mt-5">
                 <PickupQrPendingBanner status={data.status || "reserved"} />
-                <p className="mt-3 text-center text-[11px] leading-relaxed text-ink-500">
+                <p className="mt-3 text-center text-xs leading-relaxed text-ink-500">
                   Holat o&apos;zgarganda bildirishnoma keladi — QR «Olib ketishga tayyor» bo&apos;lganda ochiladi.
                 </p>
               </div>
@@ -134,10 +134,10 @@ export function ReservationSuccessModal({ data, onClose }: ReservationSuccessMod
                   <Phone size={15} />
                 </div>
                 <div>
-                  <p className="text-[10px] font-semibold uppercase tracking-wider text-ink-400">Issiq liniya</p>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-ink-400">Issiq liniya</p>
                   <a
                     href={`tel:${data.merchant_phone.replace(/\s/g, "")}`}
-                    className="mt-0.5 block font-mono text-base font-bold text-electric-600 hover:underline"
+                    className="mt-0.5 block tabular-nums text-base font-bold text-electric-600 hover:underline"
                   >
                     {hotline}
                   </a>

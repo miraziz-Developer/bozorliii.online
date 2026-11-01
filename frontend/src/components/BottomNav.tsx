@@ -28,8 +28,8 @@ export function BottomNav() {
   }, []);
 
   return (
-    <div className="pointer-events-none fixed inset-x-0 bottom-0 z-40 px-2 pb-[max(0.5rem,env(safe-area-inset-bottom))] min-[360px]:px-3 min-[360px]:pb-[max(0.75rem,env(safe-area-inset-bottom))] md:hidden">
-      <div className="pointer-events-auto mx-auto grid w-full max-w-lg grid-cols-5 premium-dock">
+    <nav aria-label="Asosiy menyu" className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-white pb-[env(safe-area-inset-bottom)] md:hidden">
+      <div className="mx-auto grid w-full max-w-lg grid-cols-5">
         {items.map((item) => {
           const isActive = pathname === item.href;
           return (
@@ -39,14 +39,14 @@ export function BottomNav() {
               data-cart-anchor={item.href === "/checkout" ? true : undefined}
               aria-current={isActive ? "page" : undefined}
               className={cn(
-                "relative flex min-h-[54px] min-w-0 flex-col items-center justify-center gap-1 rounded-xl px-px text-[9px] font-semibold transition-all duration-200 min-[360px]:min-h-[58px] min-[360px]:px-0.5 min-[360px]:text-[10px] sm:min-h-[60px] sm:text-[11px]",
-                isActive ? "premium-nav-active font-bold text-electric-500" : "text-ink-500 hover:text-ink-900",
+                "relative flex min-h-[56px] min-w-0 flex-col items-center justify-center gap-1 px-0.5 text-xs font-medium transition-colors",
+                isActive ? "font-semibold text-brand-500" : "text-ink-500 hover:text-charcoal",
               )}
             >
               <span className="relative">
                 <item.icon className="h-5 w-5" strokeWidth={isActive ? 2.5 : 2} aria-hidden />
                 {item.href === "/checkout" && totalItems > 0 ? (
-                  <span className="absolute -right-2.5 -top-2 flex h-[18px] min-w-[18px] items-center justify-center rounded-full bg-gradient-gold px-1 text-[9px] font-bold text-white shadow-gold ring-2 ring-white" aria-label={`Savatchada ${totalItems} ta mahsulot`}>
+                  <span className="absolute -right-2.5 -top-2 flex h-[18px] min-w-[18px] items-center justify-center rounded-full bg-brand-500 px-1 text-xs font-bold text-white ring-2 ring-white" aria-label={`Savatchada ${totalItems} ta mahsulot`}>
                     {totalItems > 99 ? "99+" : totalItems}
                   </span>
                 ) : null}
@@ -55,7 +55,7 @@ export function BottomNav() {
               {isActive ? (
                 <motion.div
                   layoutId="bottomnav-indicator"
-                  className="absolute bottom-0.5 left-1/2 h-1 w-5 -translate-x-1/2 rounded-full bg-electric-500"
+                  className="absolute left-1/2 top-0 h-0.5 w-8 -translate-x-1/2 bg-brand-500"
                   transition={{ type: "spring", damping: 28, stiffness: 380 }}
                 />
               ) : null}
@@ -63,6 +63,6 @@ export function BottomNav() {
           );
         })}
       </div>
-    </div>
+    </nav>
   );
 }

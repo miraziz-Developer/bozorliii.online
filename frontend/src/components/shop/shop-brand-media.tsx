@@ -86,7 +86,7 @@ export function ShopLogoAvatar({ shopName, src, className, size = "md" }: ShopLo
   return (
     <div
       className={cn(
-        "relative flex shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-[#0066ff] via-[#4f46e5] to-[#ff6b35] font-bold tracking-tight text-white shadow-lg ring-4 ring-surface",
+        "relative flex shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-[#76152F] font-bold tracking-tight text-white shadow-lg ring-4 ring-surface",
         LOGO_SIZE[size],
         className,
       )}
@@ -94,7 +94,7 @@ export function ShopLogoAvatar({ shopName, src, className, size = "md" }: ShopLo
       role="img"
       aria-label={shopName}
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.35),transparent_55%)]" />
+      <div className="absolute inset-0" />
       <span className="relative z-10 drop-shadow-sm">{initials}</span>
       <Sparkles className="absolute bottom-1.5 right-1.5 h-3.5 w-3.5 text-white/70" aria-hidden />
     </div>
@@ -136,7 +136,7 @@ export function ShopLogoChip({
   return (
     <div
       className={cn(
-        "flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#0066ff] to-[#4f46e5] text-xs font-bold text-white shadow-sm ring-1 ring-black/5",
+        "flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#76152F] text-xs font-bold text-white shadow-sm ring-1 ring-black/5",
         className,
       )}
       aria-label={shopName}
@@ -151,7 +151,7 @@ export function ShopCoverBrandBadge({ className }: { className?: string }) {
   return (
     <span
       className={cn(
-        "pointer-events-none absolute right-4 top-4 z-10 inline-flex items-center gap-1.5 rounded-full bg-black/35 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wider text-white/90 backdrop-blur-sm",
+        "pointer-events-none absolute right-4 top-4 z-10 inline-flex items-center gap-1.5 rounded-full bg-black/35 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-white/90 backdrop-blur-sm",
         className,
       )}
     >

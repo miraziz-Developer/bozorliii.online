@@ -16,9 +16,7 @@ import { AiStylistAdvice } from "@/components/product/ai-stylist-advice";
 import { ProductReviewsSection } from "@/components/product/product-reviews-section";
 import { VisualSimilarityRail } from "@/components/product/visual-similarity-rail";
 import { emitProductView } from "@/components/providers/price-drop-listener";
-import { BundleOffer } from "@/components/ui/bundle-offer";
 import { Button } from "@/components/ui/button";
-import { ContextualAiSidebar } from "@/components/ui/contextual-ai-sidebar";
 import { ImageMagnifier } from "@/components/ui/image-magnifier";
 import { ProductSkeleton } from "@/components/ui/product-skeleton";
 import { SizeRecommender } from "@/components/ui/size-recommender";
@@ -196,7 +194,7 @@ export default function ProductPage() {
                           index={0}
                           alt=""
                           fill
-                          className="object-contain bg-[#f0eeea] p-0.5"
+                          className="object-contain bg-[#F1EEE7] p-0.5"
                           sizes="72px"
                         />
                       </button>
@@ -207,7 +205,7 @@ export default function ProductPage() {
                   <div className={cn(productVariantPanel, "space-y-4")}>
                     {options.colors.length ? (
                       <div>
-                        <p className="mb-2.5 text-[10px] font-bold uppercase tracking-[0.18em] text-ink-400">Rang</p>
+                        <p className="mb-2.5 text-xs font-bold uppercase tracking-[0.18em] text-ink-400">Rang</p>
                         <div className="flex flex-wrap gap-2">
                           {options.colors.map((color) => {
                             const thumbImages = product ? imagesForColor(product, color) : [];
@@ -254,7 +252,7 @@ export default function ProductPage() {
                     ) : null}
                     {sizesForSelectedColor.length ? (
                       <div>
-                        <p className="mb-2.5 text-[10px] font-bold uppercase tracking-[0.18em] text-ink-400">Razmer</p>
+                        <p className="mb-2.5 text-xs font-bold uppercase tracking-[0.18em] text-ink-400">Razmer</p>
                         <div className="flex flex-wrap gap-2">
                           {sizesForSelectedColor.map((size) => {
                             const sizeAvailable = product
@@ -323,8 +321,6 @@ export default function ProductPage() {
             </div>
 
             <div className={cn(productSectionDivider, "space-y-8")}>
-              <ContextualAiSidebar product={product} />
-              <BundleOffer primary={product} related={similar} />
               <AiStylistAdvice product={product} related={similar} />
               <VisualSimilarityRail sourceImage={heroImage} items={similar} />
             </div>

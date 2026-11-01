@@ -14,39 +14,26 @@ type Props = {
 
 export function ShopTrustStrip({ shop, className }: Props) {
   const metrics = shop.trust_metrics ?? DEFAULT_SHOP_TRUST_METRICS;
-  const fulfillment = metrics.on_time_delivery_pct ?? 98;
-  const responseHours = metrics.response_time_hours ?? 0.5;
-  const responseLabel =
-    responseHours < 1
-      ? `${Math.round(responseHours * 60)} daqiqada javob`
-      : `${responseHours.toFixed(1)} soatda javob`;
+  const fulfillment = metrics.on_time_delivery_pct ?? 0;
+  const responseHours = metrics.response_time_hours ?? null;
 
-  const items = [
-    {
-      icon: Truck,
-      label: `${fulfillment}% vaqtida`,
-      sub: "Buyurtma bajariladi",
-      badge: "trust" as const,
-    },
-    {
-      icon: ShieldCheck,
-      label: "Sifat kafolati",
-      sub: "Mahsulot rasmdagidek",
-      badge: "trust" as const,
-    },
-    {
+  // Only measured metrics are shown; missing values are hidden instead of using placeholder numbers.
+  const items: Array<{ icon: typeof Truck; label: string; sub: string; badge: "trust" | "deal" | "hot" }> = [];
+  if (fulfillment > 0) {
+    items.push({ icon: Truck, label: `${fulfillment}% vaqtida`, sub: "Buyurtma bajariladi", badge: "trust" });
+  }
+  if (metrics.quality_guarantee) {
+    items.push({ icon: ShieldCheck, label: "Sifat kafolati", sub: "Do‘kon tomonidan", badge: "trust" });
+  }
+  if (responseHours != null && responseHours > 0) {
+    items.push({
       icon: Clock,
-      label: responseLabel,
-      sub: "Tez aloqa",
-      badge: "deal" as const,
-    },
-    {
-      icon: Sparkles,
-      label: "Bron bepul",
-      sub: "Do'konda to'lang",
-      badge: "hot" as const,
-    },
-  ];
+      label: responseHours < 1 ? `${Math.round(responseHours * 60)} daqiqada javob` : `${responseHours.toFixed(1)} soatda javob`,
+      sub: "O‘rtacha javob vaqti",
+      badge: "deal",
+    });
+  }
+  items.push({ icon: Sparkles, label: "Bron bepul", sub: "Do'konda to'lang", badge: "hot" });
 
   return (
     <div

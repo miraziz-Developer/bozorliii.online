@@ -42,7 +42,7 @@ export function DomainCategoryFilter({ value, onChange, className }: DomainCateg
               {active ? (
                 <motion.span
                   layoutId="category-chip-active"
-                  className="absolute inset-0 rounded-full bg-electric-500 shadow-[0_0_20px_rgba(0,102,255,0.3)]"
+                  className="absolute inset-0 rounded-full bg-electric-500"
                   transition={{ type: "spring", stiffness: 420, damping: 32 }}
                 />
               ) : null}

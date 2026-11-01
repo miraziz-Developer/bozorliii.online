@@ -19,7 +19,7 @@ export default function MapPage() {
     <main className="ippodrom-map-root">
       <Suspense
         fallback={
-          <div className="flex h-[calc(100vh-64px)] min-h-[100dvh] w-full items-center justify-center bg-[#F4F5F7]">
+          <div className="flex h-[calc(100vh-64px)] min-h-[100dvh] w-full items-center justify-center bg-[#F7F5F0]">
             <p className="text-sm font-medium text-ink-500">Xarita yuklanmoqda…</p>
           </div>
         }

@@ -38,8 +38,8 @@ export function ScanBeam({ active, variant = "electric", className }: ScanBeamPr
         className={cn(
           "absolute inset-x-0 z-10 h-[2px]",
           isElectric
-            ? "bg-electric-400 shadow-[0_0_14px_2px_rgba(0,102,255,0.75)]"
-            : "bg-gold-400 shadow-[0_0_12px_rgba(255,77,18,0.5)]",
+            ? "bg-electric-400"
+            : "bg-gold-400",
         )}
         initial={{ top: "0%" }}
         animate={{ top: ["0%", "100%"] }}
@@ -49,8 +49,8 @@ export function ScanBeam({ active, variant = "electric", className }: ScanBeamPr
         className={cn(
           "absolute inset-0 bg-[size:24px_24px]",
           isElectric
-            ? "bg-[linear-gradient(rgba(0,102,255,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(0,102,255,0.07)_1px,transparent_1px)]"
-            : "bg-[linear-gradient(rgba(245,200,66,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(245,200,66,0.08)_1px,transparent_1px)]",
+            ? ""
+            : "",
         )}
       />
     </div>

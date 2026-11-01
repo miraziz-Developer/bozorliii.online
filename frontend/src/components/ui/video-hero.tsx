@@ -33,7 +33,7 @@ export function VideoHero() {
           transition={{ duration: 0.6 }}
           className="max-w-4xl text-4xl font-bold tracking-tight text-ink-900 md:text-6xl"
         >
-          Rasmga oling va <span className="bg-gradient-electric bg-clip-text text-transparent">Ippodromdan toping</span>
+          Rasmga oling va <span className="bg-brand-500 bg-clip-text text-transparent">Ippodromdan toping</span>
         </motion.h1>
         <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="mt-5 max-w-2xl text-base text-ink-500 md:text-lg">
           Chorsu, Yunusobod va Olmazordagi jonli bozor oqimlari ustida AI bir zumda eng yaqin va eng arzon variantni ajratib beradi.

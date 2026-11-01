@@ -36,7 +36,7 @@ export function PremiumPriceCard({ mode, pricing, productLabel, productAmount, c
         </div>
       </div>
       <div className="mt-6 border-t border-border-subtle pt-6">
-        <p className="text-center text-[10px] font-bold uppercase tracking-[0.22em] text-text-400">
+        <p className="text-center text-xs font-bold uppercase tracking-[0.22em] text-text-400">
           Yakuniy narx
         </p>
         <p className="mt-2 text-center text-3xl font-black tracking-tight text-electric-500">

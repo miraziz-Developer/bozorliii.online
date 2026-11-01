@@ -124,7 +124,7 @@ export function ShopStoriesStrip({
     >
       <div className="flex items-center justify-between gap-3 border-b border-black/[0.05] px-5 py-4 sm:px-6">
         <div className="flex items-center gap-3">
-          <span className="flex h-9 w-9 items-center justify-center rounded-2xl bg-[#f0eeea] text-ink-700 ring-1 ring-black/[0.04]">
+          <span className="flex h-9 w-9 items-center justify-center rounded-2xl bg-[#F1EEE7] text-ink-700 ring-1 ring-black/[0.04]">
             <CirclePlay className="h-4 w-4" />
           </span>
           <div>
@@ -140,7 +140,7 @@ export function ShopStoriesStrip({
               Demo
             </span>
           ) : null}
-          <span className={cn(shopTypeChip, "bg-[#eef4ff] text-[#1d4ed8] ring-[#bfdbfe]/60")}>
+          <span className={cn(shopTypeChip, "bg-[#F3E6E9] text-[#66122A] ring-[#E4C6CD]/60")}>
             <Sparkles className="mr-1 inline h-3 w-3" aria-hidden />
             Live
           </span>
@@ -215,8 +215,8 @@ function StoryThumb({
         className={cn(
           "relative rounded-full p-[2.5px] shadow-md transition-transform duration-200 group-hover:scale-[1.05]",
           hot
-            ? "bg-gradient-to-tr from-amber-400 via-rose-500 to-electric-500"
-            : "bg-gradient-to-br from-electric-500 via-indigo-500 to-rose-400",
+            ? "bg-amber-400 "
+            : "bg-electric-500 ",
         )}
       >
         <div className="relative h-[68px] w-[68px] overflow-hidden rounded-full bg-ink-900 ring-2 ring-surface">
@@ -230,13 +230,13 @@ function StoryThumb({
             onError={() => setSrc(PLACEHOLDER_IMAGE)}
           />
           {hot ? (
-            <span className="absolute right-0 top-0 flex h-4 w-4 items-center justify-center rounded-full bg-rose-500 text-[8px] font-bold text-white ring-2 ring-surface">
+            <span className="absolute right-0 top-0 flex h-4 w-4 items-center justify-center rounded-full bg-rose-500 text-xs font-bold text-white ring-2 ring-surface">
               !
             </span>
           ) : null}
         </div>
       </div>
-      <span className="line-clamp-1 w-full text-center text-[11px] font-medium tracking-wide text-text-400 group-hover:text-ink-700">
+      <span className="line-clamp-1 w-full text-center text-xs font-medium tracking-wide text-text-400 group-hover:text-ink-700">
         {age}
       </span>
     </button>

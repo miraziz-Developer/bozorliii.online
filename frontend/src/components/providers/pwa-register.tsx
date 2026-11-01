@@ -126,7 +126,7 @@ export function PwaRegister() {
             aria-labelledby="pwa-install-title"
             className="w-full max-w-md overflow-hidden rounded-3xl border border-white/60 bg-white shadow-2xl"
           >
-            <div className="relative bg-gradient-to-br from-electric-500/10 via-white to-accent-500/10 px-5 pb-4 pt-5">
+            <div className="relative bg-electric-500/10 px-5 pb-4 pt-5">
               <button
                 type="button"
                 aria-label="Yopish"

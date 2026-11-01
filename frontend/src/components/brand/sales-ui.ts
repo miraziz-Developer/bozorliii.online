@@ -4,7 +4,7 @@
  */
 export const SALES = {
   /** Asosiy kartochka — oltin chiziq + premium soyа */
-  panel: "sales-panel premium-card-glow",
+  panel: "sales-panel",
   /** Ichki bo'lim (buyurtma tracker, to'lov bloki) */
   panelInset: "sales-panel-inset",
   /** Sahifa konteyneri */

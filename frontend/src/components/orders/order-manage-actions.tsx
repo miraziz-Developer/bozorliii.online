@@ -127,7 +127,7 @@ export function OrderManageActions({ order, guestPhone, guestVerificationToken, 
   return (
     <div className={cn("mt-4 space-y-3 p-3.5", SALES.panelInset)}>
       {unpaidClick ? (
-        <div className="rounded-xl border border-amber-300 bg-gradient-to-br from-amber-100 to-amber-50 px-3 py-2.5 text-xs text-amber-950 shadow-sm ring-1 ring-amber-200/80">
+        <div className="rounded-xl border border-amber-300 bg-amber-100 px-3 py-2.5 text-xs text-amber-950 shadow-sm ring-1 ring-amber-200/80">
           <p className="badge-urgency mb-2 inline-flex">Shoshilinch</p>
           <p className="font-semibold">⏳ Onlayn to&apos;lov kutilmoqda</p>
           <p className="mt-1 text-amber-900/80">
@@ -209,7 +209,7 @@ export function OrderManageActions({ order, guestPhone, guestVerificationToken, 
                 >
                   <Icon className="mb-1.5 h-4 w-4 text-electric-600" />
                   <p className="text-sm font-semibold text-ink-900">{option.title}</p>
-                  <p className="mt-0.5 text-[11px] text-ink-500">{option.subtitle}</p>
+                  <p className="mt-0.5 text-xs text-ink-500">{option.subtitle}</p>
                   {loading ? (
                     <Loader2 className="mt-2 h-3.5 w-3.5 animate-spin text-electric-600" />
                   ) : null}
@@ -250,7 +250,7 @@ export function OrderManageActions({ order, guestPhone, guestVerificationToken, 
       ) : null}
 
       {unpaidClick ? (
-        <Link href="/orders" className="text-[11px] font-medium text-electric-600 hover:underline">
+        <Link href="/orders" className="text-xs font-medium text-electric-600 hover:underline">
           To&apos;lovdan keyin «Buyurtmalarim» da holatni kuzating
         </Link>
       ) : null}

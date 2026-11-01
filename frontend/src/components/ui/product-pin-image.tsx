@@ -41,7 +41,7 @@ export function ProductPinImage({
         <div className="absolute inset-0 skeleton" aria-hidden />
       ) : null}
       {usePlaceholder ? (
-        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-electric-500/10 via-white to-electric-400/10">
+        <div className="absolute inset-0 flex items-center justify-center bg-electric-500/10 ">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={PLACEHOLDER_CLOTHING}

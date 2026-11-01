@@ -38,19 +38,19 @@ export function PickupSchedule({
   const slotsEnabled = Boolean(pickupDate?.trim());
 
   return (
-    <div className="space-y-5 rounded-2xl border border-electric-500/15 bg-gradient-to-br from-electric-500/[0.06] to-white p-4">
+    <div className="space-y-5 rounded-2xl border border-electric-500/15 bg-electric-500/[0.06] p-4">
       <div className="flex items-center gap-2.5">
         <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-electric-500/12">
           <Calendar size={18} className="text-neutral-600" aria-hidden />
         </div>
         <div>
           <h3 className="text-sm font-semibold text-ink-900">Olib ketish vaqti</h3>
-          <p className="text-[11px] text-ink-500">Avval sanani tanlang, keyin vaqt oralig&apos;i</p>
+          <p className="text-xs text-ink-500">Avval sanani tanlang, keyin vaqt oralig&apos;i</p>
         </div>
       </div>
 
       <div className="space-y-1.5">
-        <label htmlFor="pickup-date" className="block text-[11px] font-bold uppercase tracking-wider text-electric-500">
+        <label htmlFor="pickup-date" className="block text-xs font-bold uppercase tracking-wider text-electric-500">
           Sana
         </label>
         <div className="relative">
@@ -77,8 +77,8 @@ export function PickupSchedule({
             aria-hidden
           />
         </div>
-        {!pickupDate ? <p className="text-[11px] font-medium text-neutral-600">Sanani tanlang</p> : null}
-        {dateError ? <p className="text-[11px] font-semibold text-red-600">{dateError}</p> : null}
+        {!pickupDate ? <p className="text-xs font-medium text-neutral-600">Sanani tanlang</p> : null}
+        {dateError ? <p className="text-xs font-semibold text-red-600">{dateError}</p> : null}
       </div>
 
       <div
@@ -88,7 +88,7 @@ export function PickupSchedule({
         )}
         aria-disabled={!slotsEnabled}
       >
-        <p className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-electric-500">
+        <p className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-electric-500">
           <Clock size={13} className={slotsEnabled ? "text-electric-500" : "text-neutral-500"} aria-hidden />
           Vaqt oralig&apos;i
           {!slotsEnabled ? <span className="font-normal normal-case text-neutral-500">(sana kerak)</span> : null}
@@ -114,7 +114,7 @@ export function PickupSchedule({
                 <p className={cn("text-xs font-bold", active && slotsEnabled ? "text-electric-500" : "text-ink-700")}>
                   {slot.label}
                 </p>
-                <p className="mt-0.5 text-[10px] text-neutral-600">{slot.hint}</p>
+                <p className="mt-0.5 text-xs text-neutral-600">{slot.hint}</p>
               </button>
             );
           })}

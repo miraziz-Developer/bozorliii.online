@@ -63,10 +63,10 @@ function ReelThumb({ reel }: { reel: ReelItem }) {
       </div>
 
       <div className="absolute inset-x-0 bottom-0 p-2">
-        <p className="line-clamp-1 text-[10px] font-bold text-white">{reel.shop.name}</p>
+        <p className="line-clamp-1 text-xs font-bold text-white">{reel.shop.name}</p>
         <div className="mt-0.5 flex items-center gap-1 text-white/70">
           <Eye className="h-2.5 w-2.5 shrink-0" />
-          <p className="text-[9px]">{fmt(reel.views_count)}</p>
+          <p className="text-xs">{fmt(reel.views_count)}</p>
         </div>
       </div>
     </Link>
@@ -127,15 +127,15 @@ export function ReelsPreviewStrip() {
         <div className="rounded-[1.35rem] border border-border-100 bg-white/85 p-2.5 shadow-[0_10px_30px_rgba(3,3,8,0.06)] backdrop-blur-sm min-[360px]:rounded-3xl min-[360px]:p-3 sm:p-4">
           <div className="mb-3 flex items-center justify-between gap-2">
             <div className="flex min-w-0 items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-br from-neon-500 to-electric-500">
+              <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-neon-500 ">
                 <Film className="h-4 w-4 text-white" />
               </div>
               <div className="min-w-0">
                 <h2 className="text-sm font-bold text-text-100">Reels</h2>
-                <p className="truncate text-[10px] text-text-400 min-[360px]:text-[11px]">Do&apos;konlar videolari</p>
+                <p className="truncate text-xs text-text-400 min-[360px]:text-xs">Do&apos;konlar videolari</p>
               </div>
             </div>
-            <Link href="/reels" className="shrink-0 whitespace-nowrap text-[10px] font-bold text-electric-500 transition hover:underline min-[360px]:text-xs">
+            <Link href="/reels" className="shrink-0 whitespace-nowrap text-xs font-bold text-electric-500 transition hover:underline min-[360px]:text-xs">
               <span className="max-[319px]:hidden">Barchasini </span>ko&apos;rish →
             </Link>
           </div>
@@ -171,7 +171,7 @@ export function ReelsPreviewStrip() {
           <div className="mt-3">
             <Link
               href="/reels"
-              className="flex items-center justify-center gap-2 rounded-2xl border border-neon-500/20 bg-gradient-to-r from-neon-500/8 to-electric-500/8 py-2.5 text-sm font-bold text-neon-600 transition hover:from-neon-500/12 hover:to-electric-500/12"
+              className="flex items-center justify-center gap-2 rounded-2xl border border-neon-500/20 bg-neon-500/8 py-2.5 text-sm font-bold text-neon-600 transition "
             >
               <Film className="h-4 w-4" />
               Reels — to&apos;liq ko&apos;rish

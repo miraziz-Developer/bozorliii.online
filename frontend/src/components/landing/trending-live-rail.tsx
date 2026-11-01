@@ -88,7 +88,7 @@ function LiveCard({ product, clip }: { product: Product; clip: string }) {
           <div className="absolute left-3 top-3">
             <LivePill />
           </div>
-          <div className="absolute right-3 top-3 flex items-center gap-1 rounded-full bg-canvas/70 px-2 py-1 text-[11px] text-text-200 backdrop-blur">
+          <div className="absolute right-3 top-3 flex items-center gap-1 rounded-full bg-canvas/70 px-2 py-1 text-xs text-text-200 backdrop-blur">
             <VolumeX className="h-3 w-3" />
             Ovozsiz
           </div>

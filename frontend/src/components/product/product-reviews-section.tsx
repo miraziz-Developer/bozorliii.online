@@ -41,7 +41,7 @@ function DistributionBars({ distribution, total }: { distribution: Record<string
         const count = distribution[String(star)] ?? 0;
         const pct = total > 0 ? Math.round((count / total) * 100) : 0;
         return (
-          <div key={star} className="flex items-center gap-2 text-[11px] text-ink-500">
+          <div key={star} className="flex items-center gap-2 text-xs text-ink-500">
             <span className="w-3 text-right font-medium">{star}</span>
             <StarMini filled />
             <div className="h-2 flex-1 overflow-hidden rounded-full bg-ink-100">
@@ -73,14 +73,14 @@ function ReviewCard({ review }: { review: ProductReview }) {
           <div className="mt-0.5 flex flex-wrap items-center gap-2">
             <ProductRatingStars rating={review.rating} size="sm" />
             {review.is_verified_purchase ? (
-              <span className="inline-flex items-center gap-0.5 rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-medium text-emerald-700">
+              <span className="inline-flex items-center gap-0.5 rounded-full bg-emerald-50 px-2 py-0.5 text-xs font-medium text-emerald-700">
                 <BadgeCheck className="h-3 w-3" />
                 Tasdiqlangan xarid
               </span>
             ) : null}
           </div>
         </div>
-        <time className="text-[11px] text-ink-400">{formatReviewDate(review.created_at)}</time>
+        <time className="text-xs text-ink-400">{formatReviewDate(review.created_at)}</time>
       </div>
       {review.body ? <p className="mt-2.5 text-sm leading-relaxed text-ink-700">{review.body}</p> : null}
       {review.photo_urls.length > 0 ? (
@@ -246,7 +246,7 @@ export function ProductReviewsSection({ productId, productName, initialSummary }
 
   const summaryBlock = useMemo(
     () => (
-      <div className="flex flex-col gap-5 rounded-2xl bg-gradient-to-br from-ink-900/[0.03] to-amber-50/40 p-5 sm:flex-row sm:items-center sm:p-6">
+      <div className="flex flex-col gap-5 rounded-2xl bg-ink-900/[0.03] p-5 sm:flex-row sm:items-center sm:p-6">
         <div className="text-center sm:min-w-[130px] sm:text-left">
           <p className="text-4xl font-bold tabular-nums tracking-tight text-ink-900">
             {avg > 0 ? avg.toFixed(1) : "—"}
@@ -267,7 +267,7 @@ export function ProductReviewsSection({ productId, productName, initialSummary }
       <div className={cn(productReviewsShell, "space-y-6")}>
         <div className="flex flex-col gap-3 border-b border-black/[0.06] pb-5 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-ink-400">Xaridorlar fikri</p>
+            <p className="text-xs font-bold uppercase tracking-[0.22em] text-ink-400">Xaridorlar fikri</p>
             <h2 className="mt-1 text-xl font-semibold tracking-tight text-ink-900 sm:text-2xl">Sharhlar va baholar</h2>
             <p className="mt-1 text-sm text-ink-500">{productName}</p>
           </div>

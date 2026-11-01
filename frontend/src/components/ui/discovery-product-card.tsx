@@ -146,8 +146,8 @@ export function DiscoveryProductCard({
       transition={{ delay: Math.min(index * 0.03, 0.28), duration: 0.4, ease: "easeOut" }}
       className={cn(
         SALES.panel,
-        "pin-card group cursor-pointer overflow-hidden transition-all duration-300 hover:scale-[1.015] hover:shadow-hover active:scale-[0.985]",
-        isOptom && "rounded-2xl border-2 border-electric-500/25 bg-electric-500/5 p-2 shadow-[0_0_24px_rgba(0,102,255,0.14)]",
+        "pin-card group cursor-pointer overflow-hidden transition-shadow duration-200 hover:shadow-hover",
+        isOptom && "border border-sand",
       )}
       onClick={open}
       role="link"
@@ -163,16 +163,16 @@ export function DiscoveryProductCard({
         />
 
         {typeof product.visual_match_pct === "number" && product.visual_match_pct >= 50 ? (
-          <span className="absolute right-2.5 top-2.5 z-10 rounded-full bg-electric-500/95 px-2 py-0.5 text-[10px] font-bold text-white shadow-sm">
+          <span className="absolute right-2.5 top-2.5 z-10 rounded bg-charcoal px-2 py-0.5 text-xs font-semibold text-white">
             {product.visual_match_pct}%
           </span>
         ) : null}
         {isChina ? (
-          <span className="absolute left-2.5 top-2.5 z-10 rounded-full bg-electric-500 px-2 py-0.5 text-[10px] font-bold text-white shadow-sm">
+          <span className="absolute left-2.5 top-2.5 z-10 rounded bg-brand-500 px-2 py-0.5 text-xs font-semibold text-white">
             Xitoy
           </span>
         ) : isOptom ? (
-          <span className="absolute left-2.5 top-2.5 z-10 rounded-full bg-electric-500 px-2 py-0.5 text-[10px] font-bold text-white shadow-sm">
+          <span className="absolute left-2.5 top-2.5 z-10 rounded bg-brand-500 px-2 py-0.5 text-xs font-semibold text-white">
             {t("home.pin.optomMin", { qty: minQty })}
           </span>
         ) : discountPct != null && discountPct > 0 ? (
@@ -186,12 +186,12 @@ export function DiscoveryProductCard({
           </span>
         ) : null}
 
-        <div className="pointer-events-none absolute inset-0 z-[1] flex flex-col items-center justify-center gap-2 rounded-2xl bg-black/40 opacity-0 backdrop-blur-[2px] transition-all duration-300 ease-out group-hover:pointer-events-auto group-hover:opacity-100">
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] hidden flex-col gap-2 p-2.5 opacity-0 transition-opacity duration-200 group-hover:pointer-events-auto group-hover:opacity-100 md:flex">
           <button
             type="button"
             onClick={buyNow}
             className={cn(
-              "sales-cta sales-cta-pulse translate-y-1 rounded-full px-5 py-2.5 text-sm font-bold text-white transition-all duration-300 ease-out group-hover:translate-y-0 hover:scale-105 active:scale-95",
+              "sales-cta min-h-10 w-full rounded-control px-4 text-sm font-semibold text-white",
             )}
           >
             Sotib olish
@@ -199,7 +199,7 @@ export function DiscoveryProductCard({
           <button
             type="button"
             onClick={addToCart}
-            className="flex translate-y-1 items-center gap-1.5 rounded-full bg-white px-4 py-2 text-sm font-semibold text-ink-900 shadow-md transition-all duration-300 ease-out group-hover:translate-y-0 hover:scale-105 hover:bg-slate-50 active:scale-95"
+            className="flex min-h-10 w-full items-center justify-center gap-1.5 rounded-control bg-white px-4 text-sm font-semibold text-charcoal transition-colors hover:bg-ivory"
           >
             <ShoppingBag className="h-4 w-4" />
             Savatchaga
@@ -211,7 +211,7 @@ export function DiscoveryProductCard({
                 e.stopPropagation();
                 onBand(product);
               }}
-              className="rounded-full border border-white/60 bg-white/20 px-4 py-1.5 text-xs font-semibold text-white backdrop-blur transition hover:bg-white/30"
+              className="min-h-10 w-full rounded-control border border-line bg-white px-4 text-sm font-semibold text-charcoal transition-colors hover:bg-ivory"
             >
               {t("home.pin.band")}
             </button>
@@ -222,9 +222,8 @@ export function DiscoveryProductCard({
           type="button"
           onClick={savePin}
           className={cn(
-            "absolute right-2.5 top-2.5 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-white/95 text-ink-600 shadow-md transition",
-            "opacity-0 group-hover:opacity-100",
-            isFavorite && "bg-neon-500 text-white opacity-100",
+            "absolute right-2 top-2 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white text-charcoal shadow-sm transition-colors hover:text-brand-500",
+            isFavorite && "text-brand-500",
           )}
           aria-label={t("home.pin.save")}
         >
@@ -233,26 +232,26 @@ export function DiscoveryProductCard({
       </div>
 
       <div className="px-2 pb-3 pt-2">
-        <h3 className="line-clamp-2 text-[13px] font-semibold leading-snug text-ink-900">
+        <h3 className="line-clamp-2 text-sm font-medium leading-snug text-charcoal">
           {displayName}
         </h3>
         {product.shop?.location_label || product.shop?.name ? (
-          <p className="mt-0.5 line-clamp-1 text-[11px] text-gray-500">
+          <p className="mt-0.5 line-clamp-1 text-xs text-gray-500">
             {product.shop.location_label || product.shop.name}
           </p>
         ) : null}
         {reviewCount > 0 ? (
           <div className="mt-1 flex items-center gap-1.5" aria-label={`${avgRating} yulduz, ${reviewCount} ta sharh`}>
             <ProductRatingStars rating={avgRating} size="sm" />
-            <span className="text-[11px] font-medium text-gray-500">({reviewCount})</span>
+            <span className="text-xs font-medium text-gray-500">({reviewCount})</span>
           </div>
         ) : null}
         <div className="mt-1.5 flex items-baseline gap-1">
-          <p className={cn(SALES.priceDeal, "text-sm")}>{formatPrice(displayPriceUzs)}</p>
-          {unitSuffix ? <span className="text-[10px] font-medium text-gray-500">{unitSuffix}</span> : null}
+          <p className={cn(SALES.priceDeal, "text-[15px]")}>{formatPrice(displayPriceUzs)}</p>
+          {unitSuffix ? <span className="text-xs font-medium text-gray-500">{unitSuffix}</span> : null}
         </div>
         {optomHint ? (
-          <p className="mt-0.5 line-clamp-2 text-[10px] font-semibold leading-snug text-electric-600">{optomHint}</p>
+          <p className="mt-0.5 line-clamp-2 text-xs font-semibold leading-snug text-electric-600">{optomHint}</p>
         ) : null}
         {soldLabel || reviewCount > 0 ? (
           <p className={cn(SALES.socialProof, "mt-1")}>

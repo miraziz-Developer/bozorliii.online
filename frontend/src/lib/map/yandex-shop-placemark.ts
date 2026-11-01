@@ -90,9 +90,9 @@ function escapeHtml(text: string): string {
 
 function locationGridHtml(loc: ReturnType<typeof locationDetailsFromMarker>): string {
   const cell = (label: string, value: string, accent = false) =>
-    `<div style="border:1px solid ${accent ? "#93c5fd" : "#e2e8f0"};border-radius:8px;padding:6px 4px;text-align:center;background:${accent ? "#eff6ff" : "#fff"}">` +
+    `<div style="border:1px solid ${accent ? "#CE9AA6" : "#e2e8f0"};border-radius:8px;padding:6px 4px;text-align:center;background:${accent ? "#eff6ff" : "#fff"}">` +
     `<div style="font-size:9px;font-weight:700;text-transform:uppercase;color:#64748b">${escapeHtml(label)}</div>` +
-    `<div style="margin-top:2px;font-size:12px;font-weight:800;line-height:1.2;color:${accent ? "#0066ff" : "#0f172a"}">${escapeHtml(value)}</div></div>`;
+    `<div style="margin-top:2px;font-size:12px;font-weight:800;line-height:1.2;color:${accent ? "#76152F" : "#0f172a"}">${escapeHtml(value)}</div></div>`;
 
   const chips: { label: string; value: string; accent?: boolean }[] = [];
   if (loc.building) chips.push({ label: "Bino", value: loc.building });
@@ -134,7 +134,7 @@ export function buildYandexShopBalloon(marker: MapShopMarker): {
     header: name,
     body: [locationGridHtml(loc), rating].join(""),
     footer: [
-      `<a href="${shopHref}" style="display:block;margin-top:10px;padding:10px 14px;border-radius:10px;background:#1E98FF;color:#fff;font-size:13px;font-weight:700;text-align:center;text-decoration:none">`,
+      `<a href="${shopHref}" style="display:block;margin-top:10px;padding:10px 14px;border-radius:10px;background:#76152F;color:#fff;font-size:13px;font-weight:700;text-align:center;text-decoration:none">`,
       "Do‘konga kirish",
       "</a>",
       `<a href="${yandexRoute}" target="_blank" rel="noopener noreferrer" style="display:block;margin-top:8px;padding:10px 14px;border-radius:10px;background:#22c55e;color:#fff;font-size:13px;font-weight:700;text-align:center;text-decoration:none">`,

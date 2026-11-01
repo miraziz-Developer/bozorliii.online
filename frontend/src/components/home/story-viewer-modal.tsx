@@ -292,8 +292,8 @@ export function StoryViewerModal({
             <Link
               href={routeHref}
               className={cn(
-                "inline-flex flex-1 items-center justify-center gap-2 rounded-2xl px-5 py-3 text-sm font-bold text-white shadow-[0_0_24px_rgba(0,102,255,0.45)] transition hover:brightness-110",
-                platformAd ? "bg-gradient-to-r from-amber-500 to-orange-500" : "bg-gradient-electric",
+                "inline-flex flex-1 items-center justify-center gap-2 rounded-2xl px-5 py-3 text-sm font-bold text-white transition hover:brightness-110",
+                platformAd ? "bg-amber-500 " : "bg-brand-500",
               )}
             >
               <MapPin className="h-4 w-4" />
@@ -310,7 +310,7 @@ export function StoryViewerModal({
             </button>
           </footer>
 
-          <p className="pb-[max(0.25rem,env(safe-area-inset-bottom))] text-center text-[10px] font-medium uppercase tracking-[0.2em] text-white/35">
+          <p className="pb-[max(0.25rem,env(safe-area-inset-bottom))] text-center text-xs font-medium uppercase tracking-[0.2em] text-white/35">
             {ringIndex + 1} / {rings.length}
             {stories.length > 1 ? ` · ${storyIndex + 1}/${stories.length}` : ""}
           </p>

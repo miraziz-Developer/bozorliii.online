@@ -8,7 +8,7 @@ import {
 } from "@/lib/indoor-map/leaflet-config";
 import type { MapPoint } from "@/lib/shop-location";
 
-export const FLOOR_PLAN_BG = "#F4F5F7";
+export const FLOOR_PLAN_BG = "#F7F5F0";
 
 const DEFAULT_PLAN_PADDING: [number, number] = [28, 28];
 

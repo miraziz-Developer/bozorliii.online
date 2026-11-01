@@ -5,7 +5,7 @@
   height: calc(100vh - 64px);
   min-height: calc(100vh - 64px);
   overflow: hidden;
-  background: #f4f5f7;
+  background: #F7F5F0;
 }
 
 @media (max-width: 767px) {
@@ -21,7 +21,7 @@
   z-index: 0;
   width: 100%;
   height: 100%;
-  background: #f4f5f7;
+  background: #F7F5F0;
 }
 
 .ippodrom-map-root .maplibre-market-map,
@@ -45,7 +45,7 @@
   width: 100% !important;
   height: 100% !important;
   min-height: 100% !important;
-  background: #f4f5f7 !important;
+  background: #F7F5F0 !important;
   font-family: var(--font-sans), "Outfit", system-ui, sans-serif;
   touch-action: none;
 }
@@ -81,7 +81,7 @@
 }
 
 .ippodrom-route-glow {
-  filter: drop-shadow(0 0 8px rgba(0, 102, 255, 0.5));
+  filter: drop-shadow(0 0 8px rgba(118, 21, 47, 0.5));
 }
 
 .ippodrom-route-pulse {
@@ -106,7 +106,7 @@
   border-radius: 50% 50% 50% 0;
   transform: rotate(-45deg);
   border: 2.5px solid #fff;
-  box-shadow: 0 8px 20px rgba(0, 102, 255, 0.35);
+  box-shadow: 0 8px 20px rgba(118, 21, 47, 0.35);
 }
 
 .ippodrom-marker-pin span {
@@ -119,13 +119,13 @@
 }
 
 .ippodrom-marker-pin--active {
-  background: linear-gradient(135deg, #0066ff, #3388ff);
+  background: linear-gradient(135deg, #76152F, #3388ff);
   animation: ippodrom-pin-pulse 1.8s ease-in-out infinite;
 }
 
 .ippodrom-marker-pin--target {
-  background: linear-gradient(135deg, #0066ff, #4f46e5);
-  box-shadow: 0 0 0 6px rgba(0, 102, 255, 0.25);
+  background: linear-gradient(135deg, #76152F, #66122A);
+  box-shadow: 0 0 0 6px rgba(118, 21, 47, 0.25);
 }
 
 .ippodrom-marker-pin--default {
@@ -342,15 +342,15 @@
 }
 
 .bozorliii-yandex-pin--focused .bozorliii-yandex-pin__disc {
-  background: linear-gradient(145deg, #1e98ff 0%, #0066ff 100%);
+  background: linear-gradient(145deg, #76152F 0%, #76152F 100%);
   box-shadow:
-    0 12px 28px rgba(30, 152, 255, 0.45),
-    0 0 0 5px rgba(30, 152, 255, 0.2);
+    0 12px 28px rgba(118, 21, 47, 0.45),
+    0 0 0 5px rgba(118, 21, 47, 0.2);
   transform: scale(1.08);
 }
 
 .bozorliii-yandex-pin--focused .bozorliii-yandex-pin__name {
-  background: #1e98ff;
+  background: #76152F;
   color: #fff;
 }
 

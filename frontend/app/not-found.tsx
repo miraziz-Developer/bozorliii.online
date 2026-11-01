@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 
 export default function NotFound() {
   return (
-    <main className="flex min-h-screen items-center justify-center bg-canvas bg-hero-glow px-4 py-16">
+    <main className="flex min-h-screen items-center justify-center bg-canvas px-4 py-16">
       <div className="w-full max-w-lg">
         <p className="mb-4 text-center text-7xl font-black tracking-tighter text-electric-500/90">404</p>
         <BrandEmptyState

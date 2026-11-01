@@ -131,7 +131,7 @@ export const SearchField = forwardRef<HTMLInputElement, SearchFieldProps>(functi
           onClick={onSubmit}
           whileTap={{ scale: 0.97 }}
           className={cn(
-            "shrink-0 bg-gradient-electric px-4 py-2 text-xs font-bold text-white shadow-card transition hover:brightness-110",
+            "shrink-0 bg-brand-500 px-4 py-2 text-xs font-bold text-white shadow-card transition hover:brightness-110",
             variant === "pill" ? "rounded-full" : "rounded-xl",
             variant === "hero" && "px-5 text-sm",
           )}

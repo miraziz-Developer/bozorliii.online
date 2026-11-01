@@ -50,7 +50,7 @@ function ReviewSummaryStrip({ product }: { product: Product }) {
     return (
       <Link
         href="#product-reviews"
-        className="group inline-flex w-full max-w-md items-center gap-3 rounded-2xl border border-amber-200/60 bg-gradient-to-r from-amber-50/90 to-white px-4 py-3 transition-all hover:border-amber-300/80 hover:shadow-[0_8px_24px_-12px_rgba(245,158,11,0.35)]"
+        className="group inline-flex w-full max-w-md items-center gap-3 rounded-2xl border border-amber-200/60 bg-amber-50/90 px-4 py-3 transition-all hover:border-amber-300/80 hover:shadow-[0_8px_24px_-12px_rgba(245,158,11,0.35)]"
       >
         <div className="text-center">
           <p className="text-2xl font-bold tabular-nums leading-none text-ink-900">
@@ -138,22 +138,22 @@ export function ProductDetail({
         <button
           type="button"
           onClick={onCopyId}
-          className="group flex max-w-full items-center gap-1.5 text-left text-[10px] uppercase tracking-wider text-ink-400 transition-colors hover:text-ink-600"
+          className="group flex max-w-full items-center gap-1.5 text-left text-xs uppercase tracking-wider text-ink-400 transition-colors hover:text-ink-600"
           aria-label="Mahsulot ID nusxalash"
         >
-          <span className="truncate font-mono normal-case tracking-normal">{product.id.slice(0, 8)}…</span>
+          <span className="truncate tabular-nums normal-case tracking-normal">{product.id.slice(0, 8)}…</span>
           <Copy className="h-3 w-3 flex-shrink-0 opacity-50 group-hover:opacity-100" />
         </button>
 
         <div className="flex flex-wrap items-center gap-2">
           {product.category && !isUuidLike(product.category) ? (
-            <span className="inline-flex rounded-full bg-ink-900/[0.04] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-ink-600">
+            <span className="inline-flex rounded-full bg-ink-900/[0.04] px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-ink-600">
               {product.category}
             </span>
           ) : null}
           <SellerBadges product={product} />
           {isPackProduct(product) ? (
-            <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-amber-900">
+            <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-amber-900">
               <Package className="h-3 w-3" />
               Optom · {packLabel(product)}
             </span>
@@ -192,8 +192,8 @@ export function ProductDetail({
       </div>
 
       <div className={productBuyCard}>
-        <div className="border-b border-black/[0.05] bg-gradient-to-br from-[#faf9f7] to-white px-5 py-4 sm:px-6">
-          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-ink-400">{priceLabel(product)}</p>
+        <div className="border-b border-black/[0.05] bg-[#faf9f7] px-5 py-4 sm:px-6">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-ink-400">{priceLabel(product)}</p>
           <p className="price-mono mt-1 text-[1.75rem] font-bold leading-none tracking-tight text-ink-900 sm:text-3xl">
             {formatPrice(product.price)}
           </p>

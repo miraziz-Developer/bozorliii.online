@@ -72,7 +72,7 @@ export function LiveStoriesDock({ products }: LiveStoriesDockProps) {
             transition={{ delay: index * 0.05 }}
           >
             <Link href={story.href} className="flex w-16 flex-col items-center gap-1">
-              <div className="relative rounded-full bg-gradient-electric p-[2px]">
+              <div className="relative rounded-full bg-brand-500 p-[2px]">
                 <div className="relative h-14 w-14 overflow-hidden rounded-full border-2 border-white bg-ink-900">
                   <Image src={story.image} alt={story.label} fill className="object-cover" sizes="56px" unoptimized />
                 </div>
@@ -82,7 +82,7 @@ export function LiveStoriesDock({ products }: LiveStoriesDockProps) {
                   </span>
                 ) : null}
               </div>
-              <span className="max-w-16 truncate rounded-md px-1.5 py-0.5 text-[10px] font-bold text-ink-800 backdrop-blur-md bg-white/70">
+              <span className="max-w-16 truncate rounded-md px-1.5 py-0.5 text-xs font-bold text-ink-800 backdrop-blur-md bg-white/70">
                 {story.label}
               </span>
             </Link>

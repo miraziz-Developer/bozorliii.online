@@ -45,7 +45,7 @@ function MarkerTooltip({ x, y, name }: { x: number; y: number; name: string }) {
   return (
     <g pointerEvents="none">
       <foreignObject x={x - width / 2} y={y - height - 16} width={width} height={height}>
-        <div className="flex h-full items-center justify-center rounded-md border border-slate-200 bg-white px-2 py-1 text-center text-[10px] font-semibold leading-tight text-slate-900 shadow-sm">
+        <div className="flex h-full items-center justify-center rounded-md border border-slate-200 bg-white px-2 py-1 text-center text-xs font-semibold leading-tight text-slate-900 shadow-sm">
           {name}
         </div>
       </foreignObject>
@@ -119,8 +119,8 @@ export function IndoorMapEngine({
         <defs>
           <linearGradient id={routeGradientId} x1="0%" y1="100%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="#22c55e" />
-            <stop offset="45%" stopColor="#0A7CFF" />
-            <stop offset="100%" stopColor="#ff5a1f" />
+            <stop offset="45%" stopColor="#76152F" />
+            <stop offset="100%" stopColor="#76152F" />
           </linearGradient>
           <linearGradient id={routeFlowId} x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="#ffffff" stopOpacity="0" />
@@ -185,7 +185,7 @@ export function IndoorMapEngine({
                       height={stall.height + 8}
                       rx="10"
                       fill="none"
-                      stroke="#0A7CFF"
+                      stroke="#76152F"
                       strokeWidth="2"
                       initial={{ opacity: 0, scale: 0.85 }}
                       animate={{ opacity: [0.9, 0.2, 0.9], scale: [0.95, 1.08, 0.95] }}
@@ -199,7 +199,7 @@ export function IndoorMapEngine({
                       height={stall.height + 16}
                       rx="14"
                       fill="none"
-                      stroke="#0A7CFF"
+                      stroke="#76152F"
                       strokeWidth="1.5"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: [0, 0.4, 0], scale: [0.9, 1.15, 0.9] }}
@@ -227,8 +227,8 @@ export function IndoorMapEngine({
                   width={stall.width}
                   height={stall.height}
                   rx="6"
-                  fill={isTarget ? "#0A7CFF" : isVip ? "#f59e0b" : stallStatusColor(stall.status)}
-                  stroke={isTarget ? "#0A7CFF" : isVip ? "#d97706" : stall.status === "occupied" ? "#93c5fd" : "#cbd5e1"}
+                  fill={isTarget ? "#76152F" : isVip ? "#f59e0b" : stallStatusColor(stall.status)}
+                  stroke={isTarget ? "#76152F" : isVip ? "#d97706" : stall.status === "occupied" ? "#CE9AA6" : "#cbd5e1"}
                 />
                 <text
                   x={stall.x + stall.width / 2}
@@ -293,7 +293,7 @@ export function IndoorMapEngine({
                     <motion.circle
                       cx={marker.point.x}
                       cy={marker.point.y}
-                      fill={marker.isTarget ? "#ff5a1f" : "#0A7CFF"}
+                      fill={marker.isTarget ? "#76152F" : "#76152F"}
                       initial={{ r: 8, opacity: 0.45 }}
                       animate={{ r: [10, 18, 10], opacity: [0.45, 0, 0.45] }}
                       transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
@@ -305,7 +305,7 @@ export function IndoorMapEngine({
                   cx={marker.point.x}
                   cy={marker.point.y}
                   r={isActive ? 9 : 7}
-                  fill={marker.isTarget ? "#ff5a1f" : isActive ? "#0A7CFF" : "#94a3b8"}
+                  fill={marker.isTarget ? "#76152F" : isActive ? "#76152F" : "#94a3b8"}
                   stroke="#ffffff"
                   strokeWidth="2"
                 />
@@ -319,7 +319,7 @@ export function IndoorMapEngine({
                 cx={levelPlan.graph.nodes[snapNodeId].x}
                 cy={levelPlan.graph.nodes[snapNodeId].y}
                 r="7"
-                fill="#0A7CFF"
+                fill="#76152F"
                 stroke="#ffffff"
                 strokeWidth="2"
               />
@@ -327,7 +327,7 @@ export function IndoorMapEngine({
                 cx={levelPlan.graph.nodes[snapNodeId].x}
                 cy={levelPlan.graph.nodes[snapNodeId].y}
                 r="10"
-                fill="#0A7CFF"
+                fill="#76152F"
                 fillOpacity="0.25"
                 animate={{ r: [10, 22, 10], opacity: [0.5, 0, 0.5] }}
                 transition={{ duration: 1.6, repeat: Infinity, ease: "easeOut" }}
@@ -337,7 +337,7 @@ export function IndoorMapEngine({
                 cy={levelPlan.graph.nodes[snapNodeId].y}
                 r="14"
                 fill="none"
-                stroke="#0A7CFF"
+                stroke="#76152F"
                 strokeWidth="2"
                 animate={{ opacity: [0.7, 0.15, 0.7], r: [14, 20, 14] }}
                 transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}

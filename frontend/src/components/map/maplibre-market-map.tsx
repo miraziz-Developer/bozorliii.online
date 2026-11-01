@@ -52,7 +52,7 @@ const ROUTE_CORE_LAYER = {
   id: `${PRESTIGE_ROUTE_SOURCE_ID}-core`,
   type: "line" as const,
   paint: {
-    "line-color": "#1E98FF",
+    "line-color": "#76152F",
     "line-width": 7,
     "line-opacity": 1,
   },
@@ -383,7 +383,7 @@ export function MapLibreMarketMap({
         </div>
       ) : null}
 
-      <div className="pointer-events-none absolute bottom-2 right-2 z-10 rounded-md bg-white/75 px-2 py-1 text-[9px] font-medium text-ink-500 shadow-sm backdrop-blur-sm">
+      <div className="pointer-events-none absolute bottom-2 right-2 z-10 rounded-md bg-white/75 px-2 py-1 text-xs font-medium text-ink-500 shadow-sm backdrop-blur-sm">
         © OpenStreetMap
       </div>
     </div>

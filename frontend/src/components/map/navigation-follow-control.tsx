@@ -25,15 +25,15 @@ export function NavigationFollowControl({
       className={cn(
         "pointer-events-auto flex items-center gap-2 rounded-2xl border px-4 py-3 text-xs font-bold shadow-xl backdrop-blur-md transition",
         active
-          ? "border-[#1E98FF] bg-[#1E98FF] text-white shadow-[#1E98FF]/35"
-          : "border-white/80 bg-white/95 text-ink-800 hover:border-[#1E98FF]/40 hover:text-[#1E98FF]",
+          ? "border-[#76152F] bg-[#76152F] text-white shadow-[#76152F]/35"
+          : "border-white/80 bg-white/95 text-ink-800 hover:border-[#76152F]/40 hover:text-[#76152F]",
         className,
       )}
     >
       <span
         className={cn(
           "relative flex h-9 w-9 items-center justify-center rounded-full",
-          active ? "bg-white/20" : "bg-[#1E98FF]/10 text-[#1E98FF]",
+          active ? "bg-white/20" : "bg-[#76152F]/10 text-[#76152F]",
         )}
       >
         {active ? (
@@ -47,7 +47,7 @@ export function NavigationFollowControl({
       </span>
       <span className="text-left leading-tight">
         <span className="block">{active ? "Kuzatilmoqda" : "Meni kuzatish"}</span>
-        <span className={cn("block text-[10px] font-medium", active ? "text-white/85" : "text-ink-500")}>
+        <span className={cn("block text-xs font-medium", active ? "text-white/85" : "text-ink-500")}>
           {active ? "Xarita siz bilan harakatlanadi" : "Joylashuv bo‘yicha yaqinlashtirish"}
         </span>
       </span>

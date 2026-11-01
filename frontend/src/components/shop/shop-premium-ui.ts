@@ -10,7 +10,7 @@ export const shopTypeDisplay =
   "font-semibold tracking-[-0.035em] text-ink-900 [text-wrap:balance]";
 
 export const shopTypeEyebrow =
-  "text-[11px] font-semibold uppercase tracking-[0.14em] text-text-400";
+  "text-xs font-semibold uppercase tracking-[0.14em] text-text-400";
 
 export const shopTypeLead =
   "text-[15px] font-normal leading-[1.65] text-text-300";

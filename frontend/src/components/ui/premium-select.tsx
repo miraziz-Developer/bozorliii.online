@@ -39,7 +39,7 @@ export function PremiumSelect<T extends string>({
 
   return (
     <div ref={rootRef} className={cn("relative", className)}>
-      <span className="mb-1 block text-[10px] font-bold uppercase tracking-[0.14em] text-gray-600">
+      <span className="mb-1 block text-xs font-bold uppercase tracking-[0.14em] text-gray-600">
         {label}
       </span>
       <button

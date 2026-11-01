@@ -68,11 +68,11 @@ export type HomeMessageKey =
   | "home.trust.stylist.cta";
 
 const uz: Record<HomeMessageKey, string> = {
-  "home.hero.eyebrow": "AI Visual Search",
+  "home.hero.eyebrow": "Rasm orqali qidiruv",
   "home.hero.titleLine1": "Rasm tashlang,",
   "home.hero.titleLine2": "O‘zbekiston bo‘ylab toping",
   "home.hero.subtitle":
-    "O‘zbekiston bo‘ylab bozor va do‘konlarning real katalogidan eng mos variantlarni aqlli algoritm yordamida bir zumda toping.",
+    "Kiyim rasmini yuklang — bozor do‘konlari katalogidan o‘xshash mahsulotlarni ko‘rsatamiz.",
   "home.stories.eyebrow": "Jonli oqim",
   "home.stories.title": "O‘zbekiston bozorlarida nima trend?",
   "home.stories.description": "Sotuvchilar yuborgan jonli storylar — 48 soat ko'rinadi.",
@@ -131,16 +131,16 @@ const uz: Record<HomeMessageKey, string> = {
   "home.pin.optomMin": "Optom · min {qty}",
   "home.pin.groupPrice": "Optom narx",
   "home.trust.aria": "Ishonch va xizmat afzalliklari",
-  "home.trust.pricing.title": "Real Narx Kafolati",
+  "home.trust.pricing.title": "Do‘kon manzili ochiq",
   "home.trust.pricing.desc":
-    "Platformadagi do‘konlarning joylashuvi va eng so‘nggi optom/chakana narxlari tekshiriladi.",
-  "home.trust.direct.title": "Sotuvchi bilan To'g'ridan-to'g'ri Aloqa",
+    "Har bir mahsulotda do‘kon joylashgan bozor, blok va rasta ko‘rsatiladi.",
+  "home.trust.direct.title": "Sotuvchi bilan to‘g‘ridan-to‘g‘ri",
   "home.trust.direct.desc":
-    "Vositachilarsiz, do'kon egasining o'zi bilan bitta tugma orqali Telegram yoki telefon orqali tezkor buyurtma berish.",
-  "home.trust.stylist.title": "Shaxsiy AI Stilist",
+    "Savol va bronni do‘kon egasining o‘ziga Telegram yoki telefon orqali yuboring.",
+  "home.trust.stylist.title": "AI stilist",
   "home.trust.stylist.desc":
-    "Kiyim qidirishga vaqt sarflamang. Rasm bering, aqlli algoritm 30 soniyada unga mos kombinatsiyani tayyorlab beradi.",
-  "home.trust.stylist.cta": "Stilistni ochish →",
+    "Rasm yuklang — stilist katalogdagi mos kiyimlarni taklif qiladi.",
+  "home.trust.stylist.cta": "Stilistni ochish",
 };
 
 const ru: Record<HomeMessageKey, string> = {
@@ -207,20 +207,20 @@ const ru: Record<HomeMessageKey, string> = {
   "home.pin.optomMin": "Опт · от {qty} шт",
   "home.pin.groupPrice": "Оптовая цена",
   "home.trust.aria": "Преимущества и доверие",
-  "home.trust.pricing.title": "Гарантия реальной цены",
+  "home.trust.pricing.title": "Адрес магазина открыт",
   "home.trust.pricing.desc":
-    "Локации магазинов и актуальные оптовые и розничные цены на платформе проходят проверку.",
+    "У каждого товара указаны рынок, блок и место магазина.",
   "home.trust.direct.title": "Прямой контакт с продавцом",
   "home.trust.direct.desc":
-    "Без посредников — заказ в Telegram или по телефону владельцу магазина в один клик.",
-  "home.trust.stylist.title": "Персональный AI-стилист",
+    "Вопросы и бронь — напрямую владельцу магазина в Telegram или по телефону.",
+  "home.trust.stylist.title": "AI-стилист",
   "home.trust.stylist.desc":
-    "Не тратьте время на поиск. Загрузите фото — алгоритм за 30 секунд соберёт подходящий образ.",
-  "home.trust.stylist.cta": "Открыть стилиста →",
+    "Загрузите фото — стилист предложит подходящие вещи из каталога.",
+  "home.trust.stylist.cta": "Открыть стилиста",
 };
 
 const en: Record<HomeMessageKey, string> = {
-  "home.hero.eyebrow": "AI Visual Search",
+  "home.hero.eyebrow": "Rasm orqali qidiruv",
   "home.hero.titleLine1": "Drop a photo,",
   "home.hero.titleLine2": "find it across Uzbekistan",
   "home.hero.subtitle":

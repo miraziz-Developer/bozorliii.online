@@ -13,4 +13,4 @@ export const marketBtnPrimary =
 export const marketBtnGhost =
   "inline-flex items-center justify-center gap-2 rounded-xl border border-border-subtle bg-white px-5 py-3 text-sm font-semibold text-ink-700 transition-all duration-300 hover:border-electric-500/40 hover:text-electric-500";
 export const marketPrice = "text-base font-extrabold text-electric-500";
-export const marketEyebrow = "text-[10px] font-bold uppercase tracking-[0.22em] text-electric-500";
+export const marketEyebrow = "text-xs font-bold uppercase tracking-[0.22em] text-electric-500";

@@ -137,7 +137,7 @@ export function MapSidebar({
       )}
     >
       <div>
-        <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-electric-500">Ippodrom xaritasi</p>
+        <p className="text-xs font-bold uppercase tracking-[0.16em] text-electric-500">Ippodrom xaritasi</p>
         <h1 className="mt-1 text-lg font-bold tracking-tight text-ink-900">Premium do'kon navigatsiyasi</h1>
       </div>
 
@@ -172,7 +172,7 @@ export function MapSidebar({
                     className={cn(
                       "flex w-full flex-col gap-1.5 rounded-xl px-2 py-2 text-left text-xs transition",
                       active
-                        ? "bg-electric-500/12 font-semibold text-electric-600 shadow-[0_0_0_1px_rgba(0,102,255,0.2)]"
+                        ? "bg-electric-500/12 font-semibold text-electric-600 shadow-[0_0_0_1px_rgba(118,21,47,0.2)]"
                         : "text-ink-700 hover:bg-white/90",
                     )}
                   >
@@ -180,7 +180,7 @@ export function MapSidebar({
                       <Store className="h-3.5 w-3.5 shrink-0" />
                       <span className="min-w-0 flex-1">
                         <span className="block truncate font-medium">{marker.name}</span>
-                        <span className="mt-0.5 block truncate text-[10px] font-medium text-ink-500">{loc.summary}</span>
+                        <span className="mt-0.5 block truncate text-xs font-medium text-ink-500">{loc.summary}</span>
                       </span>
                     </span>
                   </button>
@@ -200,24 +200,24 @@ export function MapSidebar({
         {externalYandexNav ? (
           <>
             {destinationBanner ? (
-              <div className="mb-3 rounded-lg border border-[#1E98FF]/25 bg-[#1E98FF]/8 px-3 py-2">
-                <p className="text-[11px] font-semibold text-[#0c4a8a]">{destinationBanner}</p>
-                <p className="mt-1 text-[10px] text-ink-600">
+              <div className="mb-3 rounded-lg border border-[#76152F]/25 bg-[#76152F]/8 px-3 py-2">
+                <p className="text-xs font-semibold text-[#0c4a8a]">{destinationBanner}</p>
+                <p className="mt-1 text-xs text-ink-600">
                   Barcha do‘konlar xaritada. Marshrut — Yandex Navigator (tayyor, xatosiz).
                 </p>
               </div>
             ) : null}
 
-            <label className="text-[10px] font-semibold uppercase tracking-wide text-ink-500">Tanlangan do‘kon</label>
+            <label className="text-xs font-semibold uppercase tracking-wide text-ink-500">Tanlangan do‘kon</label>
             {selectedMarker ? (
               <div className="mt-1.5 space-y-2">
                 <p className="truncate px-0.5 text-xs font-semibold text-ink-800">{selectedMarker.name}</p>
                 <ShopLocationDetailsCard location={locationDetailsFromMarker(selectedMarker)} compact />
               </div>
             ) : (
-              <div className="mt-1.5 flex items-start gap-2 rounded-xl border border-dashed border-[#1E98FF]/30 bg-[#1E98FF]/5 px-3 py-2.5">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#1E98FF]" />
-                <p className="text-[11px] text-ink-500">Xaritadan yoki qidiruvdan do‘kon tanlang</p>
+              <div className="mt-1.5 flex items-start gap-2 rounded-xl border border-dashed border-[#76152F]/30 bg-[#76152F]/5 px-3 py-2.5">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#76152F]" />
+                <p className="text-xs text-ink-500">Xaritadan yoki qidiruvdan do‘kon tanlang</p>
               </div>
             )}
 
@@ -234,20 +234,20 @@ export function MapSidebar({
             {shopPageHref && selectedMarker ? (
               <Link
                 href={shopPageHref}
-                className="mt-2 flex w-full items-center justify-center gap-2 rounded-xl border border-[#1E98FF]/30 bg-white py-2.5 text-xs font-bold text-[#1E98FF] transition hover:bg-[#1E98FF]/5"
+                className="mt-2 flex w-full items-center justify-center gap-2 rounded-xl border border-[#76152F]/30 bg-white py-2.5 text-xs font-bold text-[#76152F] transition hover:bg-[#76152F]/5"
               >
                 <Store className="h-4 w-4" />
                 Do‘konga kirish
               </Link>
             ) : null}
 
-            <p className="mt-2 text-center text-[10px] text-ink-500">
+            <p className="mt-2 text-center text-xs text-ink-500">
               Pin ustiga bosing — do‘kon haqida va mahsulotlar
             </p>
           </>
         ) : (
           <>
-        <label className="text-[10px] font-semibold uppercase tracking-wide text-ink-500">Boshlanish rejimi</label>
+        <label className="text-xs font-semibold uppercase tracking-wide text-ink-500">Boshlanish rejimi</label>
         <div className="mt-1.5 grid grid-cols-3 gap-1">
           {startModeTabs.map((tab) => {
             const active = routeStartMode === tab.id;
@@ -257,7 +257,7 @@ export function MapSidebar({
                 type="button"
                 onClick={() => onRouteStartModeChange(tab.id)}
                 className={cn(
-                  "rounded-lg py-1.5 text-[10px] font-bold transition-all duration-200",
+                  "rounded-lg py-1.5 text-xs font-bold transition-all duration-200",
                   active
                     ? "bg-electric-500 text-white shadow-md shadow-electric-500/30"
                     : "bg-white/90 text-ink-600 hover:bg-electric-500/10 hover:text-electric-600",
@@ -271,11 +271,11 @@ export function MapSidebar({
 
         {routeStartMode === "entrance" ? (
           <>
-            <label className="mt-3 block text-[10px] font-semibold uppercase tracking-wide text-ink-500">
+            <label className="mt-3 block text-xs font-semibold uppercase tracking-wide text-ink-500">
               Dan — uy, avtoto‘xtash yoki bozor
             </label>
             <div className="mt-1.5 space-y-2">
-              <p className="text-[10px] font-semibold uppercase tracking-wide text-ink-500">
+              <p className="text-xs font-semibold uppercase tracking-wide text-ink-500">
                 Zaxira kirish (blok)
               </p>
               <div className="grid grid-cols-4 gap-1">
@@ -287,7 +287,7 @@ export function MapSidebar({
                       type="button"
                       onClick={() => onFromChange(`entrance-${block}`)}
                       className={cn(
-                        "rounded-lg py-1.5 text-[10px] font-bold transition",
+                        "rounded-lg py-1.5 text-xs font-bold transition",
                         active
                           ? "bg-electric-500 text-white"
                           : "bg-white text-ink-600 ring-1 ring-neutral-200/80 hover:bg-electric-500/10",
@@ -300,10 +300,10 @@ export function MapSidebar({
               </div>
             </div>
             <div className="mt-1.5 rounded-lg border border-electric-500/20 bg-electric-500/5 p-2.5">
-              <p className="text-[11px] font-medium text-ink-700">
+              <p className="text-xs font-medium text-ink-700">
                 Xaritada istalgan joyga bosing — yo‘l o‘sha nuqtadan boshlanadi.
               </p>
-              <p className="mt-1 text-[10px] text-ink-500">
+              <p className="mt-1 text-xs text-ink-500">
                 {manualMapStart
                   ? `Tanlandi: ${manualMapStart.lat.toFixed(5)}, ${manualMapStart.lng.toFixed(5)}`
                   : `Zaxira: ${fromBlock}-blok kirishi`}
@@ -312,7 +312,7 @@ export function MapSidebar({
                 <button
                   type="button"
                   onClick={onClearMapStart}
-                  className="mt-2 text-[10px] font-bold text-electric-600 hover:underline"
+                  className="mt-2 text-xs font-bold text-electric-600 hover:underline"
                 >
                   Startni tozalash
                 </button>
@@ -323,24 +323,24 @@ export function MapSidebar({
 
         {routeStartMode === "gps" ? (
           <div className="mt-3 space-y-2 rounded-lg border border-electric-500/15 bg-electric-500/5 p-2.5">
-            <p className="text-[11px] leading-snug text-ink-600">
+            <p className="text-xs leading-snug text-ink-600">
               Telefoningizdagi joylashuv. Ruxsat berilgach, «Marshrutni boshlash» bosing.
             </p>
             <button
               type="button"
               onClick={onRefreshGps}
               disabled={gpsRefreshing}
-              className="flex w-full items-center justify-center gap-2 rounded-lg bg-electric-500 py-2 text-[11px] font-bold text-white shadow-sm transition hover:bg-electric-600 disabled:opacity-60"
+              className="flex w-full items-center justify-center gap-2 rounded-lg bg-electric-500 py-2 text-xs font-bold text-white shadow-sm transition hover:bg-electric-600 disabled:opacity-60"
             >
               {gpsRefreshing ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <Crosshair className="h-3.5 w-3.5" />}
               Joylashuvni olish
             </button>
-            <p className="text-[10px] text-ink-500">
+            <p className="text-xs text-ink-500">
               {hasGpsFix
                 ? "Joylashuv qabul qilindi."
                 : "Hali signal yo‘q — «Joylashuvni olish» tugmasini bosing."}
             </p>
-            {gpsError ? <p className="text-[10px] font-semibold text-red-600">{gpsError}</p> : null}
+            {gpsError ? <p className="text-xs font-semibold text-red-600">{gpsError}</p> : null}
           </div>
         ) : null}
 
@@ -364,27 +364,27 @@ export function MapSidebar({
 
         {destinationBanner ? (
           <div className="mb-2 rounded-lg border border-electric-500/25 bg-electric-500/8 px-3 py-2">
-            <p className="text-[11px] font-semibold text-electric-700">{destinationBanner}</p>
-            <p className="mt-1 text-[10px] text-ink-600">
+            <p className="text-xs font-semibold text-electric-700">{destinationBanner}</p>
+            <p className="mt-1 text-xs text-ink-600">
               Avval do‘kon xaritada ko‘rinadi. Keyin qayerdan ketishingizni tanlang va marshrutni boshlang.
             </p>
           </div>
         ) : null}
 
-        <label className="text-[10px] font-semibold uppercase tracking-wide text-ink-500">Gacha (B nuqta — do‘kon)</label>
+        <label className="text-xs font-semibold uppercase tracking-wide text-ink-500">Gacha (B nuqta — do‘kon)</label>
         <div className="mt-1.5 flex items-start gap-2 rounded-xl border border-electric-500/40 bg-electric-500/5 px-3 py-2.5 ring-1 ring-electric-500/15">
           <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-electric-500" />
           <div className="min-w-0">
             <p className="truncate text-xs font-semibold leading-snug text-ink-800">{selectedMarker?.name ?? "Manzilni tanlang"}</p>
             {selectedMarker ? (
               <>
-                <p className="mt-1 text-[11px] text-ink-500">{selectedMarker.ipadrom || "Ippodrom"}</p>
-                <p className="mt-1 inline-flex items-center rounded-md bg-electric-500/10 px-1.5 py-0.5 text-[10px] font-bold text-electric-700">
+                <p className="mt-1 text-xs text-ink-500">{selectedMarker.ipadrom || "Ippodrom"}</p>
+                <p className="mt-1 inline-flex items-center rounded-md bg-electric-500/10 px-1.5 py-0.5 text-xs font-bold text-electric-700">
                   {selectedMarker.pin.block}-blok • rasta {selectedMarker.pin.stall}
                 </p>
               </>
             ) : (
-              <p className="text-[11px] text-ink-500">Manzil tanlanmagan</p>
+              <p className="text-xs text-ink-500">Manzil tanlanmagan</p>
             )}
           </div>
         </div>
@@ -393,22 +393,22 @@ export function MapSidebar({
           type="button"
           disabled={!selectedMarker || routeBusy}
           onClick={onBuildRoute}
-          className="mt-3 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 py-2.5 text-xs font-bold tracking-wide text-white shadow-lg shadow-blue-600/25 transition hover:scale-[1.01] hover:opacity-95 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-50"
+          className="mt-3 flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 py-2.5 text-xs font-bold tracking-wide text-white shadow-lg shadow-blue-600/25 transition hover:scale-[1.01] hover:opacity-95 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-50"
         >
           {routeBusy ? <Loader2 className="h-4 w-4 animate-spin" /> : <Navigation2 className="h-4 w-4" />}
           {routePreviewReady ? "Marshrutni yangilash" : "Marshrutni boshlash"}
         </button>
 
         {autoNavigating && !routePreviewReady ? (
-          <p className="mt-2 flex items-center justify-center gap-2 text-center text-[11px] font-medium text-electric-600">
+          <p className="mt-2 flex items-center justify-center gap-2 text-center text-xs font-medium text-electric-600">
             <Loader2 className="h-3.5 w-3.5 animate-spin" />
             GPS va yo‘l hisoblanmoqda…
           </p>
         ) : null}
 
         {routePreviewReady && yandexNavigation ? (
-          <div className="mt-3 space-y-2 rounded-xl border border-[#1E98FF]/20 bg-white/90 p-2.5">
-            <p className="text-[10px] font-bold uppercase tracking-wide text-ink-500">Yandex navigatsiya</p>
+          <div className="mt-3 space-y-2 rounded-xl border border-[#76152F]/20 bg-white/90 p-2.5">
+            <p className="text-xs font-bold uppercase tracking-wide text-ink-500">Yandex navigatsiya</p>
             <div className="grid grid-cols-3 gap-1">
               {YANDEX_TRANSPORT_MODES.map((mode) => {
                 const active = transportMode === mode.id;
@@ -419,10 +419,10 @@ export function MapSidebar({
                     title={mode.label}
                     onClick={() => onTransportModeChange?.(mode.id)}
                     className={cn(
-                      "rounded-lg py-2 text-[10px] font-bold transition",
+                      "rounded-lg py-2 text-xs font-bold transition",
                       active
-                        ? "bg-[#1E98FF] text-white"
-                        : "bg-slate-100 text-ink-700 hover:bg-[#1E98FF]/10",
+                        ? "bg-[#76152F] text-white"
+                        : "bg-slate-100 text-ink-700 hover:bg-[#76152F]/10",
                     )}
                   >
                     <span className="block text-sm">{mode.icon}</span>
@@ -435,7 +435,7 @@ export function MapSidebar({
               type="button"
               disabled={navigationBusy || !selectedMarker}
               onClick={onStartNavigation}
-              className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#1E98FF] py-2.5 text-[11px] font-bold text-white shadow-md transition hover:bg-[#1787e8] disabled:opacity-50"
+              className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#76152F] py-2.5 text-xs font-bold text-white shadow-md transition hover:bg-[#76152F] disabled:opacity-50"
             >
               {navigationBusy ? (
                 <Loader2 className="h-4 w-4 animate-spin" />
@@ -465,7 +465,7 @@ export function MapSidebar({
         {routeStartHint ? (
           <p
             className={cn(
-              "mt-2 text-center text-[10px] font-medium",
+              "mt-2 text-center text-xs font-medium",
               routePathSource === "osm" && routeDistanceLabel
                 ? "text-electric-700"
                 : "text-amber-800",
@@ -476,22 +476,22 @@ export function MapSidebar({
         ) : null}
 
         {routeError ? (
-          <p className="mt-2 text-center text-[10px] font-semibold text-red-600">{routeError}</p>
+          <p className="mt-2 text-center text-xs font-semibold text-red-600">{routeError}</p>
         ) : null}
           </>
         )}
 
         {streetRouteLoading && selectedMarker ? (
-          <p className="mt-2 text-center text-[10px] font-medium text-ink-500">
+          <p className="mt-2 text-center text-xs font-medium text-ink-500">
             Xarita yo‘li hisoblanmoqda…
           </p>
         ) : null}
 
         {normalizedDistanceLabel ? (
           <div className="mt-2 space-y-1 rounded-xl border border-electric-500/15 bg-electric-500/5 px-3 py-2 text-center">
-            <p className="text-[11px] font-semibold text-electric-600">Masofa: {normalizedDistanceLabel}</p>
+            <p className="text-xs font-semibold text-electric-600">Masofa: {normalizedDistanceLabel}</p>
             {routePathSource ? (
-              <p className="text-[10px] font-medium text-ink-500">
+              <p className="text-xs font-medium text-ink-500">
                 {routeSourceCaption(routePathSource, streetRouteProvider)}
               </p>
             ) : null}
