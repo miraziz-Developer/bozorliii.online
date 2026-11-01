@@ -171,7 +171,7 @@ export function AIChat({ variant = "floating" }: AIChatProps) {
               {/* Header */}
               <div className="flex items-center justify-between border-b border-border-subtle px-5 py-4">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-gold">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-500">
                     <Bot className="h-5 w-5 text-canvas" />
                   </div>
                   <div>
@@ -261,7 +261,7 @@ export function AIChat({ variant = "floating" }: AIChatProps) {
                         )}
                       >
                         {msg.role === "assistant" && (
-                          <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gradient-gold">
+                          <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand-500">
                             <Bot className="h-4 w-4 text-canvas" />
                           </div>
                         )}
@@ -278,7 +278,7 @@ export function AIChat({ variant = "floating" }: AIChatProps) {
                             <>
                               <StylistMarkdown content={msg.content || (msg.streaming ? "…" : "")} />
                               {showAiDebug && msg.engine && !msg.streaming ? (
-                                <p className="mt-2 text-[10px] uppercase tracking-wider text-text-400/80">
+                                <p className="mt-2 text-xs uppercase tracking-wider text-text-400/80">
                                   AI · {msg.engine}
                                 </p>
                               ) : null}
@@ -367,7 +367,7 @@ export function AIChat({ variant = "floating" }: AIChatProps) {
                         animate={{ opacity: 1, y: 0 }}
                         className="flex flex-col items-start space-y-1"
                       >
-                        <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gradient-gold">
+                        <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand-500">
                           <Bot className="h-4 w-4 text-canvas" />
                         </div>
                         <div className="max-w-[85%] rounded-2xl rounded-tl-sm border border-border-subtle bg-surface p-3.5 shadow-xs">
@@ -418,7 +418,7 @@ export function AIChat({ variant = "floating" }: AIChatProps) {
                   <button
                     onClick={handleSend}
                     disabled={!text.trim() || isLoading}
-                    className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-gold text-canvas transition-all hover:scale-105 disabled:opacity-40"
+                    className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-brand-500 text-canvas transition-all hover:scale-105 disabled:opacity-40"
                   >
                     {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
                   </button>

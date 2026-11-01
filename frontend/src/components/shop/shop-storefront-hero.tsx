@@ -1,6 +1,6 @@
 "use client";
 
-import { BadgeCheck, Copy, MapPin, Package, Share2, Star, Zap } from "lucide-react";
+import { BadgeCheck, Copy, MapPin, Package, Share2, Star } from "lucide-react";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 
@@ -98,8 +98,8 @@ export function ShopStorefrontHero({ shop, productCount, coverFromProduct, onBro
           ) : null}
           {productCount > 0 ? (
             <span className="shop-hero-stat-pill">
-              <Zap className="h-3.5 w-3.5 text-amber-300" />
-              Yangi kolleksiya
+              <Package className="h-3.5 w-3.5 opacity-80" />
+              {productCount} ta mahsulot
             </span>
           ) : (
             <span className="shop-hero-stat-pill">
@@ -144,7 +144,7 @@ export function ShopStorefrontHero({ shop, productCount, coverFromProduct, onBro
             <div className="min-w-0 sm:max-w-xl" />
             <div className="flex flex-col gap-2 sm:ml-auto sm:items-end">
               {notice ? (
-                <p className="rounded-xl bg-[#eef4ff] px-3 py-1.5 text-[12px] font-medium text-[#1d4ed8] ring-1 ring-[#bfdbfe]/60">
+                <p className="rounded-xl bg-[#F3E6E9] px-3 py-1.5 text-[12px] font-medium text-[#66122A] ring-1 ring-[#E4C6CD]/60">
                   {notice}
                 </p>
               ) : null}

@@ -38,7 +38,7 @@ function SelectField({
 }) {
   return (
     <label className="flex min-w-[130px] flex-1 flex-col gap-1">
-      <span className="text-[9px] font-bold uppercase tracking-widest text-gray-500">{label}</span>
+      <span className="text-xs font-bold uppercase tracking-widest text-gray-500">{label}</span>
       <div className="relative">
         <select
           value={value}
@@ -176,7 +176,7 @@ export function BazaarCatalogToolbar({ filters, onChange, className }: BazaarCat
           )}
           Filtr
           {activeFiltersCount > 0 && !expanded && (
-            <span className="flex h-4 w-4 items-center justify-center rounded-full bg-electric-500 text-[9px] font-bold text-white">
+            <span className="flex h-4 w-4 items-center justify-center rounded-full bg-electric-500 text-xs font-bold text-white">
               {activeFiltersCount}
             </span>
           )}
@@ -211,7 +211,7 @@ export function BazaarCatalogToolbar({ filters, onChange, className }: BazaarCat
               onChange={(v) => set({ rootCategory: v as BazaarCatalogFilters["rootCategory"] })}
             />
             <label className="flex flex-col gap-1">
-              <span className="text-[9px] font-bold uppercase tracking-widest text-gray-500">
+              <span className="text-xs font-bold uppercase tracking-widest text-gray-500">
                 {t("home.filter.minPrice")}
               </span>
               <input
@@ -225,7 +225,7 @@ export function BazaarCatalogToolbar({ filters, onChange, className }: BazaarCat
               />
             </label>
             <label className="flex flex-col gap-1">
-              <span className="text-[9px] font-bold uppercase tracking-widest text-gray-500">
+              <span className="text-xs font-bold uppercase tracking-widest text-gray-500">
                 {t("home.filter.maxPrice")}
               </span>
               <input

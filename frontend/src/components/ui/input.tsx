@@ -30,7 +30,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
               "flex h-12 w-full rounded-xl border bg-white/90 px-3 py-2 text-sm text-text-100 shadow-sm backdrop-blur-sm transition-all duration-300 file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-text-400 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
               error
                 ? "border-red focus-visible:border-red focus-visible:shadow-[0_0_0_4px_rgba(220,38,38,0.12)]"
-                : "border-subtle focus-visible:border-electric-500 focus-visible:shadow-[0_0_0_4px_rgba(0,102,255,0.12)]",
+                : "border-subtle focus-visible:border-electric-500 focus-visible:shadow-[0_0_0_4px_rgba(118,21,47,0.12)]",
               leftIcon && "pl-10",
               rightIcon && "pr-10",
               className

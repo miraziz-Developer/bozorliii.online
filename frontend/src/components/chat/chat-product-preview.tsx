@@ -38,7 +38,7 @@ export function ChatProductPreviewCard({ product }: ChatProductPreviewCardProps)
         <p className="line-clamp-2 text-sm font-semibold text-ink-900">{product.name}</p>
         <p className="mt-0.5 text-xs font-bold text-electric-500">{formatPrice(product.price)}</p>
         {product.shop_number ? (
-          <p className="mt-0.5 text-[10px] font-medium text-ink-500">Do&apos;kon: {product.shop_number}</p>
+          <p className="mt-0.5 text-xs font-medium text-ink-500">Do&apos;kon: {product.shop_number}</p>
         ) : null}
       </div>
     </Link>

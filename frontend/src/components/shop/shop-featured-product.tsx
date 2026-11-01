@@ -49,7 +49,7 @@ export function ShopFeaturedProduct({ product, shopName, shopSlug }: Props) {
           />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
           {lowStock ? (
-            <span className="absolute left-4 top-4 rounded-full bg-rose-500/95 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-white shadow-sm backdrop-blur-sm">
+            <span className="absolute left-4 top-4 rounded-full bg-rose-500/95 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-white shadow-sm backdrop-blur-sm">
               Oxirgi donalar
             </span>
           ) : null}

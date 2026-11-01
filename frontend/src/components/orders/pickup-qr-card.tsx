@@ -83,7 +83,7 @@ export function PickupQrCard({
         type="button"
         onClick={() => setOpen(true)}
         className={cn(
-          "mt-4 flex w-full items-center gap-3 rounded-2xl border border-electric-500/35 bg-gradient-to-r from-electric-500/12 to-electric-500/[0.06] px-4 py-3.5 text-left shadow-sm transition hover:border-electric-500/50 hover:from-electric-500/16 active:scale-[0.99]",
+          "mt-4 flex w-full items-center gap-3 rounded-2xl border border-electric-500/35 bg-electric-500/12 px-4 py-3.5 text-left shadow-sm transition hover:border-electric-500/50 active:scale-[0.99]",
           className,
         )}
       >
@@ -104,14 +104,14 @@ export function PickupQrCard({
   return (
     <div
       className={cn(
-        "relative mt-4 overflow-hidden rounded-2xl border border-electric-500/35 bg-gradient-to-br from-electric-500/10 via-white to-white p-4 shadow-card",
+        "relative mt-4 overflow-hidden rounded-2xl border border-electric-500/35 bg-electric-500/10 p-4 shadow-card",
         isBoarding &&
-          "rounded-[1.35rem] border-electric-500/25 bg-gradient-to-br from-electric-500/[0.08] via-white to-amber-50/40 p-5 shadow-[0_20px_50px_-24px_rgba(0,102,255,0.45)] ring-1 ring-white/60",
+          "rounded-[1.35rem] border-electric-500/25 bg-electric-500/[0.08] p-5 shadow-sm ring-1 ring-white/60",
         className,
       )}
     >
       {isBoarding ? (
-        <div className="pointer-events-none absolute -right-8 -top-8 h-28 w-28 rounded-full bg-electric-500/10 blur-2xl" />
+        <div className="hidden" />
       ) : null}
 
       <div className="relative flex flex-wrap items-center justify-between gap-2">
@@ -123,7 +123,7 @@ export function PickupQrCard({
             <p className="text-xs font-bold uppercase tracking-[0.14em] text-electric-700">
               {isBoarding ? "Bozorliii Pass" : "Olib ketish QR"}
             </p>
-            <p className="text-[10px] text-ink-500">Do&apos;konda skaner qiling</p>
+            <p className="text-xs text-ink-500">Do&apos;konda skaner qiling</p>
           </div>
         </div>
         <div className="flex items-center gap-2">
@@ -132,7 +132,7 @@ export function PickupQrCard({
             <button
               type="button"
               onClick={() => setOpen(false)}
-              className="inline-flex items-center gap-1 rounded-lg px-2 py-1 text-[11px] font-semibold text-ink-500 transition hover:bg-ink-50 hover:text-ink-800"
+              className="inline-flex items-center gap-1 rounded-lg px-2 py-1 text-xs font-semibold text-ink-500 transition hover:bg-ink-50 hover:text-ink-800"
               aria-label="QR kodni yopish"
             >
               <ChevronUp className="h-3.5 w-3.5" />
@@ -142,7 +142,7 @@ export function PickupQrCard({
         </div>
       </div>
 
-      <p className="relative mt-3 flex items-start gap-1.5 text-[11px] leading-relaxed text-ink-500">
+      <p className="relative mt-3 flex items-start gap-1.5 text-xs leading-relaxed text-ink-500">
         <ShieldCheck className="mt-0.5 h-3.5 w-3.5 shrink-0 text-electric-500" aria-hidden />
         Imzolangan token — faqat sizning buyurtmangiz uchun. Sotuvchi skaner qilgach avtomatik yopiladi.
       </p>
@@ -177,7 +177,7 @@ export function PickupQrCard({
             <p className="mt-1 price-mono text-xs text-ink-500">
               {data.quantity} dona · #{data.order_id.slice(0, 8).toUpperCase()}
             </p>
-            <p className="mt-2 text-[11px] leading-relaxed text-ink-400">{data.hint}</p>
+            <p className="mt-2 text-xs leading-relaxed text-ink-400">{data.hint}</p>
             <button
               type="button"
               onClick={() => void load()}

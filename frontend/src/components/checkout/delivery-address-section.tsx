@@ -96,7 +96,7 @@ export function DeliveryAddressSection({
             </a>
           </div>
           <p className="px-3 py-2 text-xs text-ink-700">{resolvedLabel || query}</p>
-          <p className="px-3 pb-2 font-mono text-[10px] text-ink-500">
+          <p className="px-3 pb-2 tabular-nums text-xs text-ink-500">
             {lat?.toFixed(5)}, {lng?.toFixed(5)}
           </p>
         </div>

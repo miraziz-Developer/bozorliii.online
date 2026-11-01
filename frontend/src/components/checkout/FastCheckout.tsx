@@ -702,7 +702,7 @@ export function FastCheckout() {
               ) : null}
 
               {fulfillmentMode === "pickup" && isLoggedIn ? (
-                <p className="text-[11px] text-ink-500">
+                <p className="text-xs text-ink-500">
                   Buyurtma yakunlangach taxminan +{expectedEarnCoins} Coin yig&apos;iladi.
                 </p>
               ) : null}
@@ -723,7 +723,7 @@ export function FastCheckout() {
                 </span>
               </div>
               {fulfillmentMode === "pickup" && pickupDate ? (
-                <p className="rounded-lg bg-electric-500/8 px-2 py-1 text-[11px] font-medium text-electric-500">
+                <p className="rounded-lg bg-electric-500/8 px-2 py-1 text-xs font-medium text-electric-500">
                   {pickupDate} · {pickupLabel}
                 </p>
               ) : null}
@@ -759,7 +759,7 @@ export function FastCheckout() {
               {fulfillmentMode === "delivery" ? "Yetkazishni tasdiqlash" : "Zaxiraga olishni tasdiqlash"}
             </Button>
             {authHydrated && !isLoggedIn && !guestVerified ? (
-              <p className="mt-2 text-center text-[11px] text-ink-500">
+              <p className="mt-2 text-center text-xs text-ink-500">
                 Tasdiqlash uchun avval telefon raqamingizni SMS kod bilan tasdiqlang.
               </p>
             ) : null}

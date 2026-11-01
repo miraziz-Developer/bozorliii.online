@@ -32,17 +32,20 @@ export type ShopTrustMetrics = {
 export function trustMetricsFromStoreRating(metrics: StoreRatingMetrics): ShopTrustMetrics {
   return {
     on_time_delivery_pct: Math.round(metrics.order_fulfillment_rate),
-    quality_guarantee: true,
-    response_time_hours: Math.round((metrics.average_response_time_min / 60) * 10) / 10,
-    badges: ["quality_guarantee", "on_time_delivery"],
-    rating_distribution: { "5": 98, "4": 20, "3": 4, "2": 1, "1": 1 },
+    // no backend field backs a quality guarantee or a per-star distribution — do not invent them
+    quality_guarantee: false,
+    response_time_hours:
+      metrics.average_response_time_min > 0 ? Math.round((metrics.average_response_time_min / 60) * 10) / 10 : null,
+    badges: [],
+    rating_distribution: {},
   };
 }
 
+/** Empty metrics — used when the shop has no measured data yet (nothing is displayed). */
 export const DEFAULT_SHOP_TRUST_METRICS: ShopTrustMetrics = {
-  on_time_delivery_pct: 98,
-  quality_guarantee: true,
-  response_time_hours: 2.5,
-  badges: ["quality_guarantee", "on_time_delivery"],
-  rating_distribution: { "5": 98, "4": 20, "3": 4, "2": 1, "1": 1 },
+  on_time_delivery_pct: 0,
+  quality_guarantee: false,
+  response_time_hours: null,
+  badges: [],
+  rating_distribution: {},
 };

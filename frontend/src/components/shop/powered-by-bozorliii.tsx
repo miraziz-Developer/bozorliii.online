@@ -5,7 +5,7 @@ export function PoweredByBozorliii({ className = "" }: { className?: string }) {
     <footer
       className={`border-t border-black/[0.06] bg-white/60 px-4 py-6 text-center ${className}`}
     >
-      <p className="text-[11px] leading-relaxed text-ink-500">
+      <p className="text-xs leading-relaxed text-ink-500">
         <Link
           href="https://t.me/Bozorliiicrm_bot?start=register"
           className="font-medium text-electric-600 transition-colors hover:text-electric-700"

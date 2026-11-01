@@ -86,7 +86,7 @@ export function AiStylistAdvice({ product, related = [] }: AiStylistAdviceProps)
   }, [product, related, profile?.email]);
 
   return (
-    <Card className="overflow-hidden border-gold-500/20 bg-gradient-to-br from-surface to-elevated/40">
+    <Card className="overflow-hidden border-gold-500/20 bg-surface ">
       <CardHeader>
         <div className="flex items-center gap-2 text-gold-400">
           <Sparkles className="h-5 w-5" />

@@ -78,16 +78,16 @@ function StoryDockCard({ ring, index, liveLabel, promoLabel, onOpen }: StoryDock
       <div
         className={cn(
           "relative aspect-square w-full rounded-[22px] p-[2.5px] shadow-[0_16px_36px_-12px_rgba(8,8,18,0.5)] transition-[transform,box-shadow] duration-300 ease-out will-change-transform sm:rounded-[26px] sm:p-[3px]",
-          "group-hover:scale-[1.04] group-hover:shadow-[0_20px_44px_-10px_rgba(0,102,255,0.35)]",
+          "group-hover:scale-[1.04] shadow-sm",
           isPromo
-            ? "bg-gradient-to-tr from-amber-400 via-orange-500 to-rose-500"
+            ? "bg-amber-400 "
             : hot
-              ? "bg-gradient-to-tr from-amber-400 via-rose-500 to-indigo-700"
-              : "bg-gradient-to-br from-ink-900/40 via-electric-500/25 to-indigo-700/50",
+              ? "bg-amber-400 "
+              : "bg-ink-900/40 ",
         )}
       >
         {countBadge ? (
-          <span className="absolute -right-0.5 -top-0.5 z-10 flex h-4 min-w-[1rem] items-center justify-center rounded-full bg-electric-500 px-1 text-[9px] font-bold text-white shadow-md ring-2 ring-white sm:h-5 sm:min-w-[1.25rem] sm:text-[10px]">
+          <span className="absolute -right-0.5 -top-0.5 z-10 flex h-4 min-w-[1rem] items-center justify-center rounded-full bg-electric-500 px-1 text-xs font-bold text-white shadow-md ring-2 ring-white sm:h-5 sm:min-w-[1.25rem] sm:text-xs">
             {countBadge}
           </span>
         ) : null}
@@ -113,7 +113,7 @@ function StoryDockCard({ ring, index, liveLabel, promoLabel, onOpen }: StoryDock
               />
               <span
                 className={cn(
-                  "text-[7px] font-extrabold uppercase tracking-[0.14em] text-white drop-shadow-md sm:text-[8px] sm:tracking-[0.16em]",
+                  "text-xs font-extrabold uppercase tracking-[0.14em] text-white drop-shadow-md sm:text-xs sm:tracking-[0.16em]",
                   hot && !isPromo && "motion-safe:animate-pulse",
                 )}
               >
@@ -123,7 +123,7 @@ function StoryDockCard({ ring, index, liveLabel, promoLabel, onOpen }: StoryDock
           </div>
         </div>
       </div>
-      <span className="line-clamp-2 w-full px-0.5 text-center text-[9px] font-extrabold leading-tight tracking-tight text-ink-900 transition-colors group-hover:text-electric-600 sm:text-[10px] sm:leading-snug">
+      <span className="line-clamp-2 w-full px-0.5 text-center text-xs font-extrabold leading-tight tracking-tight text-ink-900 transition-colors group-hover:text-electric-600 sm:text-xs sm:leading-snug">
         {storeName}
       </span>
     </motion.button>
@@ -196,7 +196,7 @@ export function StoriesFeed() {
           initial={{ opacity: 0, x: 8 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.35 }}
-          className="mb-1 hidden items-center gap-1.5 rounded-full border border-electric-500/20 bg-electric-500/8 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-electric-600 shadow-sm sm:flex"
+          className="mb-1 hidden items-center gap-1.5 rounded-full border border-electric-500/20 bg-electric-500/8 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-electric-600 shadow-sm sm:flex"
         >
           <Sparkles className="h-3.5 w-3.5" aria-hidden />
           {t("home.stories.wowwDock")}
@@ -211,8 +211,8 @@ export function StoriesFeed() {
         onMouseEnter={() => setDockHover(true)}
         onMouseLeave={() => setDockHover(false)}
       >
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_120%_80%_at_10%_-20%,rgba(0,102,255,0.12),transparent_50%),radial-gradient(ellipse_80%_60%_at_100%_100%,rgba(255,77,18,0.06),transparent_45%)]" />
-        <p className="pointer-events-none absolute left-4 top-3 z-[2] flex items-center gap-1 rounded-full border border-electric-500/15 bg-white/70 px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.18em] text-electric-600 shadow-sm backdrop-blur-sm sm:hidden">
+        <div className="pointer-events-none absolute inset-0" />
+        <p className="pointer-events-none absolute left-4 top-3 z-[2] flex items-center gap-1 rounded-full border border-electric-500/15 bg-white/70 px-2.5 py-1 text-xs font-bold uppercase tracking-[0.18em] text-electric-600 shadow-sm backdrop-blur-sm sm:hidden">
           <Sparkles className="h-3 w-3" aria-hidden />
           {t("home.stories.wowwDock")}
         </p>
@@ -248,14 +248,14 @@ export function StoriesFeed() {
 
         {!reduceMotion && rings.length > 5 ? (
           <div
-            className="pointer-events-none absolute bottom-0 left-1/2 h-0.5 w-1/3 max-w-xs -translate-x-1/2 rounded-full bg-gradient-to-r from-transparent via-electric-500/35 to-transparent motion-safe:animate-pulse"
+            className="pointer-events-none absolute bottom-0 left-1/2 h-0.5 w-1/3 max-w-xs -translate-x-1/2 rounded-full bg-line motion-safe:animate-pulse"
             aria-hidden
           />
         ) : null}
       </motion.div>
 
       {rings.length > 5 ? (
-        <p className="mt-2 text-center text-[11px] text-ink-400">
+        <p className="mt-2 text-center text-xs text-ink-400">
           {t("home.stories.scrollHint")}
         </p>
       ) : null}

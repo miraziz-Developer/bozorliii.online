@@ -141,7 +141,7 @@ export function GuestPhoneVerify({ phoneE164, phoneValid, onVerified, verified }
               href={deepLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-electric px-4 py-2.5 text-sm font-bold text-white shadow-[0_4px_18px_rgba(0,102,255,0.38)] transition hover:brightness-105"
+              className="flex w-full items-center justify-center gap-2 rounded-xl bg-brand-500 px-4 py-2.5 text-sm font-bold text-white shadow-sm transition hover:brightness-105"
             >
               <ExternalLink className="h-4 w-4" />
               Telegramni ochish
@@ -181,7 +181,7 @@ export function GuestPhoneVerify({ phoneE164, phoneValid, onVerified, verified }
           </div>
           <button
             type="button"
-            className="block w-full text-center text-[11px] text-ink-400 hover:text-ink-700 disabled:opacity-50"
+            className="block w-full text-center text-xs text-ink-400 hover:text-ink-700 disabled:opacity-50"
             disabled={loading}
             onClick={() => {
               setStage("idle");

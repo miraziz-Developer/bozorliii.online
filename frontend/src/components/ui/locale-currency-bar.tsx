@@ -96,7 +96,7 @@ export function LocaleCurrencyNav({ className }: LocaleCurrencyNavProps) {
             aria-hidden
           />
 
-          <span className="mb-2 block text-[10px] font-bold uppercase tracking-widest text-neutral-400">
+          <span className="mb-2 block text-xs font-bold uppercase tracking-widest text-neutral-400">
             Til
           </span>
           <div className="mb-3 flex flex-wrap gap-1.5">
@@ -110,7 +110,7 @@ export function LocaleCurrencyNav({ className }: LocaleCurrencyNavProps) {
             ))}
           </div>
 
-          <span className="mb-2 block text-[10px] font-bold uppercase tracking-widest text-neutral-400">
+          <span className="mb-2 block text-xs font-bold uppercase tracking-widest text-neutral-400">
             Valyuta
           </span>
           <div className="flex flex-wrap gap-1.5">

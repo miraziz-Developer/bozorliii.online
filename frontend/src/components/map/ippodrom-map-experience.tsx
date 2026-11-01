@@ -1044,7 +1044,7 @@ export function IppodromMapExperience({ mapTilerKey = "" }: IppodromMapExperienc
             sidebarOpen ? "md:right-4 md:bottom-6" : "md:right-6 md:bottom-8",
           )}
         >
-          <div className="pointer-events-auto relative max-h-[min(70vh,520px)] overflow-y-auto overflow-x-hidden rounded-3xl border border-white/75 bg-gradient-to-br from-white/92 via-white/88 to-electric-500/[0.06] shadow-2xl backdrop-blur-2xl animate-in fade-in slide-in-from-bottom-3 duration-300">
+          <div className="pointer-events-auto relative max-h-[min(70vh,520px)] overflow-y-auto overflow-x-hidden rounded-3xl border border-white/75 bg-white/92 shadow-2xl backdrop-blur-2xl animate-in fade-in slide-in-from-bottom-3 duration-300">
             <button
               type="button"
               onClick={() => setPopup(null)}

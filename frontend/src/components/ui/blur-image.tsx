@@ -20,7 +20,7 @@ export function BlurImage({ className, wrapperClassName, alt, onLoad, onError, s
   return (
     <div
       className={cn(
-        "relative overflow-hidden bg-gradient-to-br from-elevated via-slate-100 to-electric-500/10",
+        "relative overflow-hidden bg-elevated ",
         wrapperClassName,
       )}
     >
@@ -32,7 +32,7 @@ export function BlurImage({ className, wrapperClassName, alt, onLoad, onError, s
         aria-hidden
       >
         <div className="absolute inset-0 skeleton opacity-60" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(10,124,255,0.12),transparent_55%)]" />
+        <div className="absolute inset-0" />
       </div>
       <Image
         {...props}

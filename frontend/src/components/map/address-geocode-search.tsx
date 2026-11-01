@@ -125,7 +125,7 @@ export function AddressGeocodeSearch({
 
   return (
     <div ref={wrapRef} className={cn("relative space-y-2", className)}>
-      <p className="text-[11px] leading-snug text-ink-600">
+      <p className="text-xs leading-snug text-ink-600">
         Yandex Maps kabi: «Metro Chilonzor», «Chorbog‘ ko‘chasi» — ro‘yxatdan tanlang.
       </p>
       <div className="relative">
@@ -168,7 +168,7 @@ export function AddressGeocodeSearch({
                 <span className="min-w-0">
                   <span className="block font-semibold text-ink-800">{item.title}</span>
                   {item.subtitle ? (
-                    <span className="mt-0.5 block truncate text-[10px] text-ink-500">{item.subtitle}</span>
+                    <span className="mt-0.5 block truncate text-xs text-ink-500">{item.subtitle}</span>
                   ) : null}
                 </span>
               </button>
@@ -178,7 +178,7 @@ export function AddressGeocodeSearch({
       ) : null}
 
       {selectedLabel ? (
-        <p className="text-[10px] font-medium text-electric-700">
+        <p className="text-xs font-medium text-electric-700">
           Tanlandi: {selectedLabel}
           {onClear ? (
             <button type="button" onClick={onClear} className="ml-2 font-bold underline">
@@ -188,7 +188,7 @@ export function AddressGeocodeSearch({
         </p>
       ) : null}
 
-      {error ? <p className="text-[10px] font-semibold text-red-600">{error}</p> : null}
+      {error ? <p className="text-xs font-semibold text-red-600">{error}</p> : null}
     </div>
   );
 }

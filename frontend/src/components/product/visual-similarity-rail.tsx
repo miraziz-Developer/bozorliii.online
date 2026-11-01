@@ -56,16 +56,18 @@ export function VisualSimilarityRail({ sourceImage, items }: VisualSimilarityRai
                   images={item.images}
                   alt={item.name}
                   fill
-                  className="object-cover transition duration-500 group-hover:scale-105"
+                  className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
                   sizes="25vw"
                 />
-                <span className="absolute left-2 top-2 z-10 rounded-full bg-canvas/80 px-2 py-0.5 text-[10px] font-semibold text-gold-400 backdrop-blur">
-                  {98 - index * 3}% o&apos;xshash
-                </span>
+                {typeof item.visual_match_pct === "number" && item.visual_match_pct > 0 ? (
+                  <span className="absolute left-2 top-2 z-10 rounded bg-white px-2 py-0.5 text-xs font-semibold text-charcoal">
+                    {Math.round(item.visual_match_pct)}% o&apos;xshash
+                  </span>
+                ) : null}
               </div>
               <div className="p-3">
                 <p className="line-clamp-2 text-sm font-medium text-text-100">{item.name}</p>
-                <p className="price-mono mt-2 text-base font-bold text-gold-500">{formatPrice(item.price)}</p>
+                <p className="price-mono mt-2 text-base font-semibold text-charcoal">{formatPrice(item.price)}</p>
               </div>
             </Link>
           </motion.div>

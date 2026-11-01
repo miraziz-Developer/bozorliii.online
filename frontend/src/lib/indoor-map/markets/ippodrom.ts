@@ -107,5 +107,5 @@ export const ippodromMarketPlan: IndoorMarketPlan = {
 };
 
 export function stallStatusColor(status: StallStatus) {
-  return status === "occupied" ? "#0A7CFF" : "#e2e8f0";
+  return status === "occupied" ? "#76152F" : "#e2e8f0";
 }

@@ -181,7 +181,7 @@ export function ChinaProductPage({ initialQuery = "", compact = false }: ChinaPr
                         unoptimized
                         sizes="(max-width: 640px) 50vw, 25vw"
                       />
-                      <span className="absolute left-2 top-2 rounded-full bg-electric-500 px-2 py-0.5 text-[10px] font-bold text-white shadow-sm">
+                      <span className="absolute left-2 top-2 rounded-full bg-electric-500 px-2 py-0.5 text-xs font-bold text-white shadow-sm">
                         Xitoy
                       </span>
                     </Link>

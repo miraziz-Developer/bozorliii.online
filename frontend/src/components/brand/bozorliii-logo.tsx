@@ -108,7 +108,7 @@ export function BozorliiiLogo({
           style={{
             fontSize: `${9 * s}px`,
             marginTop: `${3 * s}px`,
-            color: "#003366",
+            color: "#340914",
           }}
         >
           {BRAND.tagline}
@@ -119,7 +119,7 @@ export function BozorliiiLogo({
 
   if (href) {
     return (
-      <Link href={href} className="inline-flex shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#003366]/30 focus-visible:ring-offset-2 rounded-2xl" aria-label="Bozorliii">
+      <Link href={href} className="inline-flex shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#340914]/30 focus-visible:ring-offset-2 rounded-2xl" aria-label="Bozorliii">
         {lockup}
       </Link>
     );

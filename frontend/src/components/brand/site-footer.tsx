@@ -38,8 +38,8 @@ export function SiteFooter({ dark = false }: SiteFooterProps) {
             <p
               className={
                 dark
-                  ? "text-[10px] font-bold uppercase tracking-widest text-white/40"
-                  : "text-[10px] font-bold uppercase tracking-widest text-text-400"
+                  ? "text-xs font-bold uppercase tracking-widest text-white/40"
+                  : "text-xs font-bold uppercase tracking-widest text-text-400"
               }
             >
               Sahifalar
@@ -66,8 +66,8 @@ export function SiteFooter({ dark = false }: SiteFooterProps) {
             <p
               className={
                 dark
-                  ? "text-[10px] font-bold uppercase tracking-widest text-white/40"
-                  : "text-[10px] font-bold uppercase tracking-widest text-text-400"
+                  ? "text-xs font-bold uppercase tracking-widest text-white/40"
+                  : "text-xs font-bold uppercase tracking-widest text-text-400"
               }
             >
               Ma&apos;lumot

@@ -26,7 +26,7 @@ export function CheckoutStepper({ activeStep, className }: Props) {
                   className={cn(
                     "flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-bold transition",
                     done && "bg-green text-white shadow-sm",
-                    active && !done && "bg-electric-500 text-white shadow-[0_0_0_4px_rgba(0,102,255,0.18)]",
+                    active && !done && "bg-electric-500 text-white shadow-[0_0_0_4px_rgba(118,21,47,0.18)]",
                     !done && !active && "border border-border-default bg-white text-text-400",
                   )}
                   aria-current={active ? "step" : undefined}
@@ -35,7 +35,7 @@ export function CheckoutStepper({ activeStep, className }: Props) {
                 </span>
                 <span
                   className={cn(
-                    "truncate text-[11px] font-semibold uppercase tracking-wide sm:text-xs",
+                    "truncate text-xs font-semibold uppercase tracking-wide sm:text-xs",
                     active || done ? "text-ink-900" : "text-text-400",
                   )}
                 >

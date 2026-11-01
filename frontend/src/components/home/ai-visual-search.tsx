@@ -75,18 +75,17 @@ export function AiVisualSearch() {
 
   return (
     <section className="relative overflow-x-clip bg-canvas px-4 pb-4 pt-6 sm:px-5 sm:pt-8">
-      <motion.div className="absolute inset-0 bg-hero-glow" />
-      <motion.div {...fadeUp} className="relative mx-auto max-w-5xl min-w-0">
+            <motion.div {...fadeUp} className="relative mx-auto max-w-5xl min-w-0">
         <div className="mb-10 text-center">
-          <p className="eyebrow-pill mb-4 inline-flex items-center gap-2 transition-transform duration-300 hover:scale-[1.02]">
-            <Sparkles className="h-4 w-4 text-electric-500" />
+          <p className="mb-3 inline-flex items-center gap-2 text-sm font-semibold text-brand-500">
+            <Sparkles className="h-4 w-4" aria-hidden />
             {t("home.hero.eyebrow")}
           </p>
-          <h1 className="display-hero text-ink-900">
+          <h2 className="text-balance text-3xl font-bold tracking-[-0.02em] text-charcoal sm:text-4xl">
             {t("home.hero.titleLine1")}
-            <span className="block text-gradient-electric">{t("home.hero.titleLine2")}</span>
-          </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-base font-medium leading-relaxed tracking-wide text-neutral-500 md:text-lg">
+            <span className="block text-brand-500">{t("home.hero.titleLine2")}</span>
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-ink-500 md:text-lg">
             {t("home.hero.subtitle")}
           </p>
         </div>
@@ -97,10 +96,9 @@ export function AiVisualSearch() {
           onDragLeave={onDragLeave}
           onDrop={onDrop}
           className={cn(
-            "relative overflow-hidden rounded-[28px] p-3 transition-all duration-300",
-            "glass-panel-strong shadow-elevated",
-            dragOver && "shadow-[0_0_28px_rgba(0,102,255,0.35)] ring-2 ring-electric-500/40",
-            ingestActive && !dragOver && "shadow-[0_0_20px_rgba(0,102,255,0.22)] ring-1 ring-electric-500/30",
+            "relative overflow-hidden rounded-card border border-line bg-white p-3",
+            dragOver && " ring-2 ring-electric-500/40",
+            ingestActive && !dragOver && " ring-1 ring-electric-500/30",
             !dragOver && !ingestActive && "ring-1 ring-black/[0.04]",
           )}
         >
@@ -115,9 +113,8 @@ export function AiVisualSearch() {
                 onDrop={onDrop}
                 className={cn(
                   "relative flex h-36 w-full shrink-0 items-center justify-center overflow-hidden rounded-2xl border-2 border-dashed transition-all duration-300 md:h-auto md:w-48",
-                  "hover:scale-[1.02] active:scale-[0.98]",
-                  dragOver
-                    ? "scale-[1.01] border-electric-500 bg-electric-500/10 shadow-[0_0_25px_rgba(0,102,255,0.4)]"
+                                    dragOver
+                    ? "scale-[1.01] border-electric-500 bg-electric-500/10"
                     : "border-electric-500/30 bg-elevated/60 hover:border-electric-500/50 hover:bg-electric-500/5",
                 )}
               >
@@ -136,7 +133,7 @@ export function AiVisualSearch() {
                   <div className="text-center">
                     <Camera className="mx-auto h-7 w-7 text-electric-500" />
                     <p className="mt-2 text-xs font-semibold text-ink-900">{t("home.visual.dragHint")}</p>
-                    <p className="mt-1 text-[10px] text-gray-600">{t("home.visual.tapHint")}</p>
+                    <p className="mt-1 text-xs text-gray-600">{t("home.visual.tapHint")}</p>
                   </div>
                 )}
               </button>
@@ -153,7 +150,7 @@ export function AiVisualSearch() {
                   placeholder={PLACEHOLDER_PROMPTS[promptIndex]}
                   onFocus={() => setPromptIndex((value) => (value + 1) % PLACEHOLDER_PROMPTS.length)}
                 />
-                <p className="text-center text-[11px] text-ink-500 md:text-left">
+                <p className="text-center text-xs text-ink-500 md:text-left">
                   Matn, ovoz yoki rasm — barchasi bir joyda. Faqat kiyim-kechak katalogi.
                 </p>
               </div>

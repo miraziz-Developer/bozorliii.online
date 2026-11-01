@@ -46,7 +46,7 @@ export function PickupStoreLocations({ products }: PickupStoreLocationsProps) {
         return (
           <div
             key={shop.id}
-            className="rounded-2xl border border-electric-500/15 bg-gradient-to-br from-electric-500/[0.05] to-white p-4"
+            className="rounded-2xl border border-electric-500/15 bg-electric-500/[0.05] p-4"
           >
             <div className="flex items-start gap-2">
               <Store className="mt-0.5 h-4 w-4 shrink-0 text-electric-500" />

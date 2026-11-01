@@ -77,7 +77,7 @@ export type YandexMarketMapProps = {
 };
 
 const LINE_STYLE = {
-  strokeColor: "#1E98FF",
+  strokeColor: "#76152F",
   strokeWidth: 6,
   strokeOpacity: 0.92,
   lineJoin: "round",
@@ -704,7 +704,7 @@ export function YandexMarketMap({
           wayPointVisible: true,
           pinVisible: true,
           routeActiveStrokeWidth: 7,
-          routeActiveStrokeColor: mode === "auto" ? "#22c55e" : mode === "masstransit" ? "#a855f7" : "#1E98FF",
+          routeActiveStrokeColor: mode === "auto" ? "#22c55e" : mode === "masstransit" ? "#a855f7" : "#76152F",
         },
       );
 
@@ -1008,21 +1008,21 @@ export function YandexMarketMap({
   if (loadError && !onLoadFailed) {
     const referrers = yandexMapsReferrerPatterns();
     return (
-      <div className="flex h-full w-full flex-col items-center justify-center gap-3 bg-[#F4F5F7] p-6 text-center">
+      <div className="flex h-full w-full flex-col items-center justify-center gap-3 bg-[#F7F5F0] p-6 text-center">
         <p className="max-w-md text-sm font-medium text-red-600">{loadError}</p>
         <p className="max-w-md text-xs text-ink-600">
           <a
             href="https://developer.tech.yandex.ru/"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-semibold text-[#1E98FF] hover:underline"
+            className="font-semibold text-[#76152F] hover:underline"
           >
             developer.tech.yandex.ru
           </a>
           {" "}
           → kalit → «HTTP referrer»:
         </p>
-        <ul className="max-w-md list-inside list-disc text-left text-[11px] text-ink-500">
+        <ul className="max-w-md list-inside list-disc text-left text-xs text-ink-500">
           {referrers.map((r) => (
             <li key={r}>
               <code className="rounded bg-white px-1">{r}</code>
@@ -1037,7 +1037,7 @@ export function YandexMarketMap({
             mountedRef.current = false;
             window.location.reload();
           }}
-          className="rounded-lg bg-[#1E98FF] px-4 py-2 text-xs font-bold text-white"
+          className="rounded-lg bg-[#76152F] px-4 py-2 text-xs font-bold text-white"
         >
           Qayta yuklash
         </button>
@@ -1047,7 +1047,7 @@ export function YandexMarketMap({
 
   if (loadError && onLoadFailed) {
     return (
-      <div className="flex h-full w-full items-center justify-center bg-[#F4F5F7] p-4 text-center text-xs text-ink-500">
+      <div className="flex h-full w-full items-center justify-center bg-[#F7F5F0] p-4 text-center text-xs text-ink-500">
         Xarita zaxira rejimiga o‘tilmoqda…
       </div>
     );

@@ -12,7 +12,7 @@ export function PremiumMarketEntry() {
   return (
     <section className="mx-4 mb-4 sm:mx-0">
       <div className={`${marketGlass} overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.25)]`}>
-        <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-cyan-400/90">Premium Market</p>
+        <p className="text-xs font-bold uppercase tracking-[0.28em] text-cyan-400/90">Premium Market</p>
         <h2 className="mt-2 text-lg font-bold text-white sm:text-xl">
           {china ? "Xitoy va ichki bozor — yakuniy narx" : "Mahalliy bozor — yakuniy narx"}
         </h2>

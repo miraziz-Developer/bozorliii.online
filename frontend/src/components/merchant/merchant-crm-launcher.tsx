@@ -30,7 +30,7 @@ export function MerchantCrmLauncher({ variant = "dock", className }: MerchantCrm
     return (
       <section
         className={cn(
-          "rounded-2xl border border-gold-500/25 bg-gradient-to-br from-gold-500/10 via-white to-electric-500/5 p-5 shadow-card",
+          "rounded-2xl border border-gold-500/25 bg-gold-500/10 p-5 shadow-card",
           className,
         )}
       >
@@ -69,7 +69,7 @@ export function MerchantCrmLauncher({ variant = "dock", className }: MerchantCrm
         onClick={onOpen}
         className={cn(
           "pointer-events-auto mx-auto flex w-full max-w-lg items-center justify-center gap-2",
-          "rounded-2xl border border-gold-500/30 bg-gradient-to-r from-gold-500 to-amber-500 px-4 py-3",
+          "rounded-2xl border border-gold-500/30 bg-gold-500 px-4 py-3",
           "text-sm font-semibold text-white shadow-gold transition active:scale-[0.98]",
         )}
       >

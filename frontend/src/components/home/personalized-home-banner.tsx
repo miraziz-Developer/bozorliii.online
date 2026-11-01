@@ -54,7 +54,7 @@ export function PersonalizedHomeBanner({ experience }: Props) {
             <Icon className="h-5 w-5 text-ink-800" />
           </div>
           <div>
-            <p className="text-[10px] font-semibold uppercase tracking-wide text-ink-500 min-[360px]:text-xs">
+            <p className="text-xs font-semibold uppercase tracking-wide text-ink-500 min-[360px]:text-xs">
               Siz uchun · {experience.rule_label ?? experience.rule_id}
             </p>
             <h2 className="mt-0.5 text-sm font-bold text-ink-900 min-[360px]:text-base">{banner.title}</h2>

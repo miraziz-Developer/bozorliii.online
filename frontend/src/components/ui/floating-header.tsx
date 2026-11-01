@@ -174,7 +174,7 @@ export function FloatingHeader() {
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   exit={{ scale: 0 }}
-                  className="absolute -right-1 -top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-neon-500 px-1 text-[9px] font-bold text-white"
+                  className="absolute -right-1 -top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-neon-500 px-1 text-xs font-bold text-white"
                 >
                   {totalItems}
                 </motion.span>

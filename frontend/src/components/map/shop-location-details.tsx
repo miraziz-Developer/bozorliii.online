@@ -25,15 +25,15 @@ function LocationChip({
       className={cn(
         "rounded-lg border px-2 py-1.5 text-center",
         emphasize
-          ? "border-[#1E98FF] bg-[#1E98FF]/10 shadow-sm"
+          ? "border-[#76152F] bg-[#76152F]/10 shadow-sm"
           : "border-slate-200/90 bg-white/95",
       )}
     >
-      <p className="text-[9px] font-bold uppercase tracking-wide text-slate-500">{label}</p>
+      <p className="text-xs font-bold uppercase tracking-wide text-slate-500">{label}</p>
       <p
         className={cn(
           "mt-0.5 text-xs font-extrabold leading-tight",
-          emphasize ? "text-[#0066ff]" : "text-slate-900",
+          emphasize ? "text-[#76152F]" : "text-slate-900",
         )}
       >
         {value}
@@ -74,12 +74,12 @@ export function ShopLocationDetailsCard({
   return (
     <div
       className={cn(
-        "rounded-xl border-2 border-amber-400/70 bg-gradient-to-br from-amber-50 to-orange-50/80 shadow-sm",
+        "rounded-xl border-2 border-amber-400/70 bg-amber-50 shadow-sm",
         compact ? "p-2" : "p-3",
         className,
       )}
     >
-      <p className="mb-2 flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wide text-amber-800">
+      <p className="mb-2 flex items-center gap-1.5 text-xs font-bold uppercase tracking-wide text-amber-800">
         <MapPin className="h-3.5 w-3.5 shrink-0" />
         {location.market}
       </p>
@@ -99,7 +99,7 @@ export function ShopLocationDetailsCard({
         <p
           className={cn(
             "mt-2 flex items-start gap-2 rounded-lg border border-amber-300/80 bg-white/90 px-2.5 py-2 text-xs font-semibold leading-snug text-amber-950 shadow-inner",
-            compact && "text-[11px]",
+            compact && "text-xs",
           )}
         >
           <MessageSquare className="mt-0.5 h-4 w-4 shrink-0 text-amber-600" aria-hidden />

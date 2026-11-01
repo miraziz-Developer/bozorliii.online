@@ -125,7 +125,7 @@ export function MarketMap({
     <div className="relative h-full w-full">
       {showYandexReferrerHint ? (
         <div className="pointer-events-none absolute inset-x-0 top-0 z-20 flex justify-center p-2">
-          <div className="pointer-events-auto max-w-lg rounded-xl border border-amber-400/50 bg-amber-50/95 px-3 py-2.5 text-[11px] leading-snug text-amber-950 shadow-md backdrop-blur-sm">
+          <div className="pointer-events-auto max-w-lg rounded-xl border border-amber-400/50 bg-amber-50/95 px-3 py-2.5 text-xs leading-snug text-amber-950 shadow-md backdrop-blur-sm">
             <p className="font-bold">Yandex xarita yuklanmadi — zaxira xarita (MapLibre).</p>
             <p className="mt-1">
               Kalitda «HTTP referrer» ga qo‘shing:{" "}
@@ -137,7 +137,7 @@ export function MarketMap({
                   </code>
                 ))}
             </p>
-            <p className="mt-1 text-[10px] opacity-90">
+            <p className="mt-1 text-xs opacity-90">
               <a
                 href="https://developer.tech.yandex.ru/"
                 target="_blank"
@@ -154,7 +154,7 @@ export function MarketMap({
       ) : null}
       {showYandexSetupHint ? (
         <div className="pointer-events-none absolute inset-x-0 top-0 z-20 flex justify-center p-2">
-          <div className="pointer-events-auto max-w-md rounded-xl border border-[#1E98FF]/30 bg-white/95 px-3 py-2 text-center text-[11px] font-medium text-ink-800 shadow-md backdrop-blur-sm">
+          <div className="pointer-events-auto max-w-md rounded-xl border border-[#76152F]/30 bg-white/95 px-3 py-2 text-center text-xs font-medium text-ink-800 shadow-md backdrop-blur-sm">
             To‘liq Yandex Navigator rejimi:{" "}
             <code className="rounded bg-slate-100 px-1">NEXT_PUBLIC_YANDEX_MAPS_API_KEY</code> qo‘ying.
             Hozir: Yandex xarita + ko‘cha marshruti (ORS).

@@ -44,7 +44,7 @@ export function StoreCard({ shop, topProducts = [], href, className }: StoreCard
         <p className="truncate text-base font-bold text-ink-900 transition-colors group-hover:text-electric-500">
           {shop.name}
         </p>
-        <p className="mt-1.5 flex items-start gap-1.5 text-[11px] leading-snug text-gray-600">
+        <p className="mt-1.5 flex items-start gap-1.5 text-xs leading-snug text-gray-600">
           <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-electric-500" aria-hidden />
           <span className="line-clamp-2">{address}</span>
         </p>

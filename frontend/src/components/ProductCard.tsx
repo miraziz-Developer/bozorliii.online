@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { Heart, Phone, Share2, ShoppingBag } from "lucide-react";
+import { motion } from "framer-motion";
+import { Heart, Phone, ShoppingBag } from "lucide-react";
 import { BlurImage } from "@/components/ui/blur-image";
 import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
@@ -42,10 +42,6 @@ export function ProductCard({
 }: ProductCardProps) {
   const router = useRouter();
   const ref = useRef<HTMLDivElement>(null);
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const rotateX = useSpring(useTransform(y, [-60, 60], [8, -8]), { stiffness: 220, damping: 20 });
-  const rotateY = useSpring(useTransform(x, [-60, 60], [-8, 8]), { stiffness: 220, damping: 20 });
   const addItem = useCartStore((state) => state.addItem);
   const launch = useFlyToCartStore((state) => state.launch);
   const isFavorite = useWatchlistStore((state) => state.isFavorite(product.id));
@@ -94,17 +90,6 @@ export function ProductCard({
   <>
       <motion.div
         ref={ref}
-        style={{ rotateX, rotateY, transformPerspective: 900 }}
-        onMouseMove={(event) => {
-          const rect = ref.current?.getBoundingClientRect();
-          if (!rect) return;
-          x.set(event.clientX - rect.left - rect.width / 2);
-          y.set(event.clientY - rect.top - rect.height / 2);
-        }}
-        onMouseLeave={() => {
-          x.set(0);
-          y.set(0);
-        }}
         {...cardHover}
         className={cn(
           "pin-card group relative overflow-hidden border border-border-subtle",
@@ -112,12 +97,11 @@ export function ProductCard({
           variant === "compact" ? "max-w-[180px]" : "w-full",
         )}
       >
-        <motion.div className="pointer-events-none absolute -inset-2 rounded-[28px] bg-electric-500/0 opacity-0 blur-2xl transition duration-500 group-hover:bg-electric-500/15 group-hover:opacity-100" />
         <div
           className={cn(
             "relative overflow-hidden bg-elevated",
             variant === "list" ? "h-28 w-28 flex-shrink-0 rounded-xl" : "w-full",
-            variant !== "list" && (aspectRatio === "square" ? "aspect-square" : "aspect-[4/3]"),
+            variant !== "list" && (aspectRatio === "square" ? "aspect-square" : "aspect-[4/5]"),
           )}
         >
           <BlurImage
@@ -126,21 +110,20 @@ export function ProductCard({
             fill
             priority={priority}
             wrapperClassName="absolute inset-0"
-            className="object-cover transition duration-500 group-hover:scale-105"
+            className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
             sizes={variant === "list" ? "112px" : "(max-width: 768px) 50vw, 25vw"}
           />
           {typeof product.visual_match_pct === "number" && product.visual_match_pct >= 35 ? (
-            <span className="absolute left-2 top-2 z-10 rounded-full bg-electric-500/95 px-2 py-0.5 text-[10px] font-semibold text-white shadow-sm">
+            <span className="absolute left-2 top-2 z-10 rounded-full bg-electric-500/95 px-2 py-0.5 text-xs font-semibold text-white shadow-sm">
               Rasm {product.visual_match_pct}%
             </span>
           ) : null}
-          <motion.div className="absolute inset-0 bg-black/15 opacity-0 transition group-hover:opacity-100" />
           <motion.div className="absolute right-2 top-2 flex flex-col gap-2">
             <button
               type="button"
               className={cn(
-                "flex h-8 w-8 items-center justify-center rounded-full bg-white/85 text-ink-700 backdrop-blur transition hover:bg-neon-500 hover:text-white",
-                isFavorite && "bg-neon-500 text-white",
+                "flex h-11 w-11 items-center justify-center rounded-full bg-white text-charcoal shadow-sm transition-colors hover:text-brand-500",
+                isFavorite && "text-brand-500",
               )}
               onClick={(event) => {
                 event.stopPropagation();
@@ -151,31 +134,17 @@ export function ProductCard({
             >
               <Heart className={cn("h-4 w-4", isFavorite && "fill-current")} />
             </button>
-            <button
-              type="button"
-              className="flex h-8 w-8 items-center justify-center rounded-full bg-white/85 text-ink-700 backdrop-blur transition hover:bg-ink-900 hover:text-white"
-              onClick={(event) => {
-                event.stopPropagation();
-                void navigator.share?.({
-                  title: product.name,
-                  url: `${window.location.origin}/product/${product.id}`,
-                });
-              }}
-              aria-label="Ulashish"
-            >
-              <Share2 className="h-4 w-4" />
-            </button>
           </motion.div>
           <div className="absolute bottom-2 left-2 flex flex-col gap-1">
             {discountPct != null && discountPct > 0 ? (
-              <span className="w-fit rounded-md bg-neon-500 px-2 py-0.5 text-[10px] font-black text-white">
+              <span className="w-fit rounded bg-brand-500 px-2 py-0.5 text-xs font-semibold text-white">
                 -{discountPct}%
               </span>
             ) : null}
             <span
               className={cn(
-                "w-fit rounded-full px-2 py-0.5 text-[10px] font-medium text-white backdrop-blur",
-                product.is_available ? "bg-green/90" : "bg-red/90",
+                "w-fit rounded px-2 py-0.5 text-xs font-medium",
+                product.is_available ? "hidden" : "bg-charcoal text-white",
               )}
             >
               {product.is_available ? "Mavjud" : "Sotilgan"}
@@ -187,7 +156,7 @@ export function ProductCard({
           <div className="text-xs text-ink-500">
             {displayCategory} • {product.shop?.ipadrom || "Bozor"}
           </div>
-          <h3 className="line-clamp-2 text-sm font-semibold text-ink-900">{displayName}</h3>
+          <h3 className="mt-0.5 line-clamp-2 text-sm font-medium leading-5 text-charcoal">{displayName}</h3>
           {(product.review_summary?.review_count ?? 0) > 0 ? (
             <div className="mt-1 flex items-center gap-1.5">
               <ProductRatingStars rating={product.review_summary?.average_rating ?? 0} size="sm" />
@@ -196,13 +165,13 @@ export function ProductCard({
           ) : null}
           <div className="mt-3 flex items-end justify-between gap-2">
             <motion.div>
-              <p className="price-mono text-lg font-bold text-neon-500">
+              <p className="price-mono text-base font-semibold text-charcoal">
                 {formatPrice(baseUzs)}
                 {unitSuffix ? <span className="ml-0.5 text-xs font-medium text-ink-500">{unitSuffix}</span> : null}
               </p>
-              {optomHint ? <p className="mt-0.5 text-[10px] font-semibold text-electric-600">{optomHint}</p> : null}
+              {optomHint ? <p className="mt-0.5 text-xs font-semibold text-electric-600">{optomHint}</p> : null}
             </motion.div>
-            <span className="truncate text-xs text-ink-500">⭐ {product.shop.name}</span>
+            <span className="truncate text-xs text-ink-500">{product.shop.name}</span>
           </div>
           {variant !== "compact" ? (
             <div className={cn("mt-3 flex gap-2", variant === "list" && "sm:mt-auto")}>

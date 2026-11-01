@@ -94,7 +94,7 @@ function ReelPreviewFallback({ className }: { className: string }) {
 
   return (
     <div
-      className={`${className} relative overflow-hidden bg-gradient-to-br from-neutral-800 via-indigo-950 to-black`}
+      className={`${className} relative overflow-hidden bg-neutral-800 `}
     >
       {imgOk ? (
         // eslint-disable-next-line @next/next/no-img-element

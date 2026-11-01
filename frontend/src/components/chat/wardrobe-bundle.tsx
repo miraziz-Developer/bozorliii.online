@@ -84,10 +84,10 @@ function WardrobePieceCard({
       >
         <div className="mb-3 flex items-start justify-between gap-2">
           <div>
-            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gold-400">{meta.label}</p>
-            <p className="mt-0.5 text-[11px] text-white/50">{meta.subtitle}</p>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-gold-400">{meta.label}</p>
+            <p className="mt-0.5 text-xs text-white/50">{meta.subtitle}</p>
           </div>
-          <span className="rounded-full border border-white/10 bg-black/20 px-2 py-0.5 text-[10px] text-white/70">
+          <span className="rounded-full border border-white/10 bg-black/20 px-2 py-0.5 text-xs text-white/70">
             {slot.role}
           </span>
         </div>
@@ -103,7 +103,7 @@ function WardrobePieceCard({
         <p className="line-clamp-2 text-center text-sm font-semibold text-white">{product.name}</p>
         <p className="price-mono mt-2 text-center text-lg font-bold text-electric-400">{formatPrice(product.price)}</p>
         {location ? (
-          <p className="mt-2 flex items-center justify-center gap-1 text-[10px] text-white/45">
+          <p className="mt-2 flex items-center justify-center gap-1 text-xs text-white/45">
             <MapPin className="h-3 w-3 shrink-0" />
             <span className="truncate">{location}</span>
           </p>
@@ -124,16 +124,16 @@ export function WardrobeBundle({ slots, budgetTotal, searchHref, onNavigate }: W
     <div className="mt-4 overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-4 shadow-xl backdrop-blur-md">
       <div className="mb-4 flex items-center justify-between gap-3">
         <div className="flex items-center gap-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-gold">
+          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-500">
             <Sparkles className="h-4 w-4 text-canvas" />
           </div>
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-gold-400">Elite Look Showcase</p>
-            <p className="text-[11px] text-white/50">Executive closet bundle</p>
+            <p className="text-xs text-white/50">Executive closet bundle</p>
           </div>
         </div>
         <div className="rounded-xl border border-gold-500/30 bg-gold-500/10 px-3 py-2 text-right">
-          <p className="text-[10px] uppercase tracking-wider text-gold-300/80">Look jami</p>
+          <p className="text-xs uppercase tracking-wider text-gold-300/80">Look jami</p>
           <p className="price-mono text-base font-bold text-gold-200">{formatPrice(total)}</p>
         </div>
       </div>

@@ -148,7 +148,7 @@ export function ProfileAvatarUpload({ userId, displayName, className }: ProfileA
       <motion.div
         className={cn(
           "relative h-[4.5rem] w-[4.5rem] overflow-hidden rounded-2xl p-[2.5px]",
-          "bg-gradient-to-tr from-neon-500 via-amber-400 to-electric-500 shadow-gold",
+          "bg-neon-500 shadow-gold",
           "transition-shadow duration-300 group-hover:shadow-hover",
         )}
       >
@@ -167,7 +167,7 @@ export function ProfileAvatarUpload({ userId, displayName, className }: ProfileA
             />
           ) : (
             <motion.div
-              className="flex h-full w-full items-center justify-center bg-gradient-gold text-white"
+              className="flex h-full w-full items-center justify-center bg-brand-500 text-white"
               initial={false}
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.25 }}

@@ -25,7 +25,7 @@ export function BrandStarRating({ rating = 4.8, className }: BrandStarRatingProp
           />
         );
       })}
-      <span className="ml-1 text-[11px] font-bold text-electric-500">{rating.toFixed(1)}</span>
+      <span className="ml-1 text-xs font-bold text-electric-500">{rating.toFixed(1)}</span>
     </div>
   );
 }

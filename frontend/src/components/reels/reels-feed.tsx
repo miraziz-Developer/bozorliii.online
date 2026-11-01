@@ -144,7 +144,7 @@ function CommentsSheet({
           <div key={comment.id} className="rounded-xl border border-neutral-100 bg-neutral-50 px-3 py-2">
             <p className="text-sm text-neutral-800">{comment.text}</p>
             <div className="mt-1.5 flex items-center justify-between">
-              <span className="text-[11px] text-neutral-400">
+              <span className="text-xs text-neutral-400">
                 {comment.reported_count ? `report: ${comment.reported_count}` : ""}
               </span>
               {comment.session_id === sessionId ? (
@@ -152,7 +152,7 @@ function CommentsSheet({
                   type="button"
                   onClick={() => onDelete(comment)}
                   disabled={actionBusyId === comment.id}
-                  className="text-[11px] font-semibold text-red-500 disabled:opacity-50"
+                  className="text-xs font-semibold text-red-500 disabled:opacity-50"
                 >
                   O'chirish
                 </button>
@@ -161,7 +161,7 @@ function CommentsSheet({
                   type="button"
                   onClick={() => onReport(comment)}
                   disabled={actionBusyId === comment.id}
-                  className="text-[11px] font-semibold text-amber-600 disabled:opacity-50"
+                  className="text-xs font-semibold text-amber-600 disabled:opacity-50"
                 >
                   Report
                 </button>
@@ -446,14 +446,14 @@ function ReelCard({
                 }}
               />
             ) : (
-              <div className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-white bg-gradient-to-br from-blue-500 to-indigo-600">
+              <div className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-white bg-blue-500 ">
                 <Store className="h-4 w-4 text-white" />
               </div>
             )}
             <span className="text-[14px] font-bold text-white drop-shadow-md">
               {video.shop.name}
             </span>
-            <span className="rounded-full border border-white/60 px-2 py-0.5 text-[11px] font-bold text-white">
+            <span className="rounded-full border border-white/60 px-2 py-0.5 text-xs font-bold text-white">
               Kuzatish
             </span>
           </Link>
@@ -515,28 +515,28 @@ function ReelCard({
             >
               <Heart className={cn("h-6 w-6", liked ? "fill-red text-red" : "text-white")} />
             </motion.div>
-            <span className="text-[11px] font-bold text-white">{fmt(likes)}</span>
+            <span className="text-xs font-bold text-white">{fmt(likes)}</span>
           </button>
 
           <button type="button" onClick={openComments} className="flex flex-col items-center gap-0.5">
             <div className="flex h-11 w-11 items-center justify-center rounded-full bg-black/30 backdrop-blur-sm">
               <MessageCircle className="h-5 w-5 text-white" />
             </div>
-            <span className="text-[11px] font-bold text-white">{fmt(commentsCount)}</span>
+            <span className="text-xs font-bold text-white">{fmt(commentsCount)}</span>
           </button>
 
           <button type="button" onClick={doShare} className="flex flex-col items-center gap-0.5">
             <div className="flex h-11 w-11 items-center justify-center rounded-full bg-black/30 backdrop-blur-sm">
               <Share2 className="h-5 w-5 text-white" />
             </div>
-            <span className="text-[11px] font-bold text-white">{fmt(shares)}</span>
+            <span className="text-xs font-bold text-white">{fmt(shares)}</span>
           </button>
 
           <button type="button" onClick={doSave} className="flex flex-col items-center gap-0.5">
             <div className="flex h-11 w-11 items-center justify-center rounded-full bg-black/30 backdrop-blur-sm">
               <Bookmark className={cn("h-5 w-5", saved ? "fill-white text-white" : "text-white")} />
             </div>
-            <span className="text-[11px] font-bold text-white">{fmt(savesCount)}</span>
+            <span className="text-xs font-bold text-white">{fmt(savesCount)}</span>
           </button>
         </div>
 
@@ -581,13 +581,13 @@ function ReelCard({
                 }}
               />
             ) : (
-              <div className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-white bg-gradient-to-br from-blue-500 to-indigo-600 shadow-lg">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-white bg-blue-500 shadow-lg">
                 <Store className="h-5 w-5 text-white" />
               </div>
             )}
           </Link>
           <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 flex h-5 w-5 items-center justify-center rounded-full border-2 border-white bg-blue-600">
-            <span className="text-[10px] font-black text-white leading-none">+</span>
+            <span className="text-xs font-black text-white leading-none">+</span>
           </div>
         </div>
 
@@ -599,7 +599,7 @@ function ReelCard({
           >
             <Heart className={cn("h-[26px] w-[26px]", liked ? "fill-red text-red" : "text-white")} />
           </motion.div>
-          <span className="text-[11px] font-bold text-white">{fmt(likes)}</span>
+          <span className="text-xs font-bold text-white">{fmt(likes)}</span>
         </button>
 
         {/* Comment */}
@@ -607,7 +607,7 @@ function ReelCard({
           <div className="flex h-11 w-11 items-center justify-center rounded-full bg-neutral-800/70 backdrop-blur-sm">
             <MessageCircle className="h-6 w-6 text-white" />
           </div>
-          <span className="text-[11px] font-bold text-white">{fmt(commentsCount)}</span>
+          <span className="text-xs font-bold text-white">{fmt(commentsCount)}</span>
         </button>
 
         {/* Share */}
@@ -615,7 +615,7 @@ function ReelCard({
           <div className="flex h-11 w-11 items-center justify-center rounded-full bg-neutral-800/70 backdrop-blur-sm">
             <Share2 className="h-5 w-5 text-white" />
           </div>
-          <span className="text-[11px] font-bold text-white">{fmt(shares)}</span>
+          <span className="text-xs font-bold text-white">{fmt(shares)}</span>
         </button>
 
         {/* Save */}
@@ -623,7 +623,7 @@ function ReelCard({
           <div className="flex h-11 w-11 items-center justify-center rounded-full bg-neutral-800/70 backdrop-blur-sm">
             <Bookmark className={cn("h-5 w-5", saved ? "fill-white text-white" : "text-white")} />
           </div>
-          <span className="text-[11px] font-bold text-white">{fmt(savesCount)}</span>
+          <span className="text-xs font-bold text-white">{fmt(savesCount)}</span>
         </button>
 
         {/* More */}

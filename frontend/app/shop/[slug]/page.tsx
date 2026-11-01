@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useParams, useSearchParams } from "next/navigation";
 import { QrCode, Sparkles } from "lucide-react";
 
 import { BottomNav } from "@/components/BottomNav";
@@ -20,7 +20,11 @@ import { saveLastShop } from "@/lib/personalization/client-hints";
 import { cn } from "@/lib/utils";
 import type { Product, ShopProfile } from "@/types";
 
-export default function ShopPage({ params }: { params: { slug: string } }) {
+export default function ShopPage() {
+  // Next.js 15+: page `params` is a Promise, so `params.slug` was undefined and the
+  // page requested `/shops/undefined/products`. useParams() returns the resolved value.
+  const params = useParams<{ slug: string }>();
+  const slug = typeof params?.slug === "string" ? decodeURIComponent(params.slug) : "";
   const searchParams = useSearchParams();
   const fromQr = searchParams.get("from") === "qr" || searchParams.get("qr") === "1";
   const [shop, setShop] = useState<ShopProfile | null>(null);
@@ -29,8 +33,9 @@ export default function ShopPage({ params }: { params: { slug: string } }) {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    if (!slug) return;
     setLoading(true);
-    void getShopProducts(params.slug)
+    void getShopProducts(slug)
       .then((response) => {
         setShop(response.shop);
         setItems(response.items);
@@ -38,7 +43,7 @@ export default function ShopPage({ params }: { params: { slug: string } }) {
       })
       .catch(() => setError("Do'kon topilmadi yoki vaqtincha mavjud emas."))
       .finally(() => setLoading(false));
-  }, [params.slug]);
+  }, [slug]);
 
   const displayItems = useMemo(() => {
     if (items.length > 0) return { products: items, isDemo: false };
@@ -76,7 +81,7 @@ export default function ShopPage({ params }: { params: { slug: string } }) {
         ) : shop ? (
           <div className="mt-2 space-y-6 sm:mt-4">
             {fromQr ? (
-              <div className="flex items-start gap-3 rounded-2xl border border-electric-500/20 bg-gradient-to-r from-electric-500/10 to-surface px-4 py-3.5 shadow-sm">
+              <div className="flex items-start gap-3 rounded-2xl border border-electric-500/20 bg-electric-500/10 px-4 py-3.5 shadow-sm">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-electric-500 text-white">
                   <QrCode className="h-5 w-5" />
                 </div>

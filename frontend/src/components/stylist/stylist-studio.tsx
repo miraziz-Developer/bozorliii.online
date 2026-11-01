@@ -23,9 +23,9 @@ const SCENARIOS = [
 export function StylistStudio() {
   return (
     <main className="page-shell relative min-h-dvh overflow-x-clip bg-canvas md:pb-12">
-      <div className="pointer-events-none absolute inset-0 bg-hero-glow" />
-      <div className="pointer-events-none absolute -left-32 top-20 h-72 w-72 rounded-full bg-gold-500/15 blur-3xl" />
-      <div className="pointer-events-none absolute -right-24 top-48 h-80 w-80 rounded-full bg-electric-500/12 blur-3xl" />
+      <div className="pointer-events-none absolute inset-0" />
+      <div className="hidden" />
+      <div className="hidden" />
 
       <Navigation />
 
@@ -101,7 +101,7 @@ export function StylistStudio() {
               </ul>
             </div>
 
-            <p className="text-center text-[11px] leading-relaxed text-ink-500 lg:text-left">
+            <p className="text-center text-xs leading-relaxed text-ink-500 lg:text-left">
               Kamera tugmasi yoki «Rasm yuborish» — look bahosi, shaxsiy tavsiya yoki katalogdan o‘xshash qidiruv.
             </p>
           </motion.aside>

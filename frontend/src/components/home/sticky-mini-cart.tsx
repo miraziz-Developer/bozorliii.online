@@ -100,8 +100,8 @@ export function StickyMiniCart() {
                     sizes="48px"
                   />
                   <div className="min-w-0 flex-1">
-                    <p className="line-clamp-1 text-[11px] font-semibold text-ink-900">{line.product.name}</p>
-                    <p className="text-[10px] text-ink-500">
+                    <p className="line-clamp-1 text-xs font-semibold text-ink-900">{line.product.name}</p>
+                    <p className="text-xs text-ink-500">
                       {line.quantity} × {formatPrice(unit)}
                     </p>
                   </div>
@@ -111,7 +111,7 @@ export function StickyMiniCart() {
           </ul>
         )}
         {lines.length > 6 ? (
-          <p className="mt-1 text-center text-[10px] text-ink-400">+{lines.length - 6} yana</p>
+          <p className="mt-1 text-center text-xs text-ink-400">+{lines.length - 6} yana</p>
         ) : null}
       </div>
 

@@ -12,7 +12,7 @@ export function CheckoutShell({ children, className }: { children: ReactNode; cl
       className={cn(
         "checkout-bozor relative min-h-[calc(100dvh-var(--app-header-h))] overflow-hidden",
         "before:pointer-events-none before:absolute before:inset-0 before:opacity-100",
-        "before:bg-[linear-gradient(180deg,rgba(250,248,245,0.9)_0%,rgba(245,243,239,0.95)_40%,transparent_100%)]",
+        "",
         className,
       )}
       data-brand="bozorliii-uz"

@@ -50,7 +50,7 @@ export function ImageMagnifier({ images, index = 0, src, alt, className }: Image
     <div
       ref={containerRef}
       className={cn(
-        "relative w-full max-h-[min(78vh,680px)] overflow-hidden rounded-[1.75rem] bg-[#f0eeea] ring-1 ring-black/[0.06] shadow-[0_24px_64px_-28px_rgba(15,23,42,0.22)] sm:rounded-[2rem]",
+        "relative w-full max-h-[min(78vh,680px)] overflow-hidden rounded-[1.75rem] bg-[#F1EEE7] ring-1 ring-black/[0.06] shadow-[0_24px_64px_-28px_rgba(15,23,42,0.22)] sm:rounded-[2rem]",
         className,
       )}
       style={{ aspectRatio: frameAspect }}

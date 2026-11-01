@@ -55,10 +55,10 @@ export function HomeDealsRow({ variant, products, loading }: Props) {
           </span>
           <div className="min-w-0">
             <h2 className="truncate text-sm font-bold text-ink-900">{cfg.title}</h2>
-            <p className="truncate text-[10px] text-ink-500 min-[360px]:text-[11px]">{cfg.subtitle}</p>
+            <p className="truncate text-xs text-ink-500 min-[360px]:text-xs">{cfg.subtitle}</p>
           </div>
         </div>
-        <Link href={cfg.href} className="inline-flex min-h-11 shrink-0 items-center whitespace-nowrap px-1 text-[11px] font-bold text-electric-500 hover:underline min-[360px]:text-xs" aria-label={`${cfg.title}: hammasini ko'rish`}>
+        <Link href={cfg.href} className="inline-flex min-h-11 shrink-0 items-center whitespace-nowrap px-1 text-xs font-bold text-electric-500 hover:underline min-[360px]:text-xs" aria-label={`${cfg.title}: hammasini ko'rish`}>
           Hammasi →
         </Link>
       </div>

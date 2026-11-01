@@ -174,14 +174,14 @@ export function OrderFlowCard({
         />
       </div>
       <div className="min-w-0 flex-1">
-        <p className="price-mono text-[11px] font-medium text-ink-400">#{order.id.slice(0, 8).toUpperCase()}</p>
+        <p className="price-mono text-xs font-medium text-ink-400">#{order.id.slice(0, 8).toUpperCase()}</p>
         <p className={cn("mt-1 line-clamp-2 font-semibold text-ink-900", heroImage ? "text-base" : "text-sm")}>
           {order.product.name}
         </p>
         <p className="mt-1 truncate text-xs text-ink-500">{order.shop.name}</p>
         {order.status !== "cancelled" && order.shop?.id && !heroImage ? (
           <div className="mt-2 flex flex-wrap items-center gap-2">
-            <p className="line-clamp-2 text-[11px] text-ink-500">
+            <p className="line-clamp-2 text-xs text-ink-500">
               {formatShopLocationBadge({
                 name: order.shop.name,
                 floor: order.shop.floor ?? order.shop.block_sector ?? "",
@@ -191,7 +191,7 @@ export function OrderFlowCard({
             <Link
               href={orderShopMapHref(order.shop)}
               onClick={(e) => e.stopPropagation()}
-              className="inline-flex shrink-0 items-center gap-1 rounded-full border border-electric-500/25 bg-electric-500/8 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-electric-600 transition hover:bg-electric-500/15"
+              className="inline-flex shrink-0 items-center gap-1 rounded-full border border-electric-500/25 bg-electric-500/8 px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-electric-600 transition hover:bg-electric-500/15"
             >
               <MapPin className="h-3 w-3" aria-hidden />
               Xaritada ko&apos;rish
@@ -225,7 +225,7 @@ export function OrderFlowCard({
           <p className="price-deal text-sm font-bold text-ink-900">{formatPrice(order.total_price)}</p>
           <span
             className={cn(
-              "mt-2 inline-block rounded-full px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide",
+              "mt-2 inline-block rounded-full px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wide",
               order.status === "cancelled"
                 ? "bg-red/10 text-red"
                 : unpaidClick
@@ -251,7 +251,7 @@ export function OrderFlowCard({
           </p>
           <Link
             href={orderShopMapHref(order.shop)}
-            className="inline-flex shrink-0 items-center gap-1 rounded-full border border-electric-500/25 bg-electric-500/8 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-electric-600 transition hover:bg-electric-500/15"
+            className="inline-flex shrink-0 items-center gap-1 rounded-full border border-electric-500/25 bg-electric-500/8 px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-electric-600 transition hover:bg-electric-500/15"
           >
             <MapPin className="h-3 w-3" aria-hidden />
             Xaritada ko&apos;rish
@@ -264,7 +264,7 @@ export function OrderFlowCard({
       ) : (
         <>
           <div className={cn("mt-4 px-3 py-3", SALES.panelInset)}>
-            <div className="flex justify-between gap-0.5 text-[9px] font-semibold uppercase tracking-wide text-text-400 sm:text-[10px]">
+            <div className="flex justify-between gap-0.5 text-xs font-semibold uppercase tracking-wide text-text-400 sm:text-xs">
               {(hasBackendTracker
                 ? trackerSteps!.map((step) => ({ key: step.status, label: step.label }))
                 : ORDER_STATUS_PIPELINE.map((step) => ({
@@ -289,7 +289,7 @@ export function OrderFlowCard({
             </div>
             <div className="mt-2.5 h-2 overflow-hidden rounded-full bg-border-default">
               <motion.div
-                className="h-full rounded-full bg-gradient-to-r from-electric-500 to-electric-400 shadow-[0_0_8px_rgba(0,102,255,0.35)]"
+                className="h-full rounded-full bg-electric-500"
                 initial={{ width: 0 }}
                 animate={{ width: `${pct}%` }}
                 transition={{ duration: 0.6, ease: "easeOut", delay: 0.08 * index }}

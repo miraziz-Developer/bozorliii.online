@@ -24,14 +24,14 @@ export function ShopMapPopupContent({ data, compact = false, hideLocation = fals
     <div className={cn(compact ? "py-2" : "p-4")}>
       {!compact ? (
         <div className="flex items-start gap-3">
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-electric text-white shadow-sm">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-500 text-white shadow-sm">
             <Store className="h-5 w-5" />
           </div>
           <div className="min-w-0 flex-1">
             <p className="truncate text-sm font-bold text-ink-900">{shop.name}</p>
-            <p className="mt-0.5 text-[11px] font-semibold text-electric-500">{vendorTag}</p>
+            <p className="mt-0.5 text-xs font-semibold text-electric-500">{vendorTag}</p>
             {shop.rating != null && shop.rating > 0 ? (
-              <p className="mt-1 flex items-center gap-1 text-[11px] font-semibold text-amber-600">
+              <p className="mt-1 flex items-center gap-1 text-xs font-semibold text-amber-600">
                 <Star className="h-3 w-3 fill-amber-400 text-amber-400" />
                 {shop.rating.toFixed(1)}
               </p>
@@ -39,7 +39,7 @@ export function ShopMapPopupContent({ data, compact = false, hideLocation = fals
           </div>
         </div>
       ) : (
-        <p className="text-[11px] font-semibold text-electric-500">{vendorTag}</p>
+        <p className="text-xs font-semibold text-electric-500">{vendorTag}</p>
       )}
 
       {!hideLocation ? (
@@ -47,7 +47,7 @@ export function ShopMapPopupContent({ data, compact = false, hideLocation = fals
       ) : null}
 
       <div className={cn("border-t border-border-subtle", compact ? "mt-2 pt-2" : "mt-3 pt-3")}>
-        <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-ink-500">Top mahsulotlar</p>
+        <p className="text-xs font-bold uppercase tracking-[0.14em] text-ink-500">Top mahsulotlar</p>
         {loading ? (
           <div className="flex items-center justify-center py-6 text-ink-500">
             <Loader2 className="h-5 w-5 animate-spin text-electric-500" />

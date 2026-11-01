@@ -4,7 +4,7 @@ import { ExternalLink } from "lucide-react";
 
 export function YandexMapsSetup() {
   return (
-    <div className="flex h-full w-full flex-col items-center justify-center gap-4 bg-[#F4F5F7] p-8 text-center">
+    <div className="flex h-full w-full flex-col items-center justify-center gap-4 bg-[#F7F5F0] p-8 text-center">
       <p className="text-lg font-bold text-ink-900">Yandex Maps navigatsiyasi</p>
       <p className="max-w-md text-sm text-ink-600">
         Haqiqiy piyoda yo‘l (Yandex Navigator kabi) uchun{" "}
@@ -15,7 +15,7 @@ export function YandexMapsSetup() {
         href="https://developer.tech.yandex.ru/"
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 rounded-xl bg-[#1E98FF] px-5 py-2.5 text-sm font-bold text-white shadow-lg transition hover:opacity-90"
+        className="inline-flex items-center gap-2 rounded-xl bg-[#76152F] px-5 py-2.5 text-sm font-bold text-white shadow-lg transition hover:opacity-90"
       >
         Yandex Developer
         <ExternalLink className="h-4 w-4" />

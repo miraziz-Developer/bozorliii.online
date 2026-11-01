@@ -7,9 +7,10 @@ export const alt = "Bozorliii.online tovar";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-export default async function OpenGraphImage({ params }: { params: { id: string } }) {
+export default async function OpenGraphImage({ params }: { params: Promise<{ id: string }> }) {
   try {
-    const product = await getProduct(params.id);
+    const { id } = await params;
+    const product = await getProduct(id);
     const price = `${product.price.toLocaleString("uz-UZ")} so'm`;
     return new ImageResponse(
       (
@@ -20,7 +21,7 @@ export default async function OpenGraphImage({ params }: { params: { id: string 
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-between",
-            background: "linear-gradient(135deg, #0066ff 0%, #14141c 45%, #ff4d12 100%)",
+            background: "linear-gradient(135deg, #76152F 0%, #14141c 45%, #76152F 100%)",
             color: "#fff",
             padding: 64,
             fontFamily: "system-ui, sans-serif",
@@ -46,7 +47,7 @@ export default async function OpenGraphImage({ params }: { params: { id: string 
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            background: "linear-gradient(135deg, #0066ff 0%, #ff4d12 100%)",
+            background: "linear-gradient(135deg, #76152F 0%, #76152F 100%)",
             color: "#fff",
             fontSize: 48,
             fontWeight: 700,

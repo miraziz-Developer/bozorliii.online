@@ -37,8 +37,8 @@ import type { BannerLifecycleStatus, CrmBannerCampaign, CrmTariff } from "@/type
 import type { PremiumTariffCode } from "@/types/premium-banner";
 
 const TARIFF_STYLES: Record<PremiumTariffCode, string> = {
-  gold: "border-amber-400/50 bg-gradient-to-br from-amber-50 to-yellow-50 ring-amber-300/40",
-  silver: "border-slate-300/60 bg-gradient-to-br from-slate-50 to-white ring-slate-200/60",
+  gold: "border-amber-400/50 bg-amber-50 ring-amber-300/40",
+  silver: "border-slate-300/60 bg-slate-50 ring-slate-200/60",
   bronze: "border-border-subtle bg-surface ring-border-subtle",
 };
 
@@ -68,7 +68,7 @@ function statusBadge(status: BannerLifecycleStatus) {
     rejected: "Rad etilgan",
   };
   return (
-    <span className={cn("rounded-full border px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider", map[status])}>
+    <span className={cn("rounded-full border px-2.5 py-1 text-xs font-bold uppercase tracking-wider", map[status])}>
       {labels[status]}
     </span>
   );
@@ -115,13 +115,13 @@ function LiveCountdown({ secondsRemaining }: { secondsRemaining: number }) {
 
   return (
     <motion.div
-      className="flex items-center gap-3 rounded-2xl border border-amber-400/25 bg-gradient-to-r from-amber-500/10 via-yellow-500/5 to-transparent px-4 py-3"
+      className="flex items-center gap-3 rounded-2xl border border-amber-400/25 bg-amber-500/10 px-4 py-3"
       animate={{ boxShadow: left < 86400 ? ["0 0 0 rgba(251,191,36,0)", "0 0 24px rgba(251,191,36,0.25)", "0 0 0 rgba(251,191,36,0)"] : undefined }}
       transition={{ duration: 2, repeat: left < 86400 ? Infinity : 0 }}
     >
       <Clock className="h-5 w-5 text-amber-600" aria-hidden />
       <motion.div>
-        <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-amber-700/80">Qolgan vaqt</p>
+        <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-700/80">Qolgan vaqt</p>
         <p className="price-mono text-2xl font-bold tabular-nums text-amber-900">{formatCountdown(left)}</p>
       </motion.div>
     </motion.div>
@@ -160,7 +160,7 @@ function CampaignCard({
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-center gap-2">
             {statusBadge(campaign.status)}
-            <span className={cn("rounded-full px-2 py-0.5 text-[10px] font-bold uppercase", TARIFF_STYLES[campaign.tariff_code])}>
+            <span className={cn("rounded-full px-2 py-0.5 text-xs font-bold uppercase", TARIFF_STYLES[campaign.tariff_code])}>
               {campaign.tariff_label}
             </span>
           </div>

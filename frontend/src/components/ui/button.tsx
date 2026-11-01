@@ -10,11 +10,11 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          "relative overflow-hidden border-0 bg-electric-500 text-white shadow-[0_10px_24px_-12px_rgba(0,102,255,0.75)] hover:-translate-y-0.5 hover:bg-blue-700",
+          "relative overflow-hidden border-0 bg-electric-500 text-white shadow-sm hover:-translate-y-0.5 hover:bg-blue-700",
         brand:
-          "checkout-cta relative overflow-hidden border-0 bg-electric-500 text-white shadow-[0_10px_24px_-12px_rgba(0,102,255,0.75)] hover:-translate-y-0.5 hover:bg-blue-700",
+          "checkout-cta relative overflow-hidden border-0 bg-electric-500 text-white shadow-sm hover:-translate-y-0.5 hover:bg-blue-700",
         accent:
-          "sales-cta sales-cta-pulse bg-gradient-gold text-white shadow-gold hover:scale-[1.02] hover:shadow-hover hover:brightness-110 relative overflow-hidden border-0",
+          "sales-cta sales-cta-pulse bg-brand-500 text-white shadow-gold hover:scale-[1.02] hover:shadow-hover hover:brightness-110 relative overflow-hidden border-0",
         sales:
           "sales-cta sales-cta-pulse text-white shadow-gold hover:scale-[1.02] hover:brightness-110 relative overflow-hidden border-0",
         secondary:
